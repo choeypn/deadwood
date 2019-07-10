@@ -7,7 +7,10 @@ public class Role {
 	private int rank;
 	private boolean available;
 	
-	//method
-	public Role takeRole(boolean starring,int rank) {return null;}
+	//constructor
+	public Role(boolean starring,int rank) {
+	    this.starring = starring;
+	    this.rank = rank;
+	}
 	
 }
