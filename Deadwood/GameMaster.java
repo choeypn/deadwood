@@ -8,7 +8,7 @@ public class GameMaster {
 	private int game_day;
 	
 	//methods
-	public GameMaster gameMaster() {return null;}
+	public GameMaster() {}
 	public void upgradePlayer(Player p) {}
 	public void gameInit(Player[] ps) {}
 	public void payPlayer(Player p) {}
