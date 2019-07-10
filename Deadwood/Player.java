@@ -12,8 +12,13 @@ public class Player {
 	private String name;
 	private int rehearsal_chips;
 	
-	//methods
-	public Player player(int player_num) {return null;}
+	//constructor
+	public Player(int player_num) {
+	    this.player_num = player_num;
+	    
+	}
+	
+	//method
 	//public void playerMove(Location location) {}
 	public void playerUpgrade(int rank) {}
 	public void platerAct() {}
