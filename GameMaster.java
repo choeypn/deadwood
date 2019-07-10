@@ -1,3 +1,5 @@
+package Deadwood;
+
 public class GameMaster {
 	//awaiting Set class
 	
