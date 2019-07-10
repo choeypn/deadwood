@@ -7,6 +7,9 @@ public class Scene {
 	private Role[] starring_roles;
 	private boolean flipped;
 	
-	//method
-	public Scene createScene(int budget,Role[] starring){return null;}
+	//constructor
+	public Scene(int budget,Role[] starring){
+	    this.budget = budget;
+	    this.starring_roles = starring;
+	}
 }
