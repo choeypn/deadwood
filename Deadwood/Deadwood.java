@@ -5,12 +5,14 @@
 //                                                                          //
 //  This program is our design of the Deadwood board game.                  //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
+package Deadwood;
+
 public class Deadwood {
 
     // Main Method - program entry point
     public static void main(String[] argv) {
 
-        System.out.println("yoooo");
+        System.out.println("Skeleton setup complete");
 
     }
 }
