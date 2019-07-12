@@ -14,6 +14,7 @@ public class Trailers extends Location {
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Methods
 
+    // Constructor
     public Trailers(){}
 
     public void addActivePlayer(Player player) {

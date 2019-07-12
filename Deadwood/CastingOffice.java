@@ -12,6 +12,8 @@ public class CastingOffice extends Location{
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Methods
+
+    // Constructor
     public CastingOffice(){}
 
     public void addActivePlayer(Player player) {

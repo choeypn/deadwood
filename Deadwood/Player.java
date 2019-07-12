@@ -1,12 +1,20 @@
 package Deadwood;
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
+//                DEADWOOD - PLAYER CLASS                                   //
+//  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
+//  Class: CSCI 345, Summer 2019                                            //
+//                                                                          //
+//                                                                          //
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
+
 public class Player {
-	//awaiting Location and Role classes
+
 	
 	//fields
 	private int money;
-	//private Location location;	
-	//private Role role;
+	private Location location;
+	private Role role;
 	private int rank;
 	private int player_num;
 	private String name;
@@ -19,10 +27,10 @@ public class Player {
 	}
 	
 	//method
-	//public void playerMove(Location location) {}
+	public void playerMove(Location location) {}
 	public void playerUpgrade(int rank) {}
 	public void platerAct() {}
 	public void playerRehearse() {}
-	//public void playerTakeRole(Role r) {}
+	public void playerTakeRole(Role r) {}
 	public void playerRollDice(int dice) {}
 }

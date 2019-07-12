@@ -1,7 +1,14 @@
 package Deadwood;
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
+//                DEADWOOD - GAMEMASTER CLASS                               //
+//  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
+//  Class: CSCI 345, Summer 2019                                            //
+//                                                                          //
+//                                                                          //
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
+
 public class GameMaster {
-	//awaiting Set class
 	
 	//fields
 	private int shot_counters;
@@ -14,5 +21,5 @@ public class GameMaster {
 	public void payPlayer(Player p) {}
 	public void endDay(Player[] ps) {}
 	public void endGame(Player[] ps) {}
-	//public void wrapSet(Set s){}
+	public void wrapSet(Set s){}
 }

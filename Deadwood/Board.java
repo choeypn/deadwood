@@ -20,6 +20,7 @@ public class Board {
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Methods
 
+    // Constructor
     public Board(int[][] tiles) {}
 
 }

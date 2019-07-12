@@ -20,6 +20,7 @@ public class Set extends Location{
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Methods
 
+    // Constructor
     public Set(){}
 
     public void addActivePlayer(Player player) {

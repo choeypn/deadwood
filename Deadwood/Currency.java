@@ -1,5 +1,13 @@
 package Deadwood;
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
+//                DEADWOOD - CURRENCY CLASS                                 //
+//  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
+//  Class: CSCI 345, Summer 2019                                            //
+//                                                                          //
+//                                                                          //
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
+
 public class Currency {
 	
 	//fields 
