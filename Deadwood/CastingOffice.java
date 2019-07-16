@@ -14,7 +14,9 @@ public class CastingOffice extends Location{
     // Methods
 
     // Constructor
-    public CastingOffice(){}
+    public CastingOffice(String name){
+        this.name = name;
+    }
 
     public void addActivePlayer(Player player) {
     }

@@ -1,5 +1,6 @@
 package Deadwood;
 import java.util.ArrayList;
+import java.util.Collections;
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - LOCATION CLASS                                 //
@@ -14,12 +15,16 @@ public abstract class Location {
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Fields
     protected ArrayList<Player> active_players = new ArrayList<Player>(8);
-    protected Location[] adj_locations = new Location[3];
+    protected ArrayList<Location> adj_locations = new ArrayList<Location>();
     protected String name;
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Methods
-    public abstract void addAdjLocation(Location location);
+
+    public void addAdjLocation(Location location) {
+        adj_locations.add(location);
+    }
+
     public abstract void addActivePlayer(Player player);
 
 }

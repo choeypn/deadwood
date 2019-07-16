@@ -21,7 +21,9 @@ public class Set extends Location{
     // Methods
 
     // Constructor
-    public Set(){}
+    public Set(String name){
+        this.name = name;
+    }
 
     public void addActivePlayer(Player player) {
     }

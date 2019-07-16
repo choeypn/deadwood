@@ -11,12 +11,22 @@ public class Deadwood {
 
     // Main Method - program entry point
     public static void main(String[] argv) {
-    	//create number of players from the input 
+
+    	// ~~~~~~~~~~~~~~~~ GAME INITIALIZATION ROUTINE ~~~~~~~~~~~~~~~~~~~~
+		// WRAP IN FUNCTION LATER!!!!
+
+    	// Create number of players from the input
     	int playNum = Integer.parseInt(argv[0]);
     	ArrayList<Player> tot = new ArrayList<Player>();
     	for(int i = 1;i <= playNum;i++) {
     		tot.add(new Player(i));
     	}
+
+    	// Initialize the board - standard tile configuration
+    	Board gameboard = new Board();
+
+
+
     }
     
 }
