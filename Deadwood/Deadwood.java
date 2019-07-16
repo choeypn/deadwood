@@ -27,7 +27,7 @@ public class Deadwood {
 		
     	//test scene and role classes
     	Role[] rs = {new Role("one",1),new Role("two",2)};
-    	Scene s1 = new Scene(2,rs);
+    	Scene s1 = new Scene("scene one",2,rs);
     	s1.firstRoleInfo();
 
     }

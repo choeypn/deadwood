@@ -14,13 +14,15 @@ import java.util.Collection;
 public class Scene {
 	
 	//fields
+	private String name;
 	private int budget;
 	private Role[]_roles;
 	private boolean flipped;
 	
 	//constructor
-	public Scene(int budget,Role[] starring){
-	    this.budget = budget;
+	public Scene(String name,int budget,Role[] starring){
+	    this.name = name;
+		this.budget = budget;
 	    this._roles = starring;
 	}
 	
