@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                                DEADWOOD                                  //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
@@ -5,14 +7,16 @@
 //                                                                          //
 //  This program is our design of the Deadwood board game.                  //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
-package Deadwood;
-
 public class Deadwood {
 
     // Main Method - program entry point
     public static void main(String[] argv) {
-
-        System.out.println("Skeleton setup complete");
-
+    	//create number of players from the input 
+    	int playNum = Integer.parseInt(argv[0]);
+    	ArrayList<Player> tot = new ArrayList<Player>();
+    	for(int i = 1;i <= playNum;i++) {
+    		tot.add(new Player(i));
+    	}
     }
+    
 }
