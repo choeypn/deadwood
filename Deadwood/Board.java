@@ -104,7 +104,16 @@ public class Board {
         locations[11].addAdjLocation(locations[9]);
         locations[11].addAdjLocation(locations[10]);
         locations[11].addAdjLocation(locations[0]);
-        
+
+        // Create Scenes/Roles
+
+        // Create scene
+
+        // Create roles
+
+        // Attach scene to deck
+
+        // Repeat 40 times
 
     }
 
