@@ -1,3 +1,5 @@
+package Deadwood;
+
 public class Player {
 	//awaiting Location and Role classes
 	

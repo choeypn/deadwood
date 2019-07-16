@@ -1,5 +1,5 @@
+package Deadwood;
 import java.util.ArrayList;
-
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                                DEADWOOD                                  //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
