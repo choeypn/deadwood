@@ -11,14 +11,25 @@ package Deadwood;
 public class Role {
 	
 	//fields
-	private boolean starring;
+	private String name;
 	private int rank;
 	private boolean available;
 	
 	//constructor
-	public Role(boolean starring, int rank) {
-	    this.starring = starring;
+	public Role(String starring, int rank) {
+	    this.name = starring;
 	    this.rank = rank;
+	    this.available = true;
+	}
+	
+	
+	//accessor & mutator
+	public String getName() {
+		return name;
+	}
+	
+	public int getRank() {
+		return rank;
 	}
 	
 }
