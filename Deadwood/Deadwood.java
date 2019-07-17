@@ -1,4 +1,5 @@
 package Deadwood;
+
 import java.util.ArrayList;
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                                DEADWOOD                                  //
@@ -15,23 +16,28 @@ public class Deadwood {
     	// ~~~~~~~~~~~~~~~~ GAME INITIALIZATION ROUTINE ~~~~~~~~~~~~~~~~~~~~
 		// WRAP IN FUNCTION LATER!!!!
 
+		// Initialize the board - standard tile configuration
+		Board gameboard = new Board();
+
+		// Create a gamemaster, initialize total days to 3
+		GameMaster gm = new GameMaster(3);
+
     	// Create number of players from the input
     	int playNum = Integer.parseInt(argv[0]);
-    	ArrayList<Player> tot = new ArrayList<Player>();
+    	ArrayList<Player> players = new ArrayList<Player>();
     	for(int i = 1;i <= playNum;i++) {
-    		tot.add(new Player(i));
-    		//tot.get(i).setLocation(TRAILERS);
+    		players.add(new Player(i));
+    		players.get(i-1).setLocation(gameboard.getLocation(Constants.TRAILERS));
     	}
 
-    	// Initialize the board - standard tile configuration
-    	Board gameboard = new Board();
-		// Create a gamemaster, initialize total days to 3
-    	GameMaster gm = new GameMaster(3);
-    	
+
+
+
+
     	//test scene and role classes
-    	Role[] rs = {new Role("one",1),new Role("two",2)};
-    	Scene s1 = new Scene("scene one",2,rs);
-    	s1.firstRoleInfo();
+    	//Role[] rs = {new Role("one",1),new Role("two",2)};
+    	//Scene s1 = new Scene("scene one",2,rs);
+    	//s1.firstRoleInfo();
 
     }
     

@@ -1,5 +1,7 @@
 package Deadwood;
 import java.util.ArrayList;
+import java.util.Collections;
+
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - BOARD CLASS                                    //
@@ -18,18 +20,6 @@ public class Board {
     private int[][] board_tiles = new int[2][2];
 
     private final int num_locations = 12;
-    public final int TRAILERS = 0;
-    public final int CASTING = 1;
-    public final int JAIL = 2;
-    public final int TRAIN = 3;
-    public final int GENERAL = 4;
-    public final int SALOON = 5;
-    public final int MAIN = 6;
-    public final int SECRET = 7;
-    public final int RANCH = 8;
-    public final int BANK = 9;
-    public final int CHURCH = 10;
-    public final int HOTEL = 11;
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Methods
@@ -38,18 +28,18 @@ public class Board {
     public Board() {
 
         // Create all the locations and set adjacent locations as well
-        locations[TRAILERS] = new Trailers("Trailers");
-        locations[CASTING] = new CastingOffice("Casting Office");
-        locations[JAIL] = new Set("Jail");
-        locations[TRAIN] = new Set("Train Station");
-        locations[GENERAL] = new Set("General Store");
-        locations[SALOON] = new Set("Saloon");
-        locations[MAIN] = new Set("Main Street");
-        locations[SECRET] = new Set("Secret Hideout");
-        locations[RANCH] = new Set("Ranch");
-        locations[BANK] = new Set("Bank");
-        locations[CHURCH] = new Set("Church");
-        locations[HOTEL] = new Set("Hotel");
+        locations[Constants.TRAILERS] = new Trailers("Trailers");
+        locations[Constants.CASTING] = new CastingOffice("Casting Office");
+        locations[Constants.JAIL] = new Set("Jail");
+        locations[Constants.TRAIN] = new Set("Train Station");
+        locations[Constants.GENERAL] = new Set("General Store");
+        locations[Constants.SALOON] = new Set("Saloon");
+        locations[Constants.MAIN] = new Set("Main Street");
+        locations[Constants.SECRET] = new Set("Secret Hideout");
+        locations[Constants.RANCH] = new Set("Ranch");
+        locations[Constants.BANK] = new Set("Bank");
+        locations[Constants.CHURCH] = new Set("Church");
+        locations[Constants.HOTEL] = new Set("Hotel");
 
         // Set adjacent locations
 
@@ -319,7 +309,8 @@ public class Board {
         scene_deck.add(s39);
         scene_deck.add(s40);
         
-
+        // Shuffle the deck
+        Collections.shuffle(scene_deck);
     }
 
     
