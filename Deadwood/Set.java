@@ -39,6 +39,8 @@ public class Set extends Location{
 
     public void removeShotCounter(){}
 
-    public void setShotcounters(int shotcounters){}
+    public void setShotcounters(int shotcounters){
+        this.shotcounters = shotcounters;
+    }
 
 }

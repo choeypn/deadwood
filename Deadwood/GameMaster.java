@@ -36,6 +36,7 @@ public class GameMaster {
 
 		for (int i = 2; i <=11; i++){
 			((Set)game_board.getLocation(i)).placeScene(game_board.drawScene());
+			((Set)game_board.getLocation(i)).setShotcounters(game_board.getSetShotCounters(i));
 		}
 
 
