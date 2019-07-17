@@ -42,16 +42,18 @@ public class Deadwood {
 			// Beginning of day - GAME-MASTER controller
 			// Set the scene cards (10 face down on board)
 			// Reset shot counters on scenes
+			// Move players to trailers
 			gm.startDay();
-
-
-			// Send all players to Trailers
-			//players.get(i-1).setLocation(gameboard.getLocation(Constants.TRAILERS));
 
 			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			// During the day
 
 			// Players work in rotation - 1 - 3
+			// Players operate in a loop - this loop runs until there is only once scene card left on the board
+
+			
+
+
 
 
 
