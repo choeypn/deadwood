@@ -8,16 +8,20 @@ package Deadwood;
 //                                                                          //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 
+import java.util.ArrayList;
+
 public class GameMaster {
 	
 	//fields
 	private int shot_counters;
 	private int game_days;
 	private Board game_board;
+	ArrayList<Player> players;
 	
-	public GameMaster(int day, Board b) {
+	public GameMaster(int day, Board b, ArrayList<Player> players) {
 		this.game_days = day;
 		this.game_board = b;
+		this.players = players;
 	}
 	
 	//methods
@@ -32,17 +36,20 @@ public class GameMaster {
 	public void startDay(){
 
 		// Beginning of day - GAME-MASTER controller
-		// Set the scene cards (10 face down on board)
-
 		for (int i = 2; i <=11; i++){
+
+			// Set the scene cards (10 face down on board)
 			((Set)game_board.getLocation(i)).placeScene(game_board.drawScene());
+
+			// Reset shot counters on scenes
 			((Set)game_board.getLocation(i)).setShotcounters(game_board.getSetShotCounters(i));
+
 		}
 
-
-		// Reset shot counters on scenes
-
-
+		// Move all the players to the trailers
+		for (int i = 0; i < players.size(); i++){
+			players.get(i).setLocation(game_board.getLocation(Constants.TRAILERS));
+		}
 
 	}
 

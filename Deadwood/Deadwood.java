@@ -19,15 +19,17 @@ public class Deadwood {
 		// Initialize the board - standard tile configuration
 		Board gameboard = new Board();
 
-		// Create a gamemaster, initialize total days to 3
-		GameMaster gm = new GameMaster(3, gameboard);
+		// Create number of players from the input
+		int playNum = Integer.parseInt(argv[0]);
+		ArrayList<Player> players = new ArrayList<Player>();
+		for(int i = 1;i <= playNum;i++) {
+			players.add(new Player(i));
+		}
 
-    	// Create number of players from the input
-    	int playNum = Integer.parseInt(argv[0]);
-    	ArrayList<Player> players = new ArrayList<Player>();
-    	for(int i = 1;i <= playNum;i++) {
-    		players.add(new Player(i));
-    	}
+		// Create a gamemaster, initialize total days to 3
+		GameMaster gm = new GameMaster(3, gameboard, players);
+
+
 
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GAMEPLAY LOOP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
