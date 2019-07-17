@@ -20,11 +20,14 @@ public class Deadwood {
     	ArrayList<Player> tot = new ArrayList<Player>();
     	for(int i = 1;i <= playNum;i++) {
     		tot.add(new Player(i));
+    		//tot.get(i).setLocation(TRAILERS);
     	}
 
     	// Initialize the board - standard tile configuration
     	Board gameboard = new Board();
-		
+		// Create a gamemaster, initialize total days to 3
+    	GameMaster gm = new GameMaster(3);
+    	
     	//test scene and role classes
     	Role[] rs = {new Role("one",1),new Role("two",2)};
     	Scene s1 = new Scene("scene one",2,rs);

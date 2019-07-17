@@ -14,6 +14,10 @@ public class GameMaster {
 	private int shot_counters;
 	private int game_day;
 	
+	public GameMaster(int day) {
+		this.game_day = day;
+	}
+	
 	//methods
 	public GameMaster() {}
 	public void upgradePlayer(Player p) {}

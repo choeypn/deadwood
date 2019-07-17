@@ -18,26 +18,38 @@ public class Board {
     private int[][] board_tiles = new int[2][2];
 
     private final int num_locations = 12;
+    public final int TRAILERS = 0;
+    public final int CASTING = 1;
+    public final int JAIL = 2;
+    public final int TRAIN = 3;
+    public final int GENERAL = 4;
+    public final int SALOON = 5;
+    public final int MAIN = 6;
+    public final int SECRET = 7;
+    public final int RANCH = 8;
+    public final int BANK = 9;
+    public final int CHURCH = 10;
+    public final int HOTEL = 11;
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Methods
-
+    
     // Constructor
     public Board() {
 
         // Create all the locations and set adjacent locations as well
-        locations[0] = new Trailers("Trailers");
-        locations[1] = new CastingOffice("Casting Office");
-        locations[2] = new Set("Jail");
-        locations[3] = new Set("Train Station");
-        locations[4] = new Set("General Store");
-        locations[5] = new Set("Saloon");
-        locations[6] = new Set("Main Street");
-        locations[7] = new Set("Secret Hideout");
-        locations[8] = new Set("Ranch");
-        locations[9] = new Set("Bank");
-        locations[10] = new Set("Church");
-        locations[11] = new Set("Hotel");
+        locations[TRAILERS] = new Trailers("Trailers");
+        locations[CASTING] = new CastingOffice("Casting Office");
+        locations[JAIL] = new Set("Jail");
+        locations[TRAIN] = new Set("Train Station");
+        locations[GENERAL] = new Set("General Store");
+        locations[SALOON] = new Set("Saloon");
+        locations[MAIN] = new Set("Main Street");
+        locations[SECRET] = new Set("Secret Hideout");
+        locations[RANCH] = new Set("Ranch");
+        locations[BANK] = new Set("Bank");
+        locations[CHURCH] = new Set("Church");
+        locations[HOTEL] = new Set("Hotel");
 
         // Set adjacent locations
 
@@ -262,7 +274,7 @@ public class Board {
         
         
         // Attach scene to deck
-        // Repeat 40 times memes
+        // Repeat 40 times
         scene_deck.add(s1);
         scene_deck.add(s2);
         scene_deck.add(s3);
@@ -310,4 +322,8 @@ public class Board {
 
     }
 
+    
+    public Location getLocation(int d) {
+    	return locations[d];
+    }
 }

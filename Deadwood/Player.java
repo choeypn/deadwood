@@ -21,6 +21,10 @@ public class Player {
 	    this.rehearsal_chips = 0;
 	}
 
+	public void setLocation(Location l) {
+		this.location = l;
+	}
+	
 	
 	public void getInfo() {
 		System.out.println("yo name (the movie) : "+this.name);
