@@ -32,6 +32,7 @@ public class Set extends Location{
     }
 
     public void placeScene(Scene scene){
+        this.current_scene = scene;
     }
 
     public void removeScene(){}

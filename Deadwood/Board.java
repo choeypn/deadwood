@@ -317,4 +317,8 @@ public class Board {
     public Location getLocation(int d) {
     	return locations[d];
     }
+
+    public Scene drawScene(){
+        return scene_deck.remove(0);
+    }
 }
