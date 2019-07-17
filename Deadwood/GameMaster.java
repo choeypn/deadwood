@@ -17,7 +17,7 @@ public class GameMaster {
 	private int game_days;
 	private Board game_board;
 	ArrayList<Player> players;
-	
+	private int activeSets;
 	public GameMaster(int day, Board b, ArrayList<Player> players) {
 		this.game_days = day;
 		this.game_board = b;
@@ -43,16 +43,24 @@ public class GameMaster {
 
 			// Reset shot counters on scenes
 			((Set)game_board.getLocation(i)).setShotcounters(game_board.getSetShotCounters(i));
-
+			
+			// Set all set to active
+			((Set)game_board.getLocation(i)).setActive(true);
+			
 		}
 
 		// Move all the players to the trailers
 		for (int i = 0; i < players.size(); i++){
 			players.get(i).setLocation(game_board.getLocation(Constants.TRAILERS));
 		}
-
+		
+		activeSets = 10;
 	}
-
+	
+	
+	public void decrementActive() {
+		activeSets--;
+	}
 
 	public void decrementDay(){
 		this.game_days -= 1;
@@ -61,6 +69,16 @@ public class GameMaster {
 	public int getGame_days(){
 		return this.game_days;
 	}
-
+	
+	public int checkActive() {
+		int total = 0;
+		for(int i = 2; i <= 11;i++) {
+			if(((Set)game_board.getLocation(i)).getActive()) {
+				total++;
+			}
+		}
+		
+		return total;
+	}
 }
 

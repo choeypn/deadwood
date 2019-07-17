@@ -34,7 +34,7 @@ public class Deadwood {
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GAMEPLAY LOOP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+		boolean endDay = false;
 		// Continue until no gameplay days are left
 		while(gm.getGame_days() != 0){
 
@@ -44,16 +44,39 @@ public class Deadwood {
 			// Reset shot counters on scenes
 			// Move players to trailers
 			gm.startDay();
-
+			
 			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			// During the day
 
 			// Players work in rotation - 1 - 3
 			// Players operate in a loop - this loop runs until there is only once scene card left on the board
-
-			
-
-
+			while(endDay == false) {
+				
+				
+				
+				
+				// Player turn
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				// End of player turn
+				
+				
+				
+				//check when only one scene left, exit if there is only one left
+				if(gm.checkActive() == 1) {
+					endDay = true;
+				}
+				
+				
+			}
 
 
 
@@ -63,9 +86,9 @@ public class Deadwood {
 			// Remove all scenes cards (should only be one left)
 
 
-
 			// Next day
 			gm.decrementDay();
+			endDay = false;
 		}
 
 
