@@ -47,8 +47,11 @@ public class Set extends Location{
 
     public void removeScene(){}
 
+
     public void removeShotCounter(){
     	this.shotcounters--;
+
+    	// If there are no shot counters left on a scene, set the active status to false
     	if(shotcounters == 0) {
     		this.active = false;
     	}

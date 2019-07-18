@@ -27,4 +27,6 @@ public abstract class Location {
 
     public abstract void addActivePlayer(Player player);
 
+
+
 }

@@ -35,4 +35,8 @@ public class Scene {
 		System.out.println(this._roles[0].getName());
 		System.out.println(this._roles[0].getRank());
 	}
+
+	public String getName(){
+		return this.name;
+	}
 }

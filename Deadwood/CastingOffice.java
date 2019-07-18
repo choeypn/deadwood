@@ -18,9 +18,14 @@ public class CastingOffice extends Location{
         this.name = name;
     }
 
+
     public void addActivePlayer(Player player) {
     }
 
     public void addAdjLocation(Location location) {
+    }
+
+    public String getName(){
+        return this.name;
     }
 }

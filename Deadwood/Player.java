@@ -42,4 +42,25 @@ public class Player {
 	public void playerRehearse() {}
 	//public void playerTakeRole(Role r) {}
 	public void playerRollDice(int dice) {}
+
+	public Role getRole() {
+		return role;
+	}
+
+	// Return player ID for every new turn
+	public String playerInfo(){
+
+		String playerRole;
+		// Role check
+		if (this.role == null) {
+			playerRole = "No role";
+		}
+		else {
+			playerRole = this.role.getName();
+		}
+
+		String playerinfo = String.format("Your turn player %d \n - Money: %d \n - Credits: %d \n - Rank: %d \n - Location: %s \n - Role: %s",
+				this.player_num, this.currency.getDollar(), this.currency.getCredit(), this.rank, this.location.name, playerRole);
+		return playerinfo;
+	}
 }

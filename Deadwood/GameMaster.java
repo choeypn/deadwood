@@ -69,7 +69,8 @@ public class GameMaster {
 	public int getGame_days(){
 		return this.game_days;
 	}
-	
+
+	// Check how many active scenes there are on the board
 	public int checkActive() {
 		int total = 0;
 		for(int i = 2; i <= 11;i++) {

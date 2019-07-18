@@ -10,7 +10,7 @@ package Deadwood;
 
 public class Trailers extends Location {
 
-    private String name;
+
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Methods
@@ -26,11 +26,9 @@ public class Trailers extends Location {
     public void addAdjLocation(Location location) {
     }
 
-    // Getters and setters
-    public void setName(String name) {
-        this.name = name;
-    }
+    // Getters
+
     public String getName() {
-        return name;
+        return this.name;
     }
 }

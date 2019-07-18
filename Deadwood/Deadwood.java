@@ -29,7 +29,9 @@ public class Deadwood {
 		// Create a gamemaster, initialize total days to 3
 		GameMaster gm = new GameMaster(3, gameboard, players);
 
-
+		// Variable for currently active player
+		Player active_player;
+		boolean endOfTurn = false;
 
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GAMEPLAY LOOP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -50,15 +52,30 @@ public class Deadwood {
 
 			// Players work in rotation - 1 - 3
 			// Players operate in a loop - this loop runs until there is only once scene card left on the board
-			while(endDay == false) {
-				
-				
-				
-				
+			while(!endDay) {
+
 				// Player turn
-				
-				
-				
+				active_player = players.remove(0);
+				System.out.println(active_player.playerInfo());
+
+				// Players turn until they decide to end it
+				while(!endOfTurn){
+
+					// Players have options
+					// 1) Move if not on a role, this can be paired with taking a role
+					// 3) If you are located at the casting office, you can upgrade
+					if(active_player.getRole() == null) {
+
+					}
+
+
+					// 2) If you are on a role, you can rehearse or act
+
+
+
+					endOfTurn = true;
+
+				}
 				
 				
 				
@@ -67,8 +84,9 @@ public class Deadwood {
 				
 				
 				// End of player turn
-				
-				
+				players.add(active_player);
+				System.out.println("~~~~~~~~~~~~ END OF TURN ~~~~~~~~~~~ \n");
+
 				
 				//check when only one scene left, exit if there is only one left
 				if(gm.checkActive() == 1) {
