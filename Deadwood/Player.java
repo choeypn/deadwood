@@ -90,6 +90,7 @@ public class Player {
 					throw new RoleException();
 				}
 				this.role = ((Set)location).getScene().getRole(idx);
+				role.setAvailable(false);
 				break;
 			case('x'):
 				if(idx > ((Set)location).getExtraSize()) {
@@ -102,6 +103,7 @@ public class Player {
 					throw new RoleException();
 				}
 				this.role = ((Set)location).getExtra(idx);
+				role.setAvailable(false);
 				break;
 			default:
 				throw new RoleException();
