@@ -35,6 +35,10 @@ public class Set extends Location{
     	this.active = s;
     }
     
+    public void addExtras(Role[] r) {
+    	this.extras = r;
+    }
+    
     public void addActivePlayer(Player player) {
     }
 

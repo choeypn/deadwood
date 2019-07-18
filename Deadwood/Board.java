@@ -111,6 +111,35 @@ public class Board {
 
         // Create Scenes/Roles
         
+        //Create extra roles
+        Role[] exr2 = {new Role("Prisoner in Cell",2),new Role("Feller in Irons",3)};
+        Role[] exr3 = {new Role("Crusty Prospector",1),new Role("Dragged by Train",1),
+        		new Role("Preacher with Bag",2),new Role("Cyrus the Gunfighter",4)};
+        Role[] exr4 = {new Role("Man in Overalls",1),new Role("Mister Keach",3)};
+        Role[] exr5 = {new Role("Woman in Red Dress",2),new Role("Reluctant Farmer",1)};
+        Role[] exr6 = {new Role("Railroad Worker",1),new Role("Woman in Black Dress",2),
+        		new Role("Falls off Roof",2),new Role("Mayor McGinty",4)};
+        Role[] exr7 = {new Role("Clumsy Pit Fighter",1),new Role("Dangerous Tom",3),
+        		new Role("Thug with Knife",2),new Role("Penny, who is Lost",4)};
+        Role[] exr8 = {new Role("Shot in Leg",1),new Role("Man Under Horse",3),
+        		new Role("Saucy Fred",2)};
+        Role[] exr9 = {new Role("Flustered Teller",3),new Role("Suspicious Gentleman",2)};
+        Role[] exr10 = {new Role("Dead Man",1),new Role("Crying Woman",2)};
+        Role[] exr11 = {new Role("Faro Player",1),new Role("Australian Bartender",3),
+        		new Role("Sleeping Drunkard",1),new Role("Falls from Balcony",2)};
+        
+        //Add extra roles to set locations
+        ((Set)locations[Constants.JAIL]).addExtras(exr2);
+        ((Set)locations[Constants.TRAIN]).addExtras(exr3);
+        ((Set)locations[Constants.GENERAL]).addExtras(exr4);
+        ((Set)locations[Constants.SALOON]).addExtras(exr5);
+        ((Set)locations[Constants.MAIN]).addExtras(exr6);
+        ((Set)locations[Constants.SECRET]).addExtras(exr7);
+        ((Set)locations[Constants.RANCH]).addExtras(exr8);
+        ((Set)locations[Constants.BANK]).addExtras(exr9);
+        ((Set)locations[Constants.CHURCH]).addExtras(exr10);
+        ((Set)locations[Constants.HOTEL]).addExtras(exr11);
+        
         // Create roles first, then add them into scene 
         Role[] r1 = {new Role("Defrocked Priest",2),new Role("Marshal Canfield",3),
         		new Role("One-Eyed Man",4)};
