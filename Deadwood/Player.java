@@ -1,7 +1,15 @@
 package Deadwood;
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
+//                DEADWOOD - PLAYER CLASS                                   //
+//  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
+//  Class: CSCI 345, Summer 2019                                            //
+//                                                                          //
+//                                                                          //
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
+
 public class Player {
-	//awaiting Location and Role classes
+
 	
 	//fields
 	private Currency currency;
@@ -21,11 +29,12 @@ public class Player {
 	    this.rehearsal_chips = 0;
 	}
 
+	// Set the current player location
 	public void setLocation(Location l) {
 		this.location = l;
 	}
 	
-	
+	// Get player info (debugging)
 	public void getInfo() {
 		System.out.println("yo name (the movie) : "+this.name);
 		System.out.println("yo play_num : "+this.player_num);
@@ -33,9 +42,6 @@ public class Player {
 		System.out.println("yo curren : "+this.currency.getCredit());
 		System.out.println("yo rank : "+this.rank);
 	}
-	
-	
-	//method
 
 	// Move the player if the choice was valid, otherwise throw an exception
 	public void playerMove(Location location) throws MovementException {
@@ -56,6 +62,7 @@ public class Player {
 	public void playerTakeRole(Role r) {}
 	public void playerRollDice(int dice) {}
 
+	// Get the player role
 	public Role getRole() {
 		return role;
 	}

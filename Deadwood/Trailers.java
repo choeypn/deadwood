@@ -10,8 +10,7 @@ package Deadwood;
 
 public class Trailers extends Location {
 
-
-
+    
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Methods
 
@@ -20,12 +19,11 @@ public class Trailers extends Location {
         this.name = name;
     }
 
+    // Add active players
     public void addActivePlayer(Player player) {
     }
 
-
-    // Getters
-
+    // Get the name of the location
     public String getName() {
         return this.name;
     }

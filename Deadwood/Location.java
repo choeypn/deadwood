@@ -21,10 +21,12 @@ public abstract class Location {
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Methods
 
+    // Add an adjacent location
     public void addAdjLocation(Location location) {
         adj_locations.add(location);
     }
 
+    // Add an active player to a location
     public abstract void addActivePlayer(Player player);
 
 

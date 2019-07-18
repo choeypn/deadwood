@@ -26,16 +26,18 @@ public class Scene {
 	    this._roles = starring;
 	}
 	
-	//accessor & mutator 
+	// Get the budget of the role
 	public int getBudget() {
 		return budget;
 	}
-	
+
+	// Get the first role info
 	public void firstRoleInfo() {
 		System.out.println(this._roles[0].getName());
 		System.out.println(this._roles[0].getRank());
 	}
 
+	// Get the name of the scene
 	public String getName(){
 		return this.name;
 	}

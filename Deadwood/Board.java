@@ -344,15 +344,17 @@ public class Board {
         Collections.shuffle(scene_deck);
     }
 
-    
+    // Get location
     public Location getLocation(int d) {
     	return locations[d];
     }
 
+    // Draw a scene card from the deck
     public Scene drawScene(){
         return scene_deck.remove(0);
     }
 
+    // Get the shot counters left on a set
     public int getSetShotCounters(int ix) {
         return shotcounters[ix];
     }

@@ -18,6 +18,8 @@ public class GameMaster {
 	private Board game_board;
 	ArrayList<Player> players;
 	private int activeSets;
+
+	// Constructor
 	public GameMaster(int day, Board b, ArrayList<Player> players) {
 		this.game_days = day;
 		this.game_board = b;
@@ -57,15 +59,18 @@ public class GameMaster {
 		activeSets = 10;
 	}
 	
-	
+
+	// Decrement active sets
 	public void decrementActive() {
 		activeSets--;
 	}
 
+	// Decrement day
 	public void decrementDay(){
 		this.game_days -= 1;
 	}
 
+	// Get the number of game days left
 	public int getGame_days(){
 		return this.game_days;
 	}

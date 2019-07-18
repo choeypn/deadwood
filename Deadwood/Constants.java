@@ -1,7 +1,16 @@
 package Deadwood;
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
+//                DEADWOOD - CONSTANTS CLASS                                //
+//  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
+//  Class: CSCI 345, Summer 2019                                            //
+//                                                                          //
+//                                                                          //
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
+
 public final class Constants {
 
+    // Define all the global constants for the program
     public static final int TRAILERS = 0;
     public static final int CASTING = 1;
     public static final int JAIL = 2;

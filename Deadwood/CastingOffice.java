@@ -18,11 +18,11 @@ public class CastingOffice extends Location{
         this.name = name;
     }
 
-
+    // Add active players to the location
     public void addActivePlayer(Player player) {
     }
 
-
+    // Get the location name
     public String getName(){
         return this.name;
     }

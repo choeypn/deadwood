@@ -23,11 +23,12 @@ public class Role {
 	}
 	
 	
-	//accessor & mutator
+	// Get the name of the role
 	public String getName() {
 		return name;
 	}
-	
+
+	// Get the rank of the role
 	public int getRank() {
 		return rank;
 	}
