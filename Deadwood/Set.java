@@ -42,8 +42,6 @@ public class Set extends Location{
     public void addActivePlayer(Player player) {
     }
 
-    public void addAdjLocation(Location location) {
-    }
 
     public void placeScene(Scene scene){
         this.current_scene = scene;

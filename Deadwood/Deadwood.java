@@ -88,7 +88,15 @@ public class Deadwood {
 
 						// Move
 						case 'm':
-							//active_player.playerMove();
+							System.out.println("Where would you like to move? (Enter a number 0-11)");
+							int loc = prompter.nextInt();
+
+							try {
+								active_player.playerMove(gameboard.getLocation(loc));
+							}
+							catch(MovementException e){
+								System.out.println("Invalid movement");
+							}
 							break;
 
 						// Rehearse

@@ -36,7 +36,20 @@ public class Player {
 	
 	
 	//method
-	public void playerMove(Location location) {}
+
+	// Move the player if the choice was valid, otherwise throw an exception
+	public void playerMove(Location location) throws MovementException {
+
+		if (this.location.adj_locations.contains(location)){
+			this.location = location;
+		}
+		else{
+			throw new MovementException();
+		}
+
+	}
+
+
 	public void playerUpgrade(int rank) {}
 	public void playerAct() {}
 	public void playerRehearse() {}

@@ -23,8 +23,6 @@ public class Trailers extends Location {
     public void addActivePlayer(Player player) {
     }
 
-    public void addAdjLocation(Location location) {
-    }
 
     // Getters
 
