@@ -91,8 +91,10 @@ public class Deadwood {
 							System.out.println("Where would you like to move? (Enter a number 0-11)");
 							int loc = prompter.nextInt();
 
+							// Try to move - catch if invalid movement
 							try {
 								active_player.playerMove(gameboard.getLocation(loc));
+								System.out.println("Player successfully moved");
 							}
 							catch(MovementException e){
 								System.out.println("Invalid movement");
