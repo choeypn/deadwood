@@ -19,9 +19,7 @@ public class Board {
     private Location[] locations = new Location[12];
     private int[][] board_tiles = new int[2][2];
     private final int[] shotcounters = {0, 0, 1, 3, 2, 2, 3, 3, 2, 1, 2, 3};
-
     private final int num_locations = 12;
-
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Methods
@@ -344,18 +342,22 @@ public class Board {
         Collections.shuffle(scene_deck);
     }
 
-    // Get location
-    public Location getLocation(int d) {
-    	return locations[d];
-    }
-
     // Draw a scene card from the deck
     public Scene drawScene(){
         return scene_deck.remove(0);
     }
 
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // Getters/setters
+
     // Get the shot counters left on a set
     public int getSetShotCounters(int ix) {
         return shotcounters[ix];
     }
+
+    // Get location
+    public Location getLocation(int d) {
+        return locations[d];
+    }
+
 }
