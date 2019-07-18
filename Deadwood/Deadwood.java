@@ -1,5 +1,7 @@
 package Deadwood;
-
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 import java.util.ArrayList;
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                                DEADWOOD                                  //
@@ -33,6 +35,13 @@ public class Deadwood {
 		Player active_player;
 		boolean endOfTurn = false;
 
+		// User input tool
+		Scanner prompter = new Scanner(System.in);
+
+
+
+
+
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GAMEPLAY LOOP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -55,8 +64,11 @@ public class Deadwood {
 			while(!endDay) {
 
 				// Player turn
+				endOfTurn = false;
 				active_player = players.remove(0);
 				System.out.println(active_player.playerInfo());
+				System.out.println("What would you like to do this turn?\n");
+				System.out.println("Options: \n a - act \n m - move \n r - rehearse \n u - upgrade \n t - take role \n e - end turn \n");
 
 				// Players turn until they decide to end it
 				while(!endOfTurn){
@@ -64,24 +76,52 @@ public class Deadwood {
 					// Players have options
 					// 1) Move if not on a role, this can be paired with taking a role
 					// 3) If you are located at the casting office, you can upgrade
-					if(active_player.getRole() == null) {
 
+					// Get user input
+					char input = prompter.next().charAt(0);
+					switch (input) {
+
+						// Act
+						case 'a':
+							active_player.playerAct();
+							break;
+
+						// Move
+						case 'm':
+							//active_player.playerMove();
+							break;
+
+						// Rehearse
+						case 'r':
+							active_player.playerRehearse();
+							break;
+
+						// Upgrade
+						case 'u':
+							//active_player.playerUpgrade();
+							break;
+
+						// Take role
+						case 't':
+							//active_player.playerTakeRole();
+							break;
+
+						// End turn
+						case 'e':
+							endOfTurn=true;
+							break;
 					}
+
+
+					//if(active_player.getRole() == null) {
+
+					//}
 
 
 					// 2) If you are on a role, you can rehearse or act
 
-
-
-					endOfTurn = true;
-
 				}
-				
-				
-				
-				
-				
-				
+
 				
 				// End of player turn
 				players.add(active_player);
