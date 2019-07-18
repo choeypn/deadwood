@@ -31,6 +31,10 @@ public class Player {
 	    this.moved = false;
 	}
 
+	public Location getLocation() {
+		return location;
+	}
+	
 	// Set the current player location
 	public void setLocation(Location l) {
 		this.location = l;
@@ -72,7 +76,38 @@ public class Player {
 	public void playerUpgrade(int rank) {}
 	public void playerAct() {}
 	public void playerRehearse() {}
-	public void playerTakeRole(Role r) {}
+	public void playerTakeRole(char type,int idx) throws RoleException{
+	
+		switch(type){
+			case('m'):
+				if(idx > ((Set)location).getScene().getRoleSize()) {
+					throw new RoleException();
+				}
+				if(((Set)location).getScene().getRole(idx).getAvailable() == false) {
+					throw new RoleException();
+				}
+				if(rank < ((Set)location).getScene().getRole(idx).getRank()) {
+					throw new RoleException();
+				}
+				this.role = ((Set)location).getScene().getRole(idx);
+				break;
+			case('x'):
+				if(idx > ((Set)location).getExtraSize()) {
+					throw new RoleException();
+				}
+				if(((Set)location).getExtra(idx).getAvailable() == false) {
+					throw new RoleException();
+				}
+				if(rank < ((Set)location).getExtra(idx).getRank()) {
+					throw new RoleException();
+				}
+				this.role = ((Set)location).getExtra(idx);
+				break;
+			default:
+				throw new RoleException();
+				
+		}
+	}
 	public void playerRollDice(int dice) {}
 
 	// Get the player role

@@ -108,6 +108,8 @@ public class Deadwood {
 							try {
 								active_player.playerMove(gameboard.getLocation(loc));
 								System.out.println("Player successfully moved");
+								//flip the scene card up 
+								((Set)gameboard.getLocation(loc)).getScene().setFlipped(true);
 							}
 							catch(MovementException e){
 								System.out.println("Invalid movement \n");
@@ -126,7 +128,24 @@ public class Deadwood {
 
 						// Take role ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 						case 't':
-							//active_player.playerTakeRole();
+							System.out.println("Player chose to take role");
+							System.out.printf("Here are the main roles :  %s \n",
+									((Set)active_player.getLocation()).getScene().getRoleDetails());
+							System.out.printf("Here are the side roles :  %s \n",
+									((Set)active_player.getLocation()).getExtraDetails());
+							System.out.println("Enter x# for extra roles or m# for main roles");
+							String input_role = prompter.next();
+							char c1 = input_role.charAt(0);
+							int c2 = Character.getNumericValue(input_role.charAt(1));
+							System.out.println(c1+" "+c2);
+							try {
+								active_player.playerTakeRole(c1,c2);
+								System.out.println("Role taken");
+							} 
+							catch(RoleException e) {
+								System.out.println("Invalid Role");
+							}
+							
 							break;
 
 						// End turn ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

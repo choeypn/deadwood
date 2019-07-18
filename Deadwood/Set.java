@@ -35,7 +35,24 @@ public class Set extends Location{
     public void setActive(boolean s) {
     	this.active = s;
     }
-
+    
+    public String getExtraDetails() {
+		String s = "| ";
+		for(int i =0; i < extras.length;i++) {
+			s += extras[i].getName()+" "+extras[i].getRank()+" | ";
+		}
+		
+		return s;
+	}
+    
+    public Role getExtra(int d) {
+    	return extras[d];
+    }
+    
+    public int getExtraSize() {
+    	return extras.length;
+    }
+    
     // Add extras to the set
     public void addExtras(Role[] r) {
     	this.extras = r;
@@ -45,6 +62,12 @@ public class Set extends Location{
     public void addActivePlayer(Player player) {
     }
 
+    
+    // Get the scene
+    public Scene getScene() {
+    	return current_scene;
+    }
+    
     // Place the scene
     public void placeScene(Scene scene){
         this.current_scene = scene;

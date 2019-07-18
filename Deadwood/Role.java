@@ -33,4 +33,12 @@ public class Role {
 		return rank;
 	}
 	
+	public boolean getAvailable() {
+		return available;
+	}
+	
+	public void setAvailable(boolean b) {
+		available = b;
+	}
+	
 }
