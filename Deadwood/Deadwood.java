@@ -35,6 +35,14 @@ public class Deadwood {
 		// Variable for currently active player
 		Player active_player;
 		boolean endOfTurn = false;
+		
+		Die die = Die.getD();
+		System.out.println(die.roll());
+		System.out.println(die.roll());
+		System.out.println(die.roll());
+		System.out.println(die.roll());
+		System.out.println(die.roll());
+		System.out.println(die.roll());
 
 		// User input tool
 		Scanner prompter = new Scanner(System.in);
@@ -90,13 +98,18 @@ public class Deadwood {
 
 						// Move ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 						case 'm':
-
+							if(active_player.getRole() != null) {
+								System.out.println("You are currently working in a role");
+								break;
+							}
 							// If the player has already moved, they cannot move again
 							if(active_player.getMoved()) {
 								System.out.println("You cannot move again this turn");
 								break;
 							}
-
+							
+							
+							
 							// Movement location prompt
 							System.out.println("Where would you like to move? (Enter a number 0-11)");
 							int loc = prompter.nextInt();
