@@ -19,6 +19,7 @@ public class Player {
 	private int player_num;
 	private String name;
 	private int rehearsal_chips;
+	private boolean moved;
 	
 	//constructor
 	public Player(int player_num) {
@@ -27,6 +28,7 @@ public class Player {
 	    this.rank = 1;
 	    this.name = "NattyNAt";
 	    this.rehearsal_chips = 0;
+	    this.moved = false;
 	}
 
 	// Set the current player location
@@ -46,15 +48,26 @@ public class Player {
 	// Move the player if the choice was valid, otherwise throw an exception
 	public void playerMove(Location location) throws MovementException {
 
+		// Move if the location is adjacent and not already moved
 		if (this.location.adj_locations.contains(location)){
 			this.location = location;
+			this.moved = true;
 		}
+		// Otherwise, throw a movement exception
 		else{
 			throw new MovementException();
 		}
-
 	}
 
+	// Set the movement boolean
+	public void setMoved(boolean moved) {
+		this.moved = moved;
+	}
+
+	// Get the movement boolean
+	public boolean getMoved(){
+		return this.moved;
+	}
 
 	public void playerUpgrade(int rank) {}
 	public void playerAct() {}

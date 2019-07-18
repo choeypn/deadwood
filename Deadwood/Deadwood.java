@@ -69,7 +69,6 @@ public class Deadwood {
 				active_player = players.remove(0);
 				System.out.println(active_player.playerInfo());
 				System.out.println("What would you like to do this turn?\n");
-				System.out.println("Options: \n a - act \n m - move \n r - rehearse \n u - upgrade \n t - take role \n e - end turn \n");
 
 				// Players turn until they decide to end it
 				while(!endOfTurn){
@@ -78,17 +77,27 @@ public class Deadwood {
 					// 1) Move if not on a role, this can be paired with taking a role
 					// 3) If you are located at the casting office, you can upgrade
 
+					System.out.println("Options: \n a - act \n m - move \n r - rehearse \n u - upgrade \n t - take role \n e - end turn \n");
+
 					// Get user input
 					char input = prompter.next().charAt(0);
 					switch (input) {
 
-						// Act
+						// Act ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 						case 'a':
 							active_player.playerAct();
 							break;
 
-						// Move
+						// Move ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 						case 'm':
+
+							// If the player has already moved, they cannot move again
+							if(active_player.getMoved()) {
+								System.out.println("You cannot move again this turn");
+								break;
+							}
+
+							// Movement location prompt
 							System.out.println("Where would you like to move? (Enter a number 0-11)");
 							int loc = prompter.nextInt();
 
@@ -98,26 +107,26 @@ public class Deadwood {
 								System.out.println("Player successfully moved");
 							}
 							catch(MovementException e){
-								System.out.println("Invalid movement");
+								System.out.println("Invalid movement \n");
 							}
 							break;
 
-						// Rehearse
+						// Rehearse ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 						case 'r':
 							active_player.playerRehearse();
 							break;
 
-						// Upgrade
+						// Upgrade ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 						case 'u':
 							//active_player.playerUpgrade();
 							break;
 
-						// Take role
+						// Take role ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 						case 't':
 							//active_player.playerTakeRole();
 							break;
 
-						// End turn
+						// End turn ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 						case 'e':
 							endOfTurn=true;
 							break;
@@ -135,6 +144,7 @@ public class Deadwood {
 
 				
 				// End of player turn
+				active_player.setMoved(false);
 				players.add(active_player);
 				System.out.println("~~~~~~~~~~~~ END OF TURN ~~~~~~~~~~~ \n");
 
