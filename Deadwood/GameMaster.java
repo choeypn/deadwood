@@ -27,7 +27,36 @@ public class GameMaster {
 	}
 	
 	//methods
-	public void upgradePlayer(Player p) {}
+	public void upgradePlayer(Player p,char type,int rank) throws UpgradeException{
+		//handle user's input payment type
+		switch(type){
+			case('d'):
+				if(p.getCurrency().getDollar() < Constants.RD[rank-2]){
+					throw new UpgradeException();
+				}
+				if(p.getRank() >= rank) {
+					throw new UpgradeException();
+				}
+				p.setRank(rank);
+				p.getCurrency().removeDollar(Constants.RD[rank-2]);
+				p.setUpgraded(true);
+				break;
+			case('c'):
+				if(p.getCurrency().getCredit() < Constants.RD[rank-2]){
+					throw new UpgradeException();
+				}
+				if(p.getRank() >= rank) {
+					throw new UpgradeException();
+				}
+				p.setRank(rank);
+				p.getCurrency().removeCredit(Constants.RD[rank-2]);
+				p.setUpgraded(true);
+				break;
+			default:
+				throw new UpgradeException();
+				
+		}
+	}
 	//public void gameInit(Player[] ps) {}
 
 	// Pay the player

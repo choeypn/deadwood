@@ -212,8 +212,7 @@ public class Deadwood {
 							char r2 = input_rank.charAt(1);
 							int r1 = Character.getNumericValue(input_rank.charAt(0));
 							try {
-								active_player.playerUpgrade(r2,r1);
-								System.out.println("Rank upgraded to "+active_player.getRank());
+								gm.upgradePlayer(active_player,r2,r1);
 							}
 							catch(UpgradeException e) {
 								System.out.println("Rank upgrade failed, new rank unassignned");

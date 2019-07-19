@@ -45,6 +45,11 @@ public class Player {
 		return rank;
 	}
 	
+	// Set the player's rank
+	public void setRank(int r) {
+		this.rank = r;
+	}
+	
 	// Set the current player location
 	public void setLocation(Location l) {
 		this.location = l;
@@ -90,37 +95,6 @@ public class Player {
 		return this.moved;
 	}
 	
-	//Upgrade player from input payment type and input rank number
-	public void playerUpgrade(char type,int rank) throws UpgradeException{
-		//handle user's input payment type
-				switch(type){
-					case('d'):
-						if(currency.getDollar() < Constants.RD[rank-2]){
-							throw new UpgradeException();
-						}
-						if(this.rank >= rank) {
-							throw new UpgradeException();
-						}
-						this.rank = rank;
-						currency.removeDollar(Constants.RD[rank-2]);
-						this.upgraded = true;
-						break;
-					case('c'):
-						if(currency.getCredit() < Constants.RC[rank-2]){
-							throw new UpgradeException();
-						}
-						if(this.rank >= rank) {
-							throw new UpgradeException();
-						}
-						this.rank = rank;
-						currency.removeCredit(Constants.RD[rank-2]);
-						this.upgraded = true;
-						break;
-					default:
-						throw new UpgradeException();
-						
-				}
-	}
 	
 	// Set the upgrade boolean
 	public void setUpgraded(boolean s) {
@@ -131,6 +105,7 @@ public class Player {
 	public boolean getUpgraded(){
 		return this.upgraded;
 	}
+
 
 	public boolean getWorked() {
 		return this.worked;
