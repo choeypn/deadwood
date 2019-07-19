@@ -150,10 +150,9 @@ public class Player {
 		else {
 
 			// Payout for on card
+			
 
 			// Payout for off card
-
-
 
 		}
 
