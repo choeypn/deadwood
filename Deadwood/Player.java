@@ -30,7 +30,8 @@ public class Player {
 	    this.rehearsal_chips = 0;
 	    this.moved = false;
 	}
-
+	
+	// Get the current player location
 	public Location getLocation() {
 		return location;
 	}
@@ -76,8 +77,10 @@ public class Player {
 	public void playerUpgrade(int rank) {}
 	public void playerAct() {}
 	public void playerRehearse() {}
+	// Assigns player desired role to player if player passed all requirements
+	// Set role availability to false when occupied
 	public void playerTakeRole(char type,int idx) throws RoleException{
-	
+		//handle user's input role type
 		switch(type){
 			case('m'):
 				if(idx > ((Set)location).getScene().getRoleSize()) {
@@ -110,6 +113,8 @@ public class Player {
 				
 		}
 	}
+	
+	
 	public void playerRollDice(int dice) {}
 
 	// Get the player role
