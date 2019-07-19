@@ -21,6 +21,7 @@ public class Player {
 	private int rehearsal_chips;
 	private boolean moved;
 	private boolean upgraded;
+	private boolean worked;
 	
 	//constructor
 	public Player(int player_num) {
@@ -31,6 +32,7 @@ public class Player {
 	    this.rehearsal_chips = 0;
 	    this.moved = false;
 	    this.upgraded = false;
+	    this.worked = false;
 	}
 	
 	// Get the current player location
@@ -122,9 +124,41 @@ public class Player {
 	public boolean getUpgraded(){
 		return this.upgraded;
 	}
+
+	public boolean getWorked() {
+		return this.worked;
+	}
+
+	public void setWorked(boolean worked) {
+		this.worked = worked;
+	}
 	
-	
-	public void playerAct() {}
+	// Player acting method
+	public void playerAct(Die die) throws ActingException {
+
+		// Roll the dice, compare the value to the budget of the movie
+		int roll = die.roll();
+		int budget = ((Set)(this.location)).getScene().getBudget();
+
+		// If the roll was less than the budget, you have failed acting
+		if (roll < budget) {
+			this.worked = true;
+			throw new ActingException();
+		}
+
+		// Otherwise, acting was successful!
+		else {
+
+			// Payout for on card
+
+			// Payout for off card
+
+
+
+		}
+
+	}
+
 	// Adds practice chips to the player for rehearsal option
 	public void playerRehearse() throws RehearsalException{
 		// If the player is not in a role, they cannot rehearse
@@ -135,7 +169,12 @@ public class Player {
 		if (this.rehearsal_chips > ((Set)(this.location)).getScene().getBudget()-1) {
 			throw new RehearsalException();
 		}
+
+		// Otherwise we can add a rehearsal chip, also set the worked boolean
+		this.rehearsal_chips+=1;
+		this.worked = true;
 	}
+
 	// Assigns player desired role to player if player passed all requirements
 	// Set role availability to false when occupied
 	public void playerTakeRole(char type,int idx) throws RoleException{

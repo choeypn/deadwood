@@ -93,7 +93,28 @@ public class Deadwood {
 
 						// Act ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 						case 'a':
-							active_player.playerAct();
+
+							// Check if the player has a role
+							if (active_player.getRole() == null) {
+								System.out.println("You have no role, you can not act");
+								break;
+							}
+
+							// If the player has already worked or rehearsed, they cannot act
+							if(active_player.getWorked()) {
+								System.out.println("You have already worked - can not act");
+								break;
+							}
+
+							// Try to act
+							try {
+								active_player.playerAct(die);
+							}
+
+							// Catch exceptions
+							catch (ActingException e) {
+								System.out.println("Acting failed");
+							}
 							break;
 
 						// Move ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -107,9 +128,9 @@ public class Deadwood {
 								System.out.println("You cannot move again this turn");
 								break;
 							}
-							
-							
-							
+
+
+
 							// Movement location prompt
 							System.out.println("Where would you like to move? (Enter a number 0-11)");
 							int loc = prompter.nextInt();
@@ -232,6 +253,7 @@ public class Deadwood {
 				// End of player turn
 				active_player.setMoved(false);
 				active_player.setUpgraded(false);
+				active_player.setWorked(false);
 				players.add(active_player);
 				System.out.println("~~~~~~~~~~~~ END OF TURN ~~~~~~~~~~~ \n");
 
