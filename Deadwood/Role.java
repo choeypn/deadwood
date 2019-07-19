@@ -14,14 +14,23 @@ public class Role {
 	private String name;
 	private int rank;
 	private boolean available;
+	private boolean main;
 	
 	//constructor
 	public Role(String starring, int rank) {
 	    this.name = starring;
 	    this.rank = rank;
 	    this.available = true;
+	    this.main = false;
 	}
 	
+	public boolean getMain() {
+		return main;
+	}
+	
+	public void setMain(boolean s) {
+		this.main = s;
+	}
 	
 	// Get the name of the role
 	public String getName() {

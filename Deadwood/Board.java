@@ -340,6 +340,13 @@ public class Board {
         
         // Shuffle the deck
         Collections.shuffle(scene_deck);
+        
+        // Set the type of roles
+        for(int i = 0;i < scene_deck.size();i++) {
+        	for(int j = 0; j < scene_deck.get(i).getRoleSize();j++) {
+        		scene_deck.get(i).getRole(j).setMain(true);
+        	}
+        }
     }
 
     // Draw a scene card from the deck
