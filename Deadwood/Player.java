@@ -110,7 +110,17 @@ public class Player {
 	}
 	
 	public void playerAct() {}
-	public void playerRehearse() {}
+	// Adds practice chips to the player for rehearsal option
+	public void playerRehearse() throws RehearsalException{
+		// If the player is not in a role, they cannot rehearse
+		if (this.role == null) {
+			throw new RehearsalException();
+		}
+		// If the player has too many practice chips, they cannot rehearse
+		if (this.rehearsal_chips > ((Set)(this.location)).getScene().getBudget()-1) {
+			throw new RehearsalException();
+		}
+	}
 	// Assigns player desired role to player if player passed all requirements
 	// Set role availability to false when occupied
 	public void playerTakeRole(char type,int idx) throws RoleException{

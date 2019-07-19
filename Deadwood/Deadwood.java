@@ -133,7 +133,13 @@ public class Deadwood {
 
 						// Rehearse ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 						case 'r':
-							active_player.playerRehearse();
+							// Try to rehearse, catch if the player is not allowed to rehearse
+							try {
+								active_player.playerRehearse();
+							}
+							catch (RehearsalException e){
+								System.out.println("You cannot rehearse \n");
+							}
 							break;
 
 						// Upgrade ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
