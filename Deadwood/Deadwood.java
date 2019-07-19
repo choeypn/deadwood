@@ -156,8 +156,8 @@ public class Deadwood {
 							System.out.println("Enter #d for rank with Dollar payment method");
 							System.out.println("Enter #c for rank with Crredit payment method");
 							String input_rank = prompter.next();
-							char r2 = input_rank.charAt(0);
-							int r1 = Character.getNumericValue(input_rank.charAt(1));
+							char r2 = input_rank.charAt(1);
+							int r1 = Character.getNumericValue(input_rank.charAt(0));
 							try {
 								active_player.playerUpgrade(r2,r1);
 								System.out.println("Rank upgraded to "+active_player.getRank());
