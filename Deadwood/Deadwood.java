@@ -106,6 +106,12 @@ public class Deadwood {
 									break;
 								}
 
+								// Catch the movement case
+								if(active_player.getMoved()) {
+									System.out.println("You can not act this turn");
+									break;
+								}
+
 								// Act!
 								boolean	success = active_player.playerAct(die);
 								boolean main_role = active_player.getRole().getMain();
