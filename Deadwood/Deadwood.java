@@ -121,8 +121,10 @@ public class Deadwood {
 							try {
 								active_player.playerMove(gameboard.getLocation(loc));
 								System.out.println("Player successfully moved");
-								//flip the scene card up 
-								((Set)gameboard.getLocation(loc)).getScene().setFlipped(true);
+								//flip the scene card up if location player entered is a Set location
+								if(gameboard.getLocation(loc) instanceof Set) {
+									((Set)gameboard.getLocation(loc)).getScene().setFlipped(true);
+								}
 							}
 							catch(MovementException e){
 								System.out.println("Invalid movement \n");
@@ -136,27 +138,66 @@ public class Deadwood {
 
 						// Upgrade ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 						case 'u':
-							//active_player.playerUpgrade();
+							if(active_player.getLocation() instanceof CastingOffice == false) {
+								System.out.println("You are currently not at Casting Office");
+								break;
+							}
+							System.out.println("The cost to upgrade is shown below:");
+					
+							System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+							System.out.println("Pay dollars OR credits to upgrade");
+							System.out.println("Rank 2 : Dollars  4, Credits  5");
+							System.out.println("Rank 3 : Dollars 10, Credits 10");
+							System.out.println("Rank 4 : Dollars 18, Credits 15");
+							System.out.println("Rank 5 : Dollars 28, Credits 20");
+							System.out.println("Rank 6 : Dollars 40, Credits 25");
+							System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+							
+							System.out.println("Enter #d for rank with Dollar payment method");
+							System.out.println("Enter #c for rank with Crredit payment method");
+							String input_rank = prompter.next();
+							char r2 = input_rank.charAt(0);
+							int r1 = Character.getNumericValue(input_rank.charAt(1));
+							try {
+								active_player.playerUpgrade(r2,r1);
+								System.out.println("Rank upgraded to "+active_player.getRank());
+							}
+							catch(UpgradeException e) {
+								System.out.println("Rank upgrade failed, new rank unassignned");
+							}
 							break;
 
 						// Take role ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 						case 't':
-							System.out.println("Player chose to take role");
-							System.out.printf("Here are the main roles :  %s \n",
-									((Set)active_player.getLocation()).getScene().getRoleDetails());
-							System.out.printf("Here are the side roles :  %s \n",
-									((Set)active_player.getLocation()).getExtraDetails());
-							System.out.println("Enter x# for extra roles or m# for main roles");
-							String input_role = prompter.next();
-							char c1 = input_role.charAt(0);
-							int c2 = Character.getNumericValue(input_role.charAt(1));
-							System.out.println(c1+" "+c2);
+							//If player already has a role, player cannot take another role
+							if(active_player.getRole() != null) {
+								System.out.println("You cannot have more than one role");
+								break;
+							}
+							//Check if player is in a working Set location 
 							try {
-								active_player.playerTakeRole(c1,c2);
-								System.out.println("Role taken");
-							} 
-							catch(RoleException e) {
-								System.out.println("Invalid Role");
+								System.out.printf("Active scene : %s, Budget : %d \n",
+										((Set)active_player.getLocation()).getScene().getName(),
+										((Set)active_player.getLocation()).getScene().getBudget());
+								System.out.println("Player chose to take role");
+								System.out.printf("Here are the main roles :  %s \n",
+										((Set)active_player.getLocation()).getScene().getRoleDetails());
+								System.out.printf("Here are the side roles :  %s \n",
+										((Set)active_player.getLocation()).getExtraDetails());
+								System.out.println("Enter x# for extra roles or m# for main roles");
+								String input_role = prompter.next();
+								char c1 = input_role.charAt(0);
+								int c2 = Character.getNumericValue(input_role.charAt(1));
+								try {
+									active_player.playerTakeRole(c1,c2);
+									System.out.println("Role "+active_player.getRole().getName()+" assigned!");
+								} 
+								catch(RoleException e) {
+									System.out.println("Invalid Role, role not assigned");
+								}
+							}
+							catch(ClassCastException e) {
+								System.out.println("You are currently not in a Set location");
 							}
 							
 							break;

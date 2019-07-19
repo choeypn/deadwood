@@ -24,4 +24,8 @@ public final class Constants {
     public static final int CHURCH = 10;
     public static final int HOTEL = 11;
 
+    //Variables for upgrading rank
+    public static final int[] RD = {4,10,18,28,40};
+    public static final int[] RC = {5,10,15,20,25};
+
 }

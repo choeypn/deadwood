@@ -49,11 +49,6 @@ public class Scene {
 		return budget;
 	}
 	
-	// Get the first role info
-	public void firstRoleInfo() {
-		System.out.println(this._roles[0].getName());
-		System.out.println(this._roles[0].getRank());
-	}
 
 	// Get the name of the scene
 	public String getName(){

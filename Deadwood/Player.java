@@ -24,7 +24,7 @@ public class Player {
 	//constructor
 	public Player(int player_num) {
 	    this.player_num = player_num;
-	    this.currency = new Currency(2,3);
+	    this.currency = new Currency(10,10);
 	    this.rank = 1;
 	    this.name = "NattyNAt";
 	    this.rehearsal_chips = 0;
@@ -34,6 +34,11 @@ public class Player {
 	// Get the current player location
 	public Location getLocation() {
 		return location;
+	}
+	
+	// Get player's rank
+	public int getRank() {
+		return rank;
 	}
 	
 	// Set the current player location
@@ -74,7 +79,36 @@ public class Player {
 		return this.moved;
 	}
 
-	public void playerUpgrade(int rank) {}
+	//Upgrade player from input payment type and input rank number
+	public void playerUpgrade(char type,int rank) throws UpgradeException{
+		//handle user's input payment type
+				switch(type){
+					case('d'):
+						if(currency.getDollar() < Constants.RD[rank-2]){
+							throw new UpgradeException();
+						}
+						if(this.rank >= rank) {
+							throw new UpgradeException();
+						}
+						this.rank = rank;
+						currency.removeDollar(Constants.RD[rank-2]);
+						break;
+					case('c'):
+						if(currency.getCredit() < Constants.RC[rank-2]){
+							throw new UpgradeException();
+						}
+						if(this.rank >= rank) {
+							throw new UpgradeException();
+						}
+						this.rank = rank;
+						currency.removeCredit(Constants.RD[rank-2]);
+						break;
+					default:
+						throw new UpgradeException();
+						
+				}
+	}
+	
 	public void playerAct() {}
 	public void playerRehearse() {}
 	// Assigns player desired role to player if player passed all requirements
