@@ -142,6 +142,10 @@ public class Deadwood {
 								System.out.println("You are currently not at Casting Office");
 								break;
 							}
+							if(active_player.getUpgraded() == true) {
+								System.out.println("You already upgraded this round");
+								break;
+							}
 							System.out.println("The cost to upgrade is shown below:");
 					
 							System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -221,6 +225,7 @@ public class Deadwood {
 				
 				// End of player turn
 				active_player.setMoved(false);
+				active_player.setUpgraded(false);
 				players.add(active_player);
 				System.out.println("~~~~~~~~~~~~ END OF TURN ~~~~~~~~~~~ \n");
 
