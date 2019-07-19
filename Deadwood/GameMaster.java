@@ -29,7 +29,13 @@ public class GameMaster {
 	//methods
 	public void upgradePlayer(Player p) {}
 	//public void gameInit(Player[] ps) {}
-	public void payPlayer(Player p) {}
+
+	// Pay the player
+	public void payPlayer(Player p, Currency c) {
+		p.getCurrency().addCredit(c.getCredit());
+		p.getCurrency().addDollar(c.getDollar());
+	}
+
 	public void endDay(Player[] ps) {}
 	public void endGame(Player[] ps) {}
 	public void wrapSet(Set s){}

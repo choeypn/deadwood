@@ -94,28 +94,50 @@ public class Deadwood {
 						// Act ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 						case 'a':
 
-							// Check if the player has a role
-							if (active_player.getRole() == null) {
-								System.out.println("You have no role, you can not act");
+								// Check if the player has a role
+								if (active_player.getRole() == null) {
+									System.out.println("You have no role, you can not act");
+									break;
+								}
+
+								// If the player has already worked or rehearsed, they cannot act
+								if(active_player.getWorked()) {
+									System.out.println("You have already worked - can not act");
+									break;
+								}
+
+								// Act!
+								boolean	success = active_player.playerAct(die);
+								boolean main_role = active_player.getRole().getMain();
+								Currency payout;
+
+								// Success
+								if (success) {
+
+									// If on a main role
+									if (main_role) {
+										payout = new Currency(0, 2);
+									} // If on off card role
+									else {
+										payout = new Currency(1, 1);
+									}
+								}
+
+								// Failure
+								else {
+									// If on a main role
+									if (main_role) {
+										payout = new Currency(0, 0);
+									} // If on off card role
+									else {
+										payout = new Currency(1, 0);
+									}
+								}
+
+								// Player payout
+								gm.payPlayer(active_player, payout);
+								active_player.setWorked(true);
 								break;
-							}
-
-							// If the player has already worked or rehearsed, they cannot act
-							if(active_player.getWorked()) {
-								System.out.println("You have already worked - can not act");
-								break;
-							}
-
-							// Try to act
-							try {
-								active_player.playerAct(die);
-							}
-
-							// Catch exceptions
-							catch (ActingException e) {
-								System.out.println("Acting failed");
-							}
-							break;
 
 						// Move ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 						case 'm':
@@ -174,7 +196,7 @@ public class Deadwood {
 								break;
 							}
 							System.out.println("The cost to upgrade is shown below:");
-					
+
 							System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 							System.out.println("Pay dollars OR credits to upgrade");
 							System.out.println("Rank 2 : Dollars  4, Credits  5");
@@ -183,7 +205,7 @@ public class Deadwood {
 							System.out.println("Rank 5 : Dollars 28, Credits 20");
 							System.out.println("Rank 6 : Dollars 40, Credits 25");
 							System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-							
+
 							System.out.println("Enter #d for rank with Dollar payment method");
 							System.out.println("Enter #c for rank with Crredit payment method");
 							String input_rank = prompter.next();
@@ -205,7 +227,7 @@ public class Deadwood {
 								System.out.println("You cannot have more than one role");
 								break;
 							}
-							//Check if player is in a working Set location 
+							//Check if player is in a working Set location
 							try {
 								System.out.printf("Active scene : %s, Budget : %d \n",
 										((Set)active_player.getLocation()).getScene().getName(),
@@ -222,7 +244,7 @@ public class Deadwood {
 								try {
 									active_player.playerTakeRole(c1,c2);
 									System.out.println("Role "+active_player.getRole().getName()+" assigned!");
-								} 
+								}
 								catch(RoleException e) {
 									System.out.println("Invalid Role, role not assigned");
 								}
@@ -230,7 +252,7 @@ public class Deadwood {
 							catch(ClassCastException e) {
 								System.out.println("You are currently not in a Set location");
 							}
-							
+
 							break;
 
 						// End turn ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

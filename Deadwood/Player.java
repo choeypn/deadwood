@@ -49,6 +49,13 @@ public class Player {
 	public void setLocation(Location l) {
 		this.location = l;
 	}
+
+	// Get the players currency object
+	public Currency getCurrency(){
+		return currency;
+	}
+
+
 	
 	// Get player info (debugging)
 	public void getInfo() {
@@ -134,27 +141,15 @@ public class Player {
 	}
 	
 	// Player acting method
-	public void playerAct(Die die) throws ActingException {
+	public boolean playerAct(Die die) {
 
 		// Roll the dice, compare the value to the budget of the movie
 		int roll = die.roll();
 		int budget = ((Set)(this.location)).getScene().getBudget();
+		int total = roll + rehearsal_chips;
 
-		// If the roll was less than the budget, you have failed acting
-		if (roll < budget) {
-			this.worked = true;
-			throw new ActingException();
-		}
-
-		// Otherwise, acting was successful!
-		else {
-
-			// Payout for on card
-			
-
-			// Payout for off card
-
-		}
+		// If the combined score was more than the budget, acting was a success
+		return(total < budget);
 
 	}
 
