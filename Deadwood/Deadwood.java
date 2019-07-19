@@ -148,6 +148,10 @@ public class Deadwood {
 								System.out.println("You are currently not at Casting Office");
 								break;
 							}
+							if(active_player.getUpgraded() == true) {
+								System.out.println("You already upgraded this round");
+								break;
+							}
 							System.out.println("The cost to upgrade is shown below:");
 					
 							System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -162,8 +166,8 @@ public class Deadwood {
 							System.out.println("Enter #d for rank with Dollar payment method");
 							System.out.println("Enter #c for rank with Crredit payment method");
 							String input_rank = prompter.next();
-							char r2 = input_rank.charAt(0);
-							int r1 = Character.getNumericValue(input_rank.charAt(1));
+							char r2 = input_rank.charAt(1);
+							int r1 = Character.getNumericValue(input_rank.charAt(0));
 							try {
 								active_player.playerUpgrade(r2,r1);
 								System.out.println("Rank upgraded to "+active_player.getRank());
@@ -227,6 +231,7 @@ public class Deadwood {
 				
 				// End of player turn
 				active_player.setMoved(false);
+				active_player.setUpgraded(false);
 				players.add(active_player);
 				System.out.println("~~~~~~~~~~~~ END OF TURN ~~~~~~~~~~~ \n");
 

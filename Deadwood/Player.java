@@ -20,6 +20,7 @@ public class Player {
 	private String name;
 	private int rehearsal_chips;
 	private boolean moved;
+	private boolean upgraded;
 	
 	//constructor
 	public Player(int player_num) {
@@ -29,6 +30,7 @@ public class Player {
 	    this.name = "NattyNAt";
 	    this.rehearsal_chips = 0;
 	    this.moved = false;
+	    this.upgraded = false;
 	}
 	
 	// Get the current player location
@@ -78,7 +80,7 @@ public class Player {
 	public boolean getMoved(){
 		return this.moved;
 	}
-
+	
 	//Upgrade player from input payment type and input rank number
 	public void playerUpgrade(char type,int rank) throws UpgradeException{
 		//handle user's input payment type
@@ -92,6 +94,7 @@ public class Player {
 						}
 						this.rank = rank;
 						currency.removeDollar(Constants.RD[rank-2]);
+						this.upgraded = true;
 						break;
 					case('c'):
 						if(currency.getCredit() < Constants.RC[rank-2]){
@@ -102,12 +105,24 @@ public class Player {
 						}
 						this.rank = rank;
 						currency.removeCredit(Constants.RD[rank-2]);
+						this.upgraded = true;
 						break;
 					default:
 						throw new UpgradeException();
 						
 				}
 	}
+	
+	// Set the upgrade boolean
+	public void setUpgraded(boolean s) {
+		this.upgraded = s;
+	}
+
+	// Get the upgrade boolean
+	public boolean getUpgraded(){
+		return this.upgraded;
+	}
+	
 	
 	public void playerAct() {}
 	// Adds practice chips to the player for rehearsal option
