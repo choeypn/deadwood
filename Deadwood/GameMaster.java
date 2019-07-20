@@ -67,7 +67,19 @@ public class GameMaster {
 
 	public void endDay(Player[] ps) {}
 	public void endGame(Player[] ps) {}
-	public void wrapSet(Set s){}
+	
+	// Method for wrapping the set
+	public void wrapSet(Set s){
+		
+		
+		// Set all players to null role at this location
+		
+		// Payout to players at this set
+		
+		
+		
+		
+	}
 
 	// Starting day method
 	public void startDay(){
@@ -94,7 +106,12 @@ public class GameMaster {
 		activeSets = 10;
 	}
 	
-
+	public void removeShotCounter(Set s) {
+		s.removeShotCounter();
+	}
+	
+	
+	
 	// Decrement active sets
 	public void decrementActive() {
 		activeSets--;

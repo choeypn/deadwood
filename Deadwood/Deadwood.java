@@ -130,10 +130,20 @@ public class Deadwood {
 									if (main_role) {
 										System.out.println("You received 2 credits!");
 										payout = new Currency(0, 2);
+										
+										
 									} // If on off card role
 									else {
 										System.out.println("You received 1 dollar and 1 credit!");
 										payout = new Currency(1, 1);
+										
+									}
+									//remove one shot counter when succeeded
+									gm.removeShotCounter((Set)active_player.getLocation());
+									
+									// If the last shot counter was removed, we use the GM for wrapping
+									if(!((Set)active_player.getLocation()).getActive()) {
+										gm.wrapSet(((Set)active_player.getLocation()));
 									}
 								}
 
@@ -251,11 +261,20 @@ public class Deadwood {
 
 						// Take role ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 						case 't':
+							
+							
 							//If player already has a role, player cannot take another role
 							if(active_player.getRole() != null) {
 								System.out.println("You cannot have more than one role");
 								break;
 							}
+							
+							// If the scene is not active, we can't take a role there
+							if (!((Set)active_player.getLocation()).getActive()) {
+								System.out.println("This scene has wrapped");
+								break;
+							}
+							
 							//Check if player is in a working Set location
 							try {
 								System.out.printf("Active scene : %s, Budget : %d \n",
