@@ -22,6 +22,7 @@ public class Player {
 	private boolean moved;
 	private boolean upgraded;
 	private boolean worked;
+	private boolean tookRole;
 	
 	//constructor
 	public Player(int player_num) {
@@ -33,6 +34,7 @@ public class Player {
 	    this.moved = false;
 	    this.upgraded = false;
 	    this.worked = false;
+	    this.tookRole = false;
 	}
 	
 	// Get the current player location
@@ -113,6 +115,14 @@ public class Player {
 
 	public void setWorked(boolean worked) {
 		this.worked = worked;
+	}
+	
+	public boolean getTookRole() {
+		return this.tookRole;
+	}
+
+	public void setTookRole(boolean tr) {
+		this.tookRole = tr;;
 	}
 	
 	// Player acting method
