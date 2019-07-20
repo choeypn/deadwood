@@ -113,7 +113,6 @@ public class GameMaster {
 	
 	// Method for wrapping the set
 	public void wrapSet(Set s){
-
 		// On card and off card roles
 		ArrayList<Player> on_card = new ArrayList<Player>();
 		ArrayList<Player> off_card = new ArrayList<Player>();
@@ -122,7 +121,7 @@ public class GameMaster {
 		for(int i = 0; i < players.size(); i++) {
 
 			// Check if player is on the set being wrapped
-			if (((Set)(players.get(i).getLocation())) == s) {
+			if (players.get(i).getLocation().getName().equals(s.getName())) {
 
 				// check if they are a main role - add to on card
 				if (players.get(i).getRole().getMain()) {
@@ -170,23 +169,29 @@ public class GameMaster {
 			// Is the player on this role?
 			for (int j = 0; j < on_card.size(); j++) {
 				// Yes
-				if (on_card.get(j).getRole() == s.getScene().getRole(i)) {
+				String playRole = on_card.get(j).getRole().getName();
+				String paidRole = s.getScene().getRole(i).getName();
+				if (playRole.equals(paidRole)){
 
 					// Pay the player
 					Currency c = new Currency(totals[i], 0);
 					payPlayer(on_card.get(j), c);
+					break;
 				}
 
-				on_card.get(j).setRole(null);
+				
 			}
 		}
 
-		// Ofd card payment
+		// Off card payment
 		for (int j = 0; j < off_card.size(); j++) {
 			int dollars = off_card.get(j).getRank();
 			Currency c = new Currency(dollars, 0);
 			payPlayer(off_card.get(j), c);
-			off_card.get(j).setRole(null);
+		}
+		
+		for(int k = 0;k < players.size();k++) {
+			players.get(k).setRole(null);
 		}
 	}
 

@@ -21,6 +21,11 @@ public abstract class Location {
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Methods
 
+    //get location name;
+    public String getName() {
+    	return this.name;
+    }
+    
     // Add an adjacent location
     public void addAdjLocation(Location location) {
         adj_locations.add(location);

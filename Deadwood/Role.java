@@ -34,7 +34,7 @@ public class Role {
 	
 	// Get the name of the role
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	// Get the rank of the role

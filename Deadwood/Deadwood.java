@@ -71,7 +71,7 @@ public class Deadwood {
 
 				// Player turn
 				endOfTurn = false;
-				active_player = players.remove(0);
+				active_player = players.get(0);
 				System.out.println(active_player.playerInfo());
 				System.out.println("What would you like to do this turn?\n");
 
@@ -82,7 +82,8 @@ public class Deadwood {
 					// 1) Move if not on a role, this can be paired with taking a role
 					// 3) If you are located at the casting office, you can upgrade
 
-					System.out.println("Options: \n a - act \n m - move \n r - rehearse \n u - upgrade \n t - take role \n e - end turn \n");
+					System.out.println("Options: \n a - act \n m - move \n r - rehearse \n"
+							+ " u - upgrade \n t - take role \n i - player information \n e - end turn \n");
 
 					// Get user input
 					char input = prompter.next().charAt(0);
@@ -140,6 +141,9 @@ public class Deadwood {
 									
 									// If the last shot counter was removed, we use the GM for wrapping
 									if(!((Set)active_player.getLocation()).getActive()) {
+										System.out.println("Scene "+
+									((Set)active_player.getLocation()).getScene().getName()+" finished!");
+										System.out.println("It's a wrap!!");
 										gm.wrapSet(((Set)active_player.getLocation()));
 									}
 								}
@@ -265,14 +269,15 @@ public class Deadwood {
 								break;
 							}
 							
-							// If the scene is not active, we can't take a role there
-							if (!((Set)active_player.getLocation()).getActive()) {
-								System.out.println("This scene has wrapped");
-								break;
-							}
+
 							
 							//Check if player is in a working Set location
 							try {
+								// If the scene is not active, we can't take a role there
+								if (!((Set)active_player.getLocation()).getActive()) {
+									System.out.println("This scene has wrapped");
+									break;
+								}
 								System.out.printf("Active scene : %s, Budget : %d \n",
 										((Set)active_player.getLocation()).getScene().getName(),
 										((Set)active_player.getLocation()).getScene().getBudget());
@@ -299,7 +304,11 @@ public class Deadwood {
 							}
 
 							break;
-
+						
+						case 'i':
+							System.out.println(active_player.playerInfo());
+							break;
+						
 						// End turn ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 						case 'e':
 							endOfTurn=true;
@@ -314,6 +323,7 @@ public class Deadwood {
 				active_player.setUpgraded(false);
 				active_player.setWorked(false);
 				active_player.setTookRole(false);
+				players.remove(0);
 				players.add(active_player);
 				System.out.println("~~~~~~~~~~~~ END OF TURN ~~~~~~~~~~~ \n");
 

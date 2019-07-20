@@ -28,7 +28,7 @@ public class Player {
 	public Player(int player_num) {
 	    this.player_num = player_num;
 	    this.currency = new Currency(10,10);
-	    this.rank = 1;
+	    this.rank = 6;
 	    this.name = "NattyNAt";
 	    this.rehearsal_chips = 0;
 	    this.moved = false;
