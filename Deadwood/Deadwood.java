@@ -1,8 +1,5 @@
 package Deadwood;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.ArrayList;
+import java.util.*;
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                                DEADWOOD                                  //
@@ -261,8 +258,7 @@ public class Deadwood {
 
 						// Take role ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 						case 't':
-							
-							
+
 							//If player already has a role, player cannot take another role
 							if(active_player.getRole() != null) {
 								System.out.println("You cannot have more than one role");
@@ -310,14 +306,6 @@ public class Deadwood {
 							break;
 					}
 
-
-					//if(active_player.getRole() == null) {
-
-					//}
-
-
-					// 2) If you are on a role, you can rehearse or act
-
 				}
 
 				
@@ -344,19 +332,21 @@ public class Deadwood {
 			// End of day
 
 			// Remove all scenes cards (should only be one left)
-
+			gm.endDay();
 
 			// Next day
 			gm.decrementDay();
 			endDay = false;
 		}
 
+		// END OF GAME! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		int[] scores = gm.endGame();
 
-    	//test scene and role classes
-    	//Role[] rs = {new Role("one",1),new Role("two",2)};
-    	//Scene s1 = new Scene("scene one",2,rs);
-    	//s1.firstRoleInfo();
+		// Iterate through the players and print scores
+		for (int i = 0; i < players.size(); i++) {
+			System.out.printf("Player %d - Score %d \n", players.get(i).getPlayer_num(), scores[i]);
+		}
 
-    }
+	}
     
 }

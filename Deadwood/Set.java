@@ -74,7 +74,9 @@ public class Set extends Location{
     }
 
     // Remove the scene
-    public void removeScene(){}
+    public void removeScene(){
+        this.current_scene = null;
+    }
 
     // Remove shot counters
     public void removeShotCounter(){

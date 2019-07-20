@@ -10,6 +10,9 @@ package Deadwood;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class GameMaster {
 	
@@ -66,8 +69,47 @@ public class GameMaster {
 		p.getCurrency().addDollar(c.getDollar());
 	}
 
-	public void endDay(Player[] ps) {}
-	public void endGame(Player[] ps) {}
+	// Ending the day sequence
+	public void endDay() {
+
+		// Beginning of day - GAME-MASTER controller
+		for (int i = 2; i <=11; i++){
+
+			// Set the scene cards (10 face down on board)
+			((Set)game_board.getLocation(i)).placeScene(game_board.drawScene());
+
+			// Reset shot counters on scenes
+			((Set)game_board.getLocation(i)).setShotcounters(game_board.getSetShotCounters(i));
+
+			// Set all set to active
+			((Set)game_board.getLocation(i)).setActive(true);
+
+		}
+
+		// Move all the players to the trailers
+		for (int i = 0; i < players.size(); i++){
+			players.get(i).setLocation(game_board.getLocation(Constants.TRAILERS));
+		}
+
+	}
+
+	// End of game scoring
+	public int[] endGame() {
+
+		// Create hashmap for scores
+		int[] scores = new int[players.size()];
+
+		// Calculate scores
+		for (int i = 0; i < players.size(); i++) {
+			int dollar_score = players.get(i).getCurrency().getDollar();
+			int credit_score = players.get(i).getCurrency().getCredit();
+			int rank_score = players.get(i).getRank() * 5;
+
+			scores[i] = dollar_score + credit_score + rank_score;
+		}
+
+		return scores;
+	}
 	
 	// Method for wrapping the set
 	public void wrapSet(Set s){

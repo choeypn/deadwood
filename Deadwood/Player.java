@@ -219,6 +219,10 @@ public class Player {
 	public void setRole(Role role) {
 		this.role = role;
 	}
+
+	public int getPlayer_num(){
+		return this.player_num;
+	}
 }
 
 
