@@ -215,4 +215,11 @@ public class Player {
 				this.player_num, this.currency.getDollar(), this.currency.getCredit(), this.rank, this.location.name, playerRole);
 		return playerinfo;
 	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
 }
+
+
+

@@ -9,6 +9,7 @@ package Deadwood;
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class GameMaster {
 	
@@ -70,15 +71,81 @@ public class GameMaster {
 	
 	// Method for wrapping the set
 	public void wrapSet(Set s){
-		
-		
-		// Set all players to null role at this location
-		
+
+		// On card and off card roles
+		ArrayList<Player> on_card = new ArrayList<Player>();
+		ArrayList<Player> off_card = new ArrayList<Player>();
+
+		// Check where players are
+		for(int i = 0; i < players.size(); i++) {
+
+			// Check if player is on the set being wrapped
+			if (((Set)(players.get(i).getLocation())) == s) {
+
+				// check if they are a main role - add to on card
+				if (players.get(i).getRole().getMain()) {
+					on_card.add(players.get(i));
+				}
+				// Extra, add to off card
+				else {
+					off_card.add(players.get(i));
+				}
+			}
+		}
+
+		// Check if there were no on card players
+		if(on_card.size() == 0) {
+			return;
+		}
+
 		// Payout to players at this set
-		
-		
-		
-		
+		Die d = Die.getD();
+		int budget = s.getScene().getBudget();
+		int num_oncard_roles = s.getScene().getRoleSize();
+
+		// Dice rolls
+		ArrayList<Integer> dice_roll = new ArrayList<Integer>();
+		for (int i = 0; i < budget; i++) {
+			dice_roll.add(d.roll());
+		}
+
+		// Sort the array list (highest to lowest)
+		Collections.sort(dice_roll);
+
+		// Create the total array
+		int[] totals = new int[num_oncard_roles];
+
+		// Calculate totals
+		int roll = 0;
+		for (int i = 0; i < budget; i++) {
+			roll = dice_roll.remove(0);
+			totals[i%num_oncard_roles] += roll;
+		}
+
+		// Find all on card roles
+		for(int i = 0; i < s.getScene().getRoleSize(); i++) {
+
+			// Is the player on this role?
+			for (int j = 0; j < on_card.size(); j++) {
+				// Yes
+				if (on_card.get(j).getRole() == s.getScene().getRole(i)) {
+
+					// Pay the player
+					Currency c = new Currency(totals[i], 0);
+					payPlayer(on_card.get(j), c);
+				}
+
+				on_card.get(j).setRole(null);
+			}
+		}
+
+		// Ofd card payment
+		for (int j = 0; j < off_card.size(); j++) {
+			int dollars = off_card.get(j).getRank();
+			Currency c = new Currency(dollars, 0);
+			payPlayer(off_card.get(j), c);
+			off_card.get(j).setRole(null);
+		}
 	}
 
 	// Starting day method
