@@ -134,7 +134,7 @@ public class Player {
 		int total = roll + rehearsal_chips;
 
 		// If the combined score was more than the budget, acting was a success
-		return(total < budget);
+		return(total >= budget);
 
 	}
 
@@ -145,7 +145,7 @@ public class Player {
 			throw new RehearsalException();
 		}
 		// If the player has too many practice chips, they cannot rehearse
-		if (this.rehearsal_chips > ((Set)(this.location)).getScene().getBudget()-1) {
+		if (this.rehearsal_chips >= ((Set)(this.location)).getScene().getBudget()-1) {
 			throw new RehearsalException();
 		}
 
