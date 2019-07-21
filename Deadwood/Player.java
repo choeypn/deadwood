@@ -211,7 +211,7 @@ public class Player {
 			playerRole = this.role.getName();
 		}
 
-		String playerinfo = String.format("Your turn player %d \n - Money: %d \n - Credits: %d \n - Rank: %d \n - Location: %s \n - Role: %s\n",
+		String playerinfo = String.format("Player %d \n - Money: %d \n - Credits: %d \n - Rank: %d \n - Location: %s \n - Role: %s\n",
 				this.player_num, this.currency.getDollar(), this.currency.getCredit(), this.rank, this.location.name, playerRole);
 		return playerinfo;
 	}

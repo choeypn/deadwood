@@ -34,12 +34,6 @@ public class Deadwood {
 		boolean endOfTurn = false;
 		
 		Die die = Die.getD();
-		System.out.println(die.roll());
-		System.out.println(die.roll());
-		System.out.println(die.roll());
-		System.out.println(die.roll());
-		System.out.println(die.roll());
-		System.out.println(die.roll());
 
 		// User input tool
 		Scanner prompter = new Scanner(System.in);
@@ -72,6 +66,7 @@ public class Deadwood {
 				// Player turn
 				endOfTurn = false;
 				active_player = players.get(0);
+				System.out.println("Your turn");
 				System.out.println(active_player.playerInfo());
 				System.out.println("What would you like to do this turn?\n");
 
@@ -178,7 +173,11 @@ public class Deadwood {
 								System.out.println("You cannot move again this turn");
 								break;
 							}
-
+							// If the player has already worked, they cannot move again
+							if(active_player.getWorked()) {
+								System.out.println("You just finished working");
+								break;
+							}
 
 
 							// Movement location prompt
