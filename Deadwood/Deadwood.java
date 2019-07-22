@@ -27,7 +27,7 @@ public class Deadwood {
 		}
 
 		// Create a gamemaster, initialize total days to 3
-		GameMaster gm = new GameMaster(2, gameboard, players);
+		GameMaster gm = new GameMaster(3, gameboard, players);
 
 		// Variable for currently active player
 		Player active_player;
