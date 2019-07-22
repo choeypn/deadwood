@@ -27,7 +27,7 @@ public class Deadwood {
 		}
 
 		// Create a gamemaster, initialize total days to 3
-		GameMaster gm = new GameMaster(3, gameboard, players);
+		GameMaster gm = new GameMaster(2, gameboard, players);
 
 		// Variable for currently active player
 		Player active_player;
@@ -37,6 +37,7 @@ public class Deadwood {
 
 		// User input tool
 		Scanner prompter = new Scanner(System.in);
+		
 
 
 
@@ -55,7 +56,7 @@ public class Deadwood {
 			// Reset shot counters on scenes
 			// Move players to trailers
 			gm.startDay();
-			
+			System.out.println("Day : "+gm.getDayNum());
 			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			// During the day
 
@@ -81,7 +82,9 @@ public class Deadwood {
 							+ " u - upgrade \n t - take role \n i - player information \n e - end turn \n");
 
 					// Get user input
+					
 					char input = prompter.next().charAt(0);
+					prompter.reset();
 					switch (input) {
 
 						// Act ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -182,22 +185,42 @@ public class Deadwood {
 
 							// Movement location prompt
 							System.out.println("Where would you like to move? (Enter a number 0-11)");
-							int loc = prompter.nextInt();
-
+							System.out.println(" 0 - Trailers \n"
+											 + " 1 - Casting Office \n"
+											 + " 2 - Jail \n"
+											 + " 3 - Train Station \n"
+											 + " 4 - General Store \n"
+											 + " 5 - Saloon \n"
+											 + " 6 - Main Street \n"
+											 + " 7 - Secret Hideout \n"
+											 + " 8 - Ranch \n"
+											 + " 9 - Bank \n"
+											 + "10 - Church \n"
+											 + "11 - Hotel");
 							// If they try to move to the same location - maybe implement this later
 
 
 							// Try to move - catch if invalid movement
 							try {
+								String locS = prompter.next();
+								prompter.reset();
+								int loc = Integer.parseInt(locS);
 								active_player.playerMove(gameboard.getLocation(loc));
 								System.out.println("Player successfully moved");
 								//flip the scene card up if location player entered is a Set location
 								if(gameboard.getLocation(loc) instanceof Set) {
 									((Set)gameboard.getLocation(loc)).getScene().setFlipped(true);
 								}
+								
 							}
 							catch(MovementException e){
-								System.out.println("Invalid movement \n");
+								System.out.println("Invalid movement");
+							}
+							catch(NumberFormatException e) {
+								System.out.println("Input is not an integer");
+							}
+							catch(ArrayIndexOutOfBoundsException e) {
+								System.out.println("Index out of bound");
 							}
 							break;
 
@@ -248,15 +271,28 @@ public class Deadwood {
 
 							System.out.println("Enter #d for rank with Dollar payment method");
 							System.out.println("Enter #c for rank with Crredit payment method");
-							String input_rank = prompter.next();
-							char r2 = input_rank.charAt(1);
-							int r1 = Character.getNumericValue(input_rank.charAt(0));
+					
 							try {
+								String input_rank = prompter.next();
+								prompter.reset();
+								char r2 = input_rank.charAt(1);
+								int r1 = Character.getNumericValue(input_rank.charAt(0));
 								gm.upgradePlayer(active_player,r2,r1);
 							}
 							catch(UpgradeException e) {
 								System.out.println("Rank upgrade failed, new rank unassignned");
 							}
+							catch(NumberFormatException e) {
+								System.out.println("Input is not an integer");
+							}
+							catch(ArrayIndexOutOfBoundsException e) {
+								System.out.println("Index out of bound");
+							}
+							catch(StringIndexOutOfBoundsException e) {
+								System.out.println("Invalid input");
+							}
+							
+							
 							break;
 
 						// Take role ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -286,22 +322,27 @@ public class Deadwood {
 								System.out.printf("Here are the side roles :  %s \n",
 										((Set)active_player.getLocation()).getExtraDetails());
 								System.out.println("Enter x# for extra roles or m# for main roles");
+								
 								String input_role = prompter.next();
 								char c1 = input_role.charAt(0);
 								int c2 = Character.getNumericValue(input_role.charAt(1));
-								try {
-									active_player.playerTakeRole(c1,c2);
-									System.out.println("Role "+active_player.getRole().getName()+" assigned!");
-									active_player.setTookRole(true);
-								}
-								catch(RoleException e) {
-									System.out.println("Invalid Role, role not assigned");
-								}
+								prompter.reset();
+								active_player.playerTakeRole(c1,c2);
+								System.out.println("Role "+active_player.getRole().getName()+" assigned!");
+								active_player.setTookRole(true);
+							}
+							catch(RoleException e) {
+								System.out.println("Invalid input, role not assigned");
 							}
 							catch(ClassCastException e) {
 								System.out.println("You are currently not in a Set location");
 							}
-
+							catch(StringIndexOutOfBoundsException e) {
+								System.out.println("Invalid input, role not assigned");
+							}
+							catch(ArrayIndexOutOfBoundsException e) {
+								System.out.println("Invalid input, role not assigned");
+							}
 							break;
 						
 						case 'i':
@@ -339,7 +380,7 @@ public class Deadwood {
 
 			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			// End of day
-
+			System.out.println("Day "+gm.getDayNum()+" has ended!!");
 			// Remove all scenes cards (should only be one left)
 			gm.endDay();
 
@@ -347,7 +388,7 @@ public class Deadwood {
 			gm.decrementDay();
 			endDay = false;
 		}
-
+		prompter.close();
 		// END OF GAME! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		int[] scores = gm.endGame();
 

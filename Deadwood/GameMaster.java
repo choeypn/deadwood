@@ -20,6 +20,7 @@ public class GameMaster {
 	//fields
 	private int shot_counters;
 	private int game_days;
+	private int totalDays;
 	private Board game_board;
 	ArrayList<Player> players;
 	private int activeSets;
@@ -27,6 +28,7 @@ public class GameMaster {
 	// Constructor
 	public GameMaster(int day, Board b, ArrayList<Player> players) {
 		this.game_days = day;
+		this.totalDays = day;
 		this.game_board = b;
 		this.players = players;
 	}
@@ -72,6 +74,12 @@ public class GameMaster {
 
 	// Ending the day sequence
 	public void endDay() {
+		
+		//Remove Everyone's role and chips at the end of the day
+		for(int j = 0;j < players.size();j++) {
+			players.get(j).setRole(null);
+			players.get(j).removeRehearsalChips();
+		}
 
 		// Beginning of day - GAME-MASTER controller
 		for (int i = 2; i <=11; i++){
@@ -136,7 +144,13 @@ public class GameMaster {
 		}
 
 		// Check if there were no on card players
+		// Also remove every player's role in the scene
 		if(on_card.size() == 0) {
+			// Remove player's role after wrapup
+			for(int k = 0;k < off_card.size();k++) {
+				removePlayerRole(off_card.get(k));
+				removePracticeChips(off_card.get(k));
+			}
 			return;
 		}
 
@@ -210,20 +224,34 @@ public class GameMaster {
 				
 			}
 		}
+		// Remove player's role after wrapup
+		for(int k = 0;k < on_card.size();k++) {
+			removePlayerRole(on_card.get(k));
+			removePracticeChips(on_card.get(k));
+		}
 
 		// Off card payment
 		for (int j = 0; j < off_card.size(); j++) {
 			int dollars = off_card.get(j).getRole().getRank();
 			Currency c = new Currency(dollars, 0);
 			payPlayer(off_card.get(j), c);
+			removePlayerRole(off_card.get(j));
+			removePracticeChips(off_card.get(j));
 		}
 		
-		// Remove player's role after wrapup
-		for(int k = 0;k < players.size();k++) {
-			players.get(k).setRole(null);
-		}
-	}
 
+	}
+	
+	// Remove Player's practice chips
+	public void removePracticeChips(Player p) {
+		p.removeRehearsalChips();
+	}
+	
+	// Remove Player Method
+	public void removePlayerRole(Player p) {
+		p.setRole(null);
+	}
+	
 	// Starting day method
 	public void startDay(){
 
@@ -253,7 +281,7 @@ public class GameMaster {
 		s.removeShotCounter();
 	}
 	
-	
+
 	
 	// Decrement active sets
 	public void decrementActive() {
@@ -265,6 +293,11 @@ public class GameMaster {
 		this.game_days -= 1;
 	}
 
+	//Get day number
+	public int getDayNum() {
+		return (totalDays +1) - game_days;
+	}
+	
 	// Get the number of game days left
 	public int getGame_days(){
 		return this.game_days;

@@ -24,6 +24,15 @@ public class Role {
 	    this.main = false;
 	}
 	
+	public String getMainInfo() {
+		if(getMain()) {
+			return "(Main)";
+		}
+		else {
+			return "(Extra)";
+		}
+	}
+	
 	public boolean getMain() {
 		return main;
 	}

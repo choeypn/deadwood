@@ -62,6 +62,9 @@ public class Player {
 		return currency;
 	}
 
+	public void removeRehearsalChips() {
+		this.rehearsal_chips = 0;
+	}
 
 	
 	// Get player info (debugging)
@@ -203,16 +206,22 @@ public class Player {
 	public String playerInfo(){
 
 		String playerRole;
+		String RoleInfo;
 		// Role check
 		if (this.role == null) {
 			playerRole = "No role";
+			RoleInfo = "";
 		}
 		else {
 			playerRole = this.role.getName();
+			RoleInfo = role.getMainInfo();
 		}
 
-		String playerinfo = String.format("Player %d \n - Money: %d \n - Credits: %d \n - Rank: %d \n - Location: %s \n - Role: %s\n",
-				this.player_num, this.currency.getDollar(), this.currency.getCredit(), this.rank, this.location.name, playerRole);
+		String playerinfo = String.format("Player %d \n - Money: %d \n - Credits: %d \n - Rank: %d \n"
+				+ " - Location: %s \n - Role: %s %s\n - Practice Chips: %d\n",
+				this.player_num, this.currency.getDollar(), this.currency.getCredit(),
+				this.rank, this.location.name, playerRole, RoleInfo,
+				this.rehearsal_chips);
 		return playerinfo;
 	}
 
