@@ -158,34 +158,8 @@ public class GameMaster {
 		Die d = Die.getD();
 		int budget = s.getScene().getBudget();
 		int num_oncard_roles = s.getScene().getRoleSize();
+				
 		
-		// new payout method
-		int[] payout = new int[num_oncard_roles];
-		int track = 0;
-		//find how many rounds to roll dice for payout
-		for(int i = 0; i < (budget + num_oncard_roles -1)/num_oncard_roles; i++) {
-			int[] temp = new int[num_oncard_roles];
-			//rolls the number of dice equals to number of scene roles
-			for(int j = 0; j < num_oncard_roles;j++) {
-				//total roll equal to budget
-				if(track < budget) {
-					//save rolled dice in temp
-					temp[j] = d.roll();
-					
-					
-					track++;
-				}
-			}
-			//sort lowest to highest
-			Arrays.sort(temp);
-			//add previous rolled to latest rolled
-			for(int k = num_oncard_roles-1; k >= 0;k--) {
-				payout[k] += temp[k];
-			}
-			
-		}
-		
-		/* Previous calculate payout Method
 		// Dice rolls
 		ArrayList<Integer> dice_roll = new ArrayList<Integer>();
 		for (int i = 0; i < budget; i++) {
@@ -202,9 +176,10 @@ public class GameMaster {
 		int roll = 0;
 		for (int i = 0; i < budget; i++) {
 			roll = dice_roll.remove(0);
+			System.out.println(roll);
 			totals[i%num_oncard_roles] += roll;
 		}
-		*/
+		
 		// Find all on card roles
 		for(int i = 0; i < s.getScene().getRoleSize(); i++) {
 
@@ -216,7 +191,7 @@ public class GameMaster {
 				if (playRole.equals(paidRole)){
 
 					// Pay the player
-					Currency c = new Currency(payout[i], 0);
+					Currency c = new Currency(totals[i], 0);
 					payPlayer(on_card.get(j), c);
 					break;
 				}
