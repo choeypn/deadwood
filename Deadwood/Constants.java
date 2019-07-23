@@ -27,5 +27,5 @@ public final class Constants {
     //Variables for upgrading rank
     public static final int[] RD = {4,10,18,28,40};
     public static final int[] RC = {5,10,15,20,25};
-
+    
 }

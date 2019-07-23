@@ -17,9 +17,7 @@ public class Board {
     // Fields
     private ArrayList<Scene> scene_deck = new ArrayList<Scene>(40);
     private Location[] locations = new Location[12];
-    private int[][] board_tiles = new int[2][2];
     private final int[] shotcounters = {0, 0, 1, 3, 2, 2, 3, 3, 2, 1, 2, 3};
-    private final int num_locations = 12;
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Methods

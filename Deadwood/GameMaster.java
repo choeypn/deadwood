@@ -17,14 +17,10 @@ import java.util.Map;
 
 public class GameMaster {
 	
-	//fields
-	private int shot_counters;
 	private int game_days;
 	private int totalDays;
 	private Board game_board;
 	ArrayList<Player> players;
-	private int activeSets;
-
 	// Constructor
 	public GameMaster(int day, Board b, ArrayList<Player> players) {
 		this.game_days = day;
@@ -176,7 +172,6 @@ public class GameMaster {
 		int roll = 0;
 		for (int i = 0; i < budget; i++) {
 			roll = dice_roll.remove(0);
-			System.out.println(roll);
 			totals[i%num_oncard_roles] += roll;
 		}
 		
@@ -248,8 +243,6 @@ public class GameMaster {
 		for (int i = 0; i < players.size(); i++){
 			players.get(i).setLocation(game_board.getLocation(Constants.TRAILERS));
 		}
-		
-		activeSets = 10;
 	}
 	
 	public void removeShotCounter(Set s) {
@@ -260,7 +253,6 @@ public class GameMaster {
 	
 	// Decrement active sets
 	public void decrementActive() {
-		activeSets--;
 	}
 
 	// Decrement day

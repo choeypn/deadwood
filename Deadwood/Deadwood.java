@@ -252,14 +252,17 @@ public class Deadwood {
 
 						// Upgrade ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 						case 'u':
+							//check if the player is at Casting Office
 							if(active_player.getLocation() instanceof CastingOffice == false) {
 								System.out.println("You are currently not at Casting Office");
 								break;
 							}
+							//check if the player already upgraded in his turn 
 							if(active_player.getUpgraded() == true) {
 								System.out.println("You already upgraded this round");
 								break;
 							}
+							//Display upgrade information
 							System.out.println("The cost to upgrade is shown below:");
 
 							System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -273,7 +276,8 @@ public class Deadwood {
 
 							System.out.println("Enter #d for rank with Dollar payment method");
 							System.out.println("Enter #c for rank with Crredit payment method");
-					
+							
+							//verify and upgrade player's rank 
 							try {
 								String input_rank = prompter.next();
 								prompter.reset();
@@ -315,6 +319,7 @@ public class Deadwood {
 									System.out.println("This scene has wrapped");
 									break;
 								}
+								// Display current scene information
 								System.out.printf("Active scene : %s, Budget : %d \n",
 										((Set)active_player.getLocation()).getScene().getName(),
 										((Set)active_player.getLocation()).getScene().getBudget());
@@ -324,11 +329,12 @@ public class Deadwood {
 								System.out.printf("Here are the side roles :  %s \n",
 										((Set)active_player.getLocation()).getExtraDetails());
 								System.out.println("Enter x# for extra roles or m# for main roles");
-								
+								//get user's input
 								String input_role = prompter.next();
 								char c1 = input_role.charAt(0);
 								int c2 = Character.getNumericValue(input_role.charAt(1));
 								prompter.reset();
+								//verify and assign role to player 
 								active_player.playerTakeRole(c1,c2);
 								System.out.println("Role "+active_player.getRole().getName()+" assigned!");
 								active_player.setTookRole(true);
