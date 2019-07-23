@@ -58,10 +58,6 @@ public class Set extends Location{
     	this.extras = r;
     }
 
-    // Add active players to the set
-    public void addActivePlayer(Player player) {
-    }
-
     
     // Get the scene
     public Scene getScene() {
@@ -71,11 +67,6 @@ public class Set extends Location{
     // Place the scene
     public void placeScene(Scene scene){
         this.current_scene = scene;
-    }
-
-    // Remove the scene
-    public void removeScene(){
-        this.current_scene = null;
     }
 
     // Remove shot counters

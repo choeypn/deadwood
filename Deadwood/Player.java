@@ -193,9 +193,6 @@ public class Player {
 				
 		}
 	}
-	
-	
-	public void playerRollDice(int dice) {}
 
 	// Get the player role
 	public Role getRole() {

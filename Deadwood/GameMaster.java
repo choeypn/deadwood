@@ -21,6 +21,7 @@ public class GameMaster {
 	private int totalDays;
 	private Board game_board;
 	ArrayList<Player> players;
+
 	// Constructor
 	public GameMaster(int day, Board b, ArrayList<Player> players) {
 		this.game_days = day;
@@ -60,7 +61,6 @@ public class GameMaster {
 				
 		}
 	}
-	//public void gameInit(Player[] ps) {}
 
 	// Pay the player
 	public void payPlayer(Player p, Currency c) {
@@ -247,12 +247,6 @@ public class GameMaster {
 	
 	public void removeShotCounter(Set s) {
 		s.removeShotCounter();
-	}
-	
-
-	
-	// Decrement active sets
-	public void decrementActive() {
 	}
 
 	// Decrement day

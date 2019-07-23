@@ -31,9 +31,4 @@ public abstract class Location {
         adj_locations.add(location);
     }
 
-    // Add an active player to a location
-    public abstract void addActivePlayer(Player player);
-
-
-
 }

@@ -19,10 +19,6 @@ public class Trailers extends Location {
         this.name = name;
     }
 
-    // Add active players
-    public void addActivePlayer(Player player) {
-    }
-
     // Get the name of the location
     public String getName() {
         return this.name;
