@@ -79,7 +79,7 @@ public class Deadwood {
 					// 3) If you are located at the casting office, you can upgrade
 
 					System.out.println("Options: \n a - act \n m - move \n r - rehearse \n"
-							+ " u - upgrade \n t - take role \n i - player information \n e - end turn \n");
+							+ " u - upgrade \n t - take role \n i - player information \n e - end turn \n l - display player locations \n");
 
 					// Get user input
 					
@@ -354,6 +354,13 @@ public class Deadwood {
 						// End turn ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 						case 'e':
 							endOfTurn=true;
+							break;
+
+						// Print player locations ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+						case 'l':
+							for (int i = 0; i < players.size(); i++) {
+								System.out.printf("Player %d -  %s \n", players.get(i).getPlayer_num() ,players.get(i).getLocation().getName());
+							}
 							break;
 					}
 
