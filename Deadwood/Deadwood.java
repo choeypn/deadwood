@@ -205,8 +205,10 @@ public class Deadwood {
 								String locS = prompter.next();
 								prompter.reset();
 								int loc = Integer.parseInt(locS);
+								String previousLoc = active_player.getLocation().getName();
 								active_player.playerMove(gameboard.getLocation(loc));
-								System.out.println("Player successfully moved");
+								System.out.println("Player successfully moved from "+previousLoc+" to "
+										+active_player.getLocation().getName());
 								//flip the scene card up if location player entered is a Set location
 								if(gameboard.getLocation(loc) instanceof Set) {
 									((Set)gameboard.getLocation(loc)).getScene().setFlipped(true);
