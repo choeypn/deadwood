@@ -1,4 +1,4 @@
-package Deadwood;
+package Deadwood.MODEL;
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - CASTINGOFFICE CLASS                            //
