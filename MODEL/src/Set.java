@@ -1,5 +1,3 @@
-package Deadwood.MODEL;
-
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - SET CLASS                                      //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //

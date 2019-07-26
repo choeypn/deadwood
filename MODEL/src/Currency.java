@@ -1,5 +1,3 @@
-package Deadwood.MODEL;
-
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - CURRENCY CLASS                                 //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //

@@ -1,29 +1,24 @@
-package Deadwood.MODEL;
-
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
-//                DEADWOOD - CASTINGOFFICE CLASS                            //
+//                DEADWOOD - TRAILERS CLASS                                 //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
 //  Class: CSCI 345, Summer 2019                                            //
 //                                                                          //
 //                                                                          //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 
-public class CastingOffice extends Location{
+public class Trailers extends Location {
+
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Methods
 
     // Constructor
-    public CastingOffice(String name){
+    public Trailers(String name){
         this.name = name;
     }
 
-    // Add active players to the location
-    public void addActivePlayer(Player player) {
-    }
-
-    // Get the location name
-    public String getName(){
+    // Get the name of the location
+    public String getName() {
         return this.name;
     }
 }

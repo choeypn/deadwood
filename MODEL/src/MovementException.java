@@ -1,26 +1,16 @@
-package Deadwood.MODEL;
-
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
-//                DEADWOOD - TRAILERS CLASS                                 //
+//                DEADWOOD - MOVEMENT EXCEPTION CLASS                       //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
 //  Class: CSCI 345, Summer 2019                                            //
 //                                                                          //
 //                                                                          //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 
-public class Trailers extends Location {
+// Define a movement exception - occurs when a player tries to move to a
+// location that they are not adjacent to
+public class MovementException extends Exception {
 
-
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // Methods
-
-    // Constructor
-    public Trailers(String name){
-        this.name = name;
-    }
-
-    // Get the name of the location
-    public String getName() {
-        return this.name;
+    public MovementException(){
+        super("Invalid player movement");
     }
 }

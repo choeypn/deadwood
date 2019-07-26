@@ -1,5 +1,3 @@
-package Deadwood.MODEL;
-
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - GAMEMASTER CLASS                               //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //

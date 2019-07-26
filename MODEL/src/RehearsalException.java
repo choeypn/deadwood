@@ -1,17 +1,21 @@
-package Deadwood.MODEL;
-
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
-//                DEADWOOD - ROLE EXCEPTION CLASS                       //
+//                DEADWOOD - REHEARSAL EXCEPTION CLASS                      //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
 //  Class: CSCI 345, Summer 2019                                            //
 //                                                                          //
 //                                                                          //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 
-// Define a role exception - occurs when a player tries to take invalid role
-public class RoleException extends Exception {
+// Define a rehearsal exception - occurs when a player tries to rehearse when
+// they are not allowed to
+public class RehearsalException extends Exception{
 
-    public RoleException(){
-        super("Invalid Role");
+    public RehearsalException(){
+        super("Can not rehearse");
     }
 }
+
+
+
+
+

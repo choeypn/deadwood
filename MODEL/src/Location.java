@@ -1,4 +1,3 @@
-package Deadwood.MODEL;
 import java.util.ArrayList;
 import java.util.Collections;
 
