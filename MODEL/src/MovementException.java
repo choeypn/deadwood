@@ -1,3 +1,5 @@
+package MODEL.src;
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - MOVEMENT EXCEPTION CLASS                       //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //

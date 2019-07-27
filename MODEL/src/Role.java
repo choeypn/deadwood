@@ -1,3 +1,5 @@
+package MODEL.src;
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - ROLE CLASS                                     //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //

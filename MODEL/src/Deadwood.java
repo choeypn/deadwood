@@ -1,4 +1,7 @@
+package MODEL.src;
+
 import java.util.*;
+import VIEW.src.*;
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                                DEADWOOD                                  //
@@ -14,7 +17,9 @@ public class Deadwood {
 
     	// ~~~~~~~~~~~~~~~~ GAME INITIALIZATION ROUTINE ~~~~~~~~~~~~~~~~~~~~
 		// WRAP IN FUNCTION LATER!!!!
-
+    	
+    	GUI gui = new GUI();
+    	gui.setVisible(true);
 		// Initialize the board - standard tile configuration
 		Board gameboard = new Board();
 

@@ -1,3 +1,5 @@
+package MODEL.src;
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - TRAILERS CLASS                                 //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //

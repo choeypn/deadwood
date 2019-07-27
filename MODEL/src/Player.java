@@ -1,3 +1,5 @@
+package MODEL.src;
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - PLAYER CLASS                                   //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //

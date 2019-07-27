@@ -1,3 +1,5 @@
+package MODEL.src;
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - ROLE EXCEPTION CLASS                       //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //

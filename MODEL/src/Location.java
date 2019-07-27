@@ -1,3 +1,5 @@
+package MODEL.src;
+
 import java.util.ArrayList;
 import java.util.Collections;
 

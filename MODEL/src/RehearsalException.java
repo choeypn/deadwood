@@ -1,3 +1,5 @@
+package MODEL.src;
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - REHEARSAL EXCEPTION CLASS                      //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
