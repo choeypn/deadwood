@@ -2,6 +2,8 @@ package VIEW.src;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.ImageIcon;
+import javax.swing.border.Border;
+
 import CONTROLLER.src.*;
 import MODEL.src.Constants;
 
@@ -17,6 +19,16 @@ public class GUI extends JFrame {
     private JLayeredPane paneDeadwood;
     private ImageIcon iconGameBoard;
 
+    private JLabel player1;
+    private JLabel player2;
+    private JLabel player3;
+    private JLabel gameplay;
+    private JPanel player1box;
+	private JPanel player2box;
+	private JPanel player3box;
+	private JPanel gameplaybox;
+
+    private final static String newline = "\n";
     private static final String MENU_LABEL_TEXT = "MENU";
     private static final String ACT_BUTTON_TEXT = "ACT";
     private static final String REHEARSE_BUTTON_TEXT = "REHEARSE";
@@ -34,11 +46,14 @@ public class GUI extends JFrame {
         setupPlayerLabel();
         setupMenuLabel();
         setupShotLabel();
+        setupTextBoxes();
     }
     
     public void setLabelBounds(JLabel obj, int xCord, int yCord) {
     	obj.setBounds(xCord, yCord, obj.getIcon().getIconWidth(), obj.getIcon().getIconHeight());
     }
+
+
     
     public void placePlayerRole(JLabel player,int loc,int pos,int numRoles) {
     	switch(numRoles) {
@@ -292,6 +307,62 @@ public class GUI extends JFrame {
         setLabelBounds(labelGameBoard,0,0);
         setSize(592, 506);
     }
+
+    private void setupTextBoxes() {
+
+    	// Player 1 Infobox
+        player1 = new JLabel();
+		player1.setText("Player 1");
+		player1.setOpaque(true);
+		player1.setBackground(Color.black);
+		player1.setForeground(Color.cyan);
+		Border border1 = BorderFactory.createLineBorder(Color.CYAN, 5);
+		player1.setBounds(iconGameBoard.getIconWidth() + 200, 30, 200, 200);
+		player1.setBorder(border1);
+		player1.setHorizontalAlignment(JLabel.CENTER);
+		player1.setVerticalAlignment(JLabel.CENTER);
+
+		// Player 2 Infobox
+		player2 = new JLabel();
+		player2.setText("Player 2");
+		player2.setOpaque(true);
+		player2.setBackground(Color.black);
+		player2.setForeground(Color.green);
+		Border border2 = BorderFactory.createLineBorder(Color.GREEN, 5);
+		player2.setBounds(iconGameBoard.getIconWidth() + 200, 280, 200, 200);
+		player2.setBorder(border2);
+		player2.setHorizontalAlignment(JLabel.CENTER);
+		player2.setVerticalAlignment(JLabel.CENTER);
+
+		// Player 3 Infobox
+		player3 = new JLabel();
+		player3.setText("Player 3");
+		player3.setOpaque(true);
+		player3.setBackground(Color.black);
+		player3.setForeground(Color.red);
+		Border border3 = BorderFactory.createLineBorder(Color.RED, 5);
+		player3.setBounds(iconGameBoard.getIconWidth() + 200, 530, 200, 200);
+		player3.setBorder(border3);
+		player3.setHorizontalAlignment(JLabel.CENTER);
+		player3.setVerticalAlignment(JLabel.CENTER);
+
+		// Gameplay text
+		gameplay = new JLabel();
+		gameplay.setText("Gameplay");
+		gameplay.setOpaque(true);
+		gameplay.setBackground(Color.white);
+		gameplay.setBounds(iconGameBoard.getIconWidth() + 50, 780, 500, 200);
+		gameplay.setHorizontalAlignment(JLabel.CENTER);
+		gameplay.setVerticalAlignment(JLabel.CENTER);
+
+		//create new Font
+		Font font = new Font("Courier", Font.BOLD,18);
+
+		//set font for JLabel
+		gameplay.setFont(font);
+
+    }
+
     private void setupCardsLabel() {
         labelCard[Constants.TRAIN] = new JLabel();
         ImageIcon cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[0]);
@@ -378,20 +449,24 @@ public class GUI extends JFrame {
     }
     
     private void setupPlayerLabel() {
+
+    	// Player 1 - Blue
     	labelPlayer[0] = new JLabel();
     	ImageIcon playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[3]);
         labelPlayer[0].setIcon(playerDiceIcon);
         //placePlayerRole(labelPlayer[0],Constants.GENERAL,1,1);
         //placePlayerOffRole(labelPlayer[0],Constants.HOTEL,3);
         placePlayerCasting(labelPlayer[0],1);
-        
+
+        // Player 2 - Green
         labelPlayer[1] = new JLabel();
         playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[15]);
         labelPlayer[1].setIcon(playerDiceIcon);
         //placePlayerExtra(labelPlayer[1],Constants.MAIN,1);
         //placePlayerOffRole(labelPlayer[1],Constants.HOTEL,2);
         placePlayerCasting(labelPlayer[1],3);
-        
+
+        // Player 3 - Red
         labelPlayer[2] = new JLabel();
         playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[6]);
         labelPlayer[2].setIcon(playerDiceIcon);
@@ -467,6 +542,13 @@ public class GUI extends JFrame {
         for(int i = 0; i < shotcounters.length;i++) {
         	paneDeadwood.add(shotcounters[i],new Integer(3));
         }
-        
+
+        paneDeadwood.add(player1, 3);
+        paneDeadwood.add(player2, 3);
+        paneDeadwood.add(player3, 3);
+        paneDeadwood.add(gameplay, 3);
+
+
+
     }
 }

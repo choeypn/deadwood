@@ -3,7 +3,7 @@ package VIEW.src;
 public class VIEWConstants {
     public static final String DEADWOOD_TITLE = "Deadwood";
 
-	 
+	 /*
 	public static final String SHOTCOUNTER_IMAGE = "src/shot.png";
     public static final String GAME_BOARD_IMAGE = "src/board.jpg";
     public static final String[] CARDS_IMAGE = {"src/cards/01.png","src/cards/02.png",
@@ -26,17 +26,17 @@ public class VIEWConstants {
                                                 "src/cards/35.png","src/cards/36.png",
                                                 "src/cards/37.png","src/cards/38.png",
                                                 "src/cards/39.png","src/cards/40.png"};
-    public static final String[] DICE_IMAGE = {"src/dice/b1.png","src/dice/b2.png",
-                                                "src/dice/b3.png","src/dice/b4.png",
-                                                "src/dice/b5.png","src/dice/b6.png",
-                                                "src/dice/c1.png","src/dice/c2.png",
+    public static final String[] DICE_IMAGE = {"src/dice/c1.png","src/dice/c2.png",
                                                 "src/dice/c3.png","src/dice/c4.png",
                                                 "src/dice/c5.png","src/dice/c6.png",
+                                                "src/dice/r1.png","src/dice/r2.png",
+                                                "src/dice/r3.png","src/dice/r4.png",
+                                                "src/dice/r5.png","src/dice/r6.png",
                                                 "src/dice/g1.png","src/dice/g2.png",
                                                 "src/dice/g3.png","src/dice/g4.png",
                                                 "src/dice/g5.png","src/dice/g6.png"};
-      
-      /*
+      */
+
 	public static final String SHOTCOUNTER_IMAGE = "shot.png";
     public static final String GAME_BOARD_IMAGE = "board.jpg";
     public static final String[] CARDS_IMAGE = {"cards/01.png","cards/02.png",
@@ -59,16 +59,16 @@ public class VIEWConstants {
     											"cards/35.png","cards/36.png",
     											"cards/37.png","cards/38.png",
     											"cards/39.png","cards/40.png"};
-    public static final String[] DICE_IMAGE = {"dice/b1.png","dice/b2.png",
-    											"dice/b3.png","dice/b4.png",
-    											"dice/b5.png","dice/b6.png",
-    											"dice/c1.png","dice/c2.png",
+    public static final String[] DICE_IMAGE = {"dice/c1.png","dice/c2.png",
     											"dice/c3.png","dice/c4.png",
     											"dice/c5.png","dice/c6.png",
+    											"dice/r1.png","dice/r2.png",
+    											"dice/r3.png","dice/r4.png",
+    											"dice/r5.png","dice/r6.png",
     											"dice/g1.png","dice/g2.png",
     											"dice/g3.png","dice/g4.png",
     											"dice/g5.png","dice/g6.png"};
-    */
+
 
 	public static final int[][] ShotCounterCoordinates = {{445, 155}, // JAIL (1)
 			                                              {145, 12}, {92, 12}, {38, 12}, // TRAIN (1) (2) (3)
