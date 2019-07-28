@@ -240,6 +240,19 @@ public class GUI extends JFrame {
     	}
     }
     
+    public void placePlayerOffRole(JLabel player,int loc,int numPlayer) {
+    	switch(numPlayer) {
+    	case 1:
+    		setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0],
+					VIEWConstants.CardsCoordinates[loc][1]+170);
+    		break;
+    	case 2:
+    		break;
+    	case 3:
+    		break;
+    	}
+    }
+    
     
     private void setupGameBoardLabel() {
         labelGameBoard = new JLabel();
@@ -352,7 +365,7 @@ public class GUI extends JFrame {
         playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[6]);
         labelPlayer[2].setIcon(playerDiceIcon);
         labelPlayer[2].setBounds(114, 127, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
-        
+        placePlayerOffRole(labelPlayer[2],Constants.TRAIN,1);
         
         //labelPlayer.setBounds(114,227,46,46);
     }
