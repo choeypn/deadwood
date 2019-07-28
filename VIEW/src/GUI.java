@@ -10,6 +10,7 @@ public class GUI extends JFrame {
     private JLabel[] labelCard = new JLabel[40];
     private JLabel[] labelPlayer = new JLabel[3];
     private JLabel labelMenu;
+    private JLabel[] shotcounters = new JLabel[3];
     private JButton buttonAct;
     private JButton buttonRehearse;
     private JButton buttonMove;
@@ -32,10 +33,11 @@ public class GUI extends JFrame {
         setupCardsLabel();
         setupPlayerLabel();
         setupMenuLabel();
+        setupShotLabel();
     }
     
     public void setLabelBounds(JLabel obj, int xCord, int yCord) {
-    	obj.setBounds(xCord, yCord, obj.getIcon().getIconWidth() + 2, obj.getIcon().getIconHeight());
+    	obj.setBounds(xCord, yCord, obj.getIcon().getIconWidth(), obj.getIcon().getIconHeight());
     }
     
     public void placePlayerRole(JLabel player,int loc,int pos,int numRoles) {
@@ -114,7 +116,7 @@ public class GUI extends JFrame {
         labelCard[Constants.JAIL].setOpaque(true);
         
         labelCard[Constants.GENERAL] = new JLabel();
-        cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[34]);
+        cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[11]);
         labelCard[Constants.GENERAL].setIcon(cardIcon);
         setLabelBounds(labelCard[Constants.GENERAL],
         		VIEWConstants.CardsCoordinates[Constants.GENERAL][0],
@@ -176,13 +178,17 @@ public class GUI extends JFrame {
     	ImageIcon playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[3]);
         labelPlayer[0].setIcon(playerDiceIcon);
         //labelPlayer[0].setBounds(114, 227, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
-        placePlayerRole(labelPlayer[0],Constants.JAIL,2,2);
+        placePlayerRole(labelPlayer[0],Constants.GENERAL,1,1);
         
         
         labelPlayer[1] = new JLabel();
         playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[15]);
         labelPlayer[1].setIcon(playerDiceIcon);
         labelPlayer[1].setBounds(114, 327, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
+        setLabelBounds(labelPlayer[1],
+        		VIEWConstants.ExtrasCoordinates[Constants.JAIL][0],
+        		VIEWConstants.ExtrasCoordinates[Constants.JAIL][1]);
+        
         
         labelPlayer[2] = new JLabel();
         playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[6]);
@@ -192,6 +198,16 @@ public class GUI extends JFrame {
         
         //labelPlayer.setBounds(114,227,46,46);
     }
+    
+    private void setupShotLabel() {
+        for(int i = 0; i < shotcounters.length;i++) {
+        	shotcounters[i] = new JLabel();
+            ImageIcon shotIcon = new ImageIcon("src/shot.png");
+            shotcounters[i].setIcon(shotIcon);
+            shotcounters[i].setBounds(100+i*100,100+i*100,shotIcon.getIconWidth(),shotIcon.getIconHeight());
+        }
+    }
+    
     private void setupMenuLabel() {
         labelMenu = new JLabel(MENU_LABEL_TEXT);
         labelMenu.setBounds(iconGameBoard.getIconWidth() + 40, 0, 100, 20);
@@ -242,5 +258,10 @@ public class GUI extends JFrame {
         paneDeadwood.add(buttonAct, new Integer(2));
         paneDeadwood.add(buttonRehearse, new Integer(2));
         paneDeadwood.add(buttonMove, new Integer(2));
+        
+        for(int i = 0; i < shotcounters.length;i++) {
+        	paneDeadwood.add(shotcounters[i],new Integer(3));
+        }
+        
     }
 }
