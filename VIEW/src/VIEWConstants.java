@@ -3,7 +3,7 @@ package VIEW.src;
 public class VIEWConstants {
     public static final String DEADWOOD_TITLE = "Deadwood";
 
-
+	// /*
     public static final String GAME_BOARD_IMAGE = "src/board.jpg";
     public static final String[] CARDS_IMAGE = {"src/cards/01.png","src/cards/02.png",
                                                 "src/cards/03.png","src/cards/04.png",
@@ -34,7 +34,7 @@ public class VIEWConstants {
                                                 "src/dice/g1.png","src/dice/g2.png",
                                                 "src/dice/g3.png","src/dice/g4.png",
                                                 "src/dice/g5.png","src/dice/g6.png"};
-     
+     // */
      /*
     public static final String GAME_BOARD_IMAGE = "board.jpg";
     public static final String[] CARDS_IMAGE = {"cards/01.png","cards/02.png",
