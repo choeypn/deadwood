@@ -33,75 +33,112 @@ public class GUI extends JFrame {
         setupPlayerLabel();
         setupMenuLabel();
     }
+    
+    public void setLabelBounds(JLabel obj, int xCord, int yCord) {
+    	obj.setBounds(xCord, yCord, obj.getIcon().getIconWidth() + 2, obj.getIcon().getIconHeight());
+    }
+    
+    public void placePlayerRole(JLabel player,int loc,int pos) {
+    	switch(pos) {
+    	case 1:
+    		setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+19,
+    				VIEWConstants.CardsCoordinates[loc][1]+49);
+    		break;
+    	case 2:
+    		setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+19,
+    				VIEWConstants.CardsCoordinates[loc][1]+49);
+    		break;
+    	}
+    }
+    
     private void setupGameBoardLabel() {
         labelGameBoard = new JLabel();
         iconGameBoard = new ImageIcon(VIEWConstants.GAME_BOARD_IMAGE);
         labelGameBoard.setIcon(iconGameBoard);
-        labelGameBoard.setBounds(0, 0, iconGameBoard.getIconWidth(), 
-iconGameBoard.getIconHeight());
+        setLabelBounds(labelGameBoard,0,0);
         setSize(592, 506);
-// Set the size of the GUI
     }
     private void setupCardsLabel() {
         labelCard[Constants.TRAIN] = new JLabel();
         ImageIcon cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[0]);
         labelCard[Constants.TRAIN].setIcon(cardIcon);
-        labelCard[Constants.TRAIN].setBounds(20, 65, cardIcon.getIconWidth() + 2, cardIcon.getIconHeight());
-        labelCard[Constants.TRAIN].setOpaque(true);
+        setLabelBounds(labelCard[Constants.TRAIN],
+        		VIEWConstants.CardsCoordinates[Constants.TRAIN][0],
+        		VIEWConstants.CardsCoordinates[Constants.TRAIN][1]);
+        labelCard[Constants.TRAIN].setEnabled(false);
+        //labelCard[Constants.TRAIN].setOpaque(true);
         
         labelCard[Constants.SECRET] = new JLabel();
         cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[15]);
         labelCard[Constants.SECRET].setIcon(cardIcon);
-        labelCard[Constants.SECRET].setBounds(27, 732, cardIcon.getIconWidth() + 2, cardIcon.getIconHeight());
+        setLabelBounds(labelCard[Constants.SECRET],
+        		VIEWConstants.CardsCoordinates[Constants.SECRET][0],
+        		VIEWConstants.CardsCoordinates[Constants.SECRET][1]);
         labelCard[Constants.SECRET].setOpaque(true);
 
 
         labelCard[Constants.JAIL] = new JLabel();
         cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[22]);
         labelCard[Constants.JAIL].setIcon(cardIcon);
-        labelCard[Constants.JAIL].setBounds(282, 28, cardIcon.getIconWidth() + 2, cardIcon.getIconHeight());
+        setLabelBounds(labelCard[Constants.JAIL],
+        		VIEWConstants.CardsCoordinates[Constants.JAIL][0],
+        		VIEWConstants.CardsCoordinates[Constants.JAIL][1]);
         labelCard[Constants.JAIL].setOpaque(true);
         
         labelCard[Constants.GENERAL] = new JLabel();
         cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[34]);
         labelCard[Constants.GENERAL].setIcon(cardIcon);
-        labelCard[Constants.GENERAL].setBounds(371, 281, cardIcon.getIconWidth() + 2, cardIcon.getIconHeight());
+        setLabelBounds(labelCard[Constants.GENERAL],
+        		VIEWConstants.CardsCoordinates[Constants.GENERAL][0],
+        		VIEWConstants.CardsCoordinates[Constants.GENERAL][1]);
         labelCard[Constants.GENERAL].setOpaque(true);
     
         labelCard[Constants.RANCH] = new JLabel();
         cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[34]);
         labelCard[Constants.RANCH].setIcon(cardIcon);
-        labelCard[Constants.RANCH].setBounds(254, 476, cardIcon.getIconWidth() + 2, cardIcon.getIconHeight());
+        setLabelBounds(labelCard[Constants.RANCH],
+        		VIEWConstants.CardsCoordinates[Constants.RANCH][0],
+        		VIEWConstants.CardsCoordinates[Constants.RANCH][1]);
         labelCard[Constants.RANCH].setOpaque(true);
     
         labelCard[Constants.SALOON] = new JLabel();
         cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[39]);
         labelCard[Constants.SALOON].setIcon(cardIcon);
-        labelCard[Constants.SALOON].setBounds(631, 281, cardIcon.getIconWidth() + 2, cardIcon.getIconHeight());
+        setLabelBounds(labelCard[Constants.SALOON],
+        		VIEWConstants.CardsCoordinates[Constants.SALOON][0],
+        		VIEWConstants.CardsCoordinates[Constants.SALOON][1]);
         labelCard[Constants.SALOON].setOpaque(true);
         
         labelCard[Constants.BANK] = new JLabel();
         cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[1]);
         labelCard[Constants.BANK].setIcon(cardIcon);
-        labelCard[Constants.BANK].setBounds(622, 473, cardIcon.getIconWidth() + 2, cardIcon.getIconHeight());
+        setLabelBounds(labelCard[Constants.BANK],
+        		VIEWConstants.CardsCoordinates[Constants.BANK][0],
+        		VIEWConstants.CardsCoordinates[Constants.BANK][1]);
         labelCard[Constants.BANK].setOpaque(true);
         
         labelCard[Constants.CHURCH] = new JLabel();
         cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[9]);
         labelCard[Constants.CHURCH].setIcon(cardIcon);
-        labelCard[Constants.CHURCH].setBounds(622, 733, cardIcon.getIconWidth() + 2, cardIcon.getIconHeight());
+        setLabelBounds(labelCard[Constants.CHURCH],
+        		VIEWConstants.CardsCoordinates[Constants.CHURCH][0],
+        		VIEWConstants.CardsCoordinates[Constants.CHURCH][1]);
         labelCard[Constants.CHURCH].setOpaque(true);
         
         labelCard[Constants.MAIN] = new JLabel();
         cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[17]);
         labelCard[Constants.MAIN].setIcon(cardIcon);
-        labelCard[Constants.MAIN].setBounds(970, 28, cardIcon.getIconWidth() + 2, cardIcon.getIconHeight());
+        setLabelBounds(labelCard[Constants.MAIN],
+        		VIEWConstants.CardsCoordinates[Constants.MAIN][0],
+        		VIEWConstants.CardsCoordinates[Constants.MAIN][1]);
         labelCard[Constants.MAIN].setOpaque(true);
         
         labelCard[Constants.HOTEL] = new JLabel();
         cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[26]);
         labelCard[Constants.HOTEL].setIcon(cardIcon);
-        labelCard[Constants.HOTEL].setBounds(970, 740, cardIcon.getIconWidth() + 2, cardIcon.getIconHeight());
+        setLabelBounds(labelCard[Constants.HOTEL],
+        		VIEWConstants.CardsCoordinates[Constants.HOTEL][0],
+        		VIEWConstants.CardsCoordinates[Constants.HOTEL][1]);
         labelCard[Constants.HOTEL].setOpaque(true);
         
     }
@@ -110,7 +147,11 @@ iconGameBoard.getIconHeight());
     	labelPlayer[0] = new JLabel();
     	ImageIcon playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[3]);
         labelPlayer[0].setIcon(playerDiceIcon);
-        labelPlayer[0].setBounds(114, 227, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
+        //labelPlayer[0].setBounds(114, 227, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
+        setLabelBounds(labelPlayer[0],
+        		VIEWConstants.Roles3M1Coordinates[Constants.SALOON][0],
+        		VIEWConstants.Roles3M1Coordinates[Constants.SALOON][1]);
+        
         
         labelPlayer[1] = new JLabel();
         playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[15]);
