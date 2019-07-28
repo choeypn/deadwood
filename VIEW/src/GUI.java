@@ -38,17 +38,45 @@ public class GUI extends JFrame {
     	obj.setBounds(xCord, yCord, obj.getIcon().getIconWidth() + 2, obj.getIcon().getIconHeight());
     }
     
-    public void placePlayerRole(JLabel player,int loc,int pos) {
-    	switch(pos) {
-    	case 1:
-    		setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+19,
-    				VIEWConstants.CardsCoordinates[loc][1]+49);
-    		break;
+    public void placePlayerRole(JLabel player,int loc,int pos,int numRoles) {
+    	switch(numRoles) {
+    	case 1: 
+    		setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+82,
+					VIEWConstants.CardsCoordinates[loc][1]+49);
+			break;
+    	
     	case 2:
-    		setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+19,
-    				VIEWConstants.CardsCoordinates[loc][1]+49);
+    		switch(pos) {
+    		case 1:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+53,
+    					VIEWConstants.CardsCoordinates[loc][1]+49);
+    			break;
+    		case 2:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+115,
+    					VIEWConstants.CardsCoordinates[loc][1]+49);
+    			break;
+    		}   		
+    		break;
+    	case 3:
+    		switch(pos) {
+    		case 1:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+19,
+    					VIEWConstants.CardsCoordinates[loc][1]+49);
+    			break;
+    		case 2:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+82,
+    					VIEWConstants.CardsCoordinates[loc][1]+49);
+    			break;
+    		case 3:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+145,
+    					VIEWConstants.CardsCoordinates[loc][1]+49);
+    			break;
+    		}
     		break;
     	}
+    
+
+    		
     }
     
     private void setupGameBoardLabel() {
@@ -148,9 +176,7 @@ public class GUI extends JFrame {
     	ImageIcon playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[3]);
         labelPlayer[0].setIcon(playerDiceIcon);
         //labelPlayer[0].setBounds(114, 227, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
-        setLabelBounds(labelPlayer[0],
-        		VIEWConstants.Roles3M1Coordinates[Constants.SALOON][0],
-        		VIEWConstants.Roles3M1Coordinates[Constants.SALOON][1]);
+        placePlayerRole(labelPlayer[0],Constants.JAIL,2,2);
         
         
         labelPlayer[1] = new JLabel();
