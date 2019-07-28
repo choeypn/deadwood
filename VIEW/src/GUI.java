@@ -240,19 +240,50 @@ public class GUI extends JFrame {
     	}
     }
     
-    public void placePlayerOffRole(JLabel player,int loc,int numPlayer) {
-    	switch(numPlayer) {
+    public void placePlayerOffRole(JLabel player,int loc,int playerNum) {
+    	switch(playerNum) {
     	case 1:
     		setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0],
-					VIEWConstants.CardsCoordinates[loc][1]+170);
+					VIEWConstants.CardsCoordinates[loc][1]+125);
     		break;
     	case 2:
+    		setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+50,
+					VIEWConstants.CardsCoordinates[loc][1]+125);
     		break;
     	case 3:
+    		setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+100,
+					VIEWConstants.CardsCoordinates[loc][1]+125);
     		break;
     	}
     }
     
+    public void placePlayerTrailers(JLabel player,int playerNum) {
+    	switch(playerNum) {
+    	case 1:
+    		setLabelBounds(player,1000,300);
+    		break;
+    	case 2:
+    		setLabelBounds(player,1050,300);
+    		break;
+    	case 3:
+    		setLabelBounds(player,1100,300);
+    		break;
+    	}	
+    }
+    
+    public void placePlayerCasting(JLabel player, int playerNum) {
+    	switch(playerNum) {
+    	case 1:
+    		setLabelBounds(player,50,500);
+    		break;
+    	case 2:
+    		setLabelBounds(player,100,500);
+    		break;
+    	case 3:
+    		setLabelBounds(player,150,500);
+    		break;
+    	}
+    }
     
     private void setupGameBoardLabel() {
         labelGameBoard = new JLabel();
@@ -350,22 +381,22 @@ public class GUI extends JFrame {
     	labelPlayer[0] = new JLabel();
     	ImageIcon playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[3]);
         labelPlayer[0].setIcon(playerDiceIcon);
-        //labelPlayer[0].setBounds(114, 227, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
-        placePlayerRole(labelPlayer[0],Constants.GENERAL,1,1);
-        
+        //placePlayerRole(labelPlayer[0],Constants.GENERAL,1,1);
+        //placePlayerOffRole(labelPlayer[0],Constants.HOTEL,3);
+        placePlayerCasting(labelPlayer[0],1);
         
         labelPlayer[1] = new JLabel();
         playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[15]);
         labelPlayer[1].setIcon(playerDiceIcon);
-        //labelPlayer[1].setBounds(114, 327, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
-        placePlayerExtra(labelPlayer[1],Constants.HOTEL,4);
-        
+        //placePlayerExtra(labelPlayer[1],Constants.MAIN,1);
+        //placePlayerOffRole(labelPlayer[1],Constants.HOTEL,2);
+        placePlayerCasting(labelPlayer[1],3);
         
         labelPlayer[2] = new JLabel();
         playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[6]);
         labelPlayer[2].setIcon(playerDiceIcon);
         labelPlayer[2].setBounds(114, 127, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
-        placePlayerOffRole(labelPlayer[2],Constants.TRAIN,1);
+        placePlayerCasting(labelPlayer[2],2);
         
         //labelPlayer.setBounds(114,227,46,46);
     }
