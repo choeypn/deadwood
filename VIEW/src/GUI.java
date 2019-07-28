@@ -77,9 +77,169 @@ public class GUI extends JFrame {
     		break;
     	}
     
-
-    		
     }
+    
+    public void placePlayerExtra(JLabel player,int loc,int pos) {
+    	switch(loc) {
+    	case Constants.JAIL:
+    		switch(pos) {
+    		case 1:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+240,
+    					VIEWConstants.CardsCoordinates[loc][1]);
+    			break;
+    		case 2:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+240,
+    					VIEWConstants.CardsCoordinates[loc][1]+80);
+    			break;
+    		}
+    		break;
+    	case Constants.TRAIN:
+    		switch(pos) {
+    		case 1:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+98,
+    					VIEWConstants.CardsCoordinates[loc][1]+165);
+    			break;
+    		case 2:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+33,
+    					VIEWConstants.CardsCoordinates[loc][1]+205);
+    			break;
+    		case 3:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+98,
+    					VIEWConstants.CardsCoordinates[loc][1]+257);
+    			break;
+    		case 4:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+33,
+    					VIEWConstants.CardsCoordinates[loc][1]+295);
+    			break;
+    		}
+    		break;
+    	case Constants.GENERAL:
+    		switch(pos) {
+    		case 1:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]-132,
+    					VIEWConstants.CardsCoordinates[loc][1]);
+    			break;
+    		case 2:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]-132,
+    					VIEWConstants.CardsCoordinates[loc][1]+80);
+    			break;
+    		}
+    		break;
+    	case Constants.SALOON:
+    		switch(pos) {
+    		case 1:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+250,
+    					VIEWConstants.CardsCoordinates[loc][1]);
+    			break;
+    		case 2:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+250,
+    					VIEWConstants.CardsCoordinates[loc][1]+75);
+    			break;
+    		}
+    		break;
+    	case Constants.MAIN:
+    		switch(pos) {
+    		case 1:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]-330,
+    					VIEWConstants.CardsCoordinates[loc][1]);
+    			break;
+    		case 2:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]-330,
+    					VIEWConstants.CardsCoordinates[loc][1]+80);
+    			break;
+    		case 3:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]-247,
+    					VIEWConstants.CardsCoordinates[loc][1]);
+    			break;
+    		case 4:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]-247,
+    					VIEWConstants.CardsCoordinates[loc][1]+80);
+    			break;
+    		}
+    		break;
+    	case Constants.SECRET:
+    		switch(pos) {
+    		case 1:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+410,
+    					VIEWConstants.CardsCoordinates[loc][1]-10);
+    			break;
+    		case 2:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+410,
+    					VIEWConstants.CardsCoordinates[loc][1]+80);
+    			break;
+    		case 3:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+497,
+    					VIEWConstants.CardsCoordinates[loc][1]-10);
+    			break;
+    		case 4:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+497,
+    					VIEWConstants.CardsCoordinates[loc][1]+80);
+    			break;
+    		}
+    		break;
+    	case Constants.RANCH:
+    		switch(pos) {
+    		case 1:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+162,
+    					VIEWConstants.CardsCoordinates[loc][1]+136);
+    			break;
+    		case 2:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+235,
+    					VIEWConstants.CardsCoordinates[loc][1]+50);
+    			break;
+    		case 3:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+235,
+    					VIEWConstants.CardsCoordinates[loc][1]+136);
+    			break;
+    		}
+    		break;
+    	case Constants.BANK:
+    		switch(pos) {
+    		case 1:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+292,
+    					VIEWConstants.CardsCoordinates[loc][1]);
+    			break;
+    		case 2:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+292,
+    					VIEWConstants.CardsCoordinates[loc][1]+85);
+    			break;
+    		}
+    		break;
+    	case Constants.CHURCH:
+    		switch(pos) {
+    		case 1:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+237,
+    					VIEWConstants.CardsCoordinates[loc][1]);
+    			break;
+    		case 2:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+237,
+    					VIEWConstants.CardsCoordinates[loc][1]+80);
+    			break;
+    		}
+    		break;
+    	case Constants.HOTEL:
+    		switch(pos) {
+    		case 1:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+77,
+    					VIEWConstants.CardsCoordinates[loc][1]-226);
+    			break;
+    		case 2:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+77,
+    					VIEWConstants.CardsCoordinates[loc][1]-140);
+    			break;
+    		case 3:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+143,
+    					VIEWConstants.CardsCoordinates[loc][1]-267);
+    			break;
+    		case 4:
+    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+143,
+    					VIEWConstants.CardsCoordinates[loc][1]-180);
+    			break;
+    		}
+    		break;
+    	}
+    }
+    
     
     private void setupGameBoardLabel() {
         labelGameBoard = new JLabel();
@@ -184,10 +344,8 @@ public class GUI extends JFrame {
         labelPlayer[1] = new JLabel();
         playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[15]);
         labelPlayer[1].setIcon(playerDiceIcon);
-        labelPlayer[1].setBounds(114, 327, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
-        setLabelBounds(labelPlayer[1],
-        		VIEWConstants.ExtrasCoordinates[Constants.JAIL][0],
-        		VIEWConstants.ExtrasCoordinates[Constants.JAIL][1]);
+        //labelPlayer[1].setBounds(114, 327, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
+        placePlayerExtra(labelPlayer[1],Constants.HOTEL,4);
         
         
         labelPlayer[2] = new JLabel();
