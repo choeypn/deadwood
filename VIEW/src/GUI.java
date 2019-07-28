@@ -10,7 +10,7 @@ public class GUI extends JFrame {
     private JLabel[] labelCard = new JLabel[40];
     private JLabel[] labelPlayer = new JLabel[3];
     private JLabel labelMenu;
-    private JLabel[] shotcounters = new JLabel[3];
+    private JLabel[] shotcounters = new JLabel[22];
     private JButton buttonAct;
     private JButton buttonRehearse;
     private JButton buttonMove;
@@ -198,13 +198,15 @@ public class GUI extends JFrame {
         
         //labelPlayer.setBounds(114,227,46,46);
     }
-    
+
+    // Setup the shotcounter labels
     private void setupShotLabel() {
         for(int i = 0; i < shotcounters.length;i++) {
         	shotcounters[i] = new JLabel();
-            ImageIcon shotIcon = new ImageIcon("src/shot.png");
+            ImageIcon shotIcon = new ImageIcon(VIEWConstants.SHOTCOUNTER_IMAGE);
             shotcounters[i].setIcon(shotIcon);
-            shotcounters[i].setBounds(100+i*100,100+i*100,shotIcon.getIconWidth(),shotIcon.getIconHeight());
+            shotcounters[i].setBounds(VIEWConstants.ShotCounterCoordinates[i][0],VIEWConstants.ShotCounterCoordinates[i][1]
+                    ,shotIcon.getIconWidth(),shotIcon.getIconHeight());
         }
     }
     
@@ -258,7 +260,8 @@ public class GUI extends JFrame {
         paneDeadwood.add(buttonAct, new Integer(2));
         paneDeadwood.add(buttonRehearse, new Integer(2));
         paneDeadwood.add(buttonMove, new Integer(2));
-        
+
+        // Add the shotcounters to the pane
         for(int i = 0; i < shotcounters.length;i++) {
         	paneDeadwood.add(shotcounters[i],new Integer(3));
         }
