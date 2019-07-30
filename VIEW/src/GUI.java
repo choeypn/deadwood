@@ -519,7 +519,6 @@ public class GUI extends JFrame {
         buttonAct = new JButton(ACT_BUTTON_TEXT);
         buttonAct.setBackground(Color.white);
         buttonAct.setBounds(iconGameBoard.getIconWidth() + 10, 30, 100, 20);
-        
         buttonAct.addMouseListener(new ActButtonListener());
     }
     private void setupRehearseButton() {
@@ -546,6 +545,7 @@ public class GUI extends JFrame {
         buttonTakeRole = new JButton(TAKEROLE_BUTTON_TEXT);
         buttonTakeRole.setBackground(Color.white);
         buttonTakeRole.setBounds(iconGameBoard.getIconWidth() + 10, 120, 100, 20);
+        buttonTakeRole.addMouseListener(new TakeRoleButtonListener());
     }
 
     private void setupTakeRoleDropdown() {
@@ -559,6 +559,7 @@ public class GUI extends JFrame {
         buttonUpgrade = new JButton(UPGRADE_BUTTON_TEXT);
         buttonUpgrade.setBackground(Color.white);
         buttonUpgrade.setBounds(iconGameBoard.getIconWidth() + 10, 150, 100, 20);
+        buttonUpgrade.addMouseListener(new UpgradeButtonListener());
     }
 
     private void setupUpgradeDrowdown() {
