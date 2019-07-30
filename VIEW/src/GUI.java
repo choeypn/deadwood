@@ -1,5 +1,6 @@
 package VIEW.src;
 import java.awt.*;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 
@@ -17,7 +18,8 @@ public class GUI extends JFrame {
     private JButton buttonMove;
     private JLayeredPane paneDeadwood;
     private ImageIcon iconGameBoard;
-    private JComboBox move;
+    private JComboBox<String> move;
+    private JButton buttonUpgrade;
     
     
     private JLabel player1;
@@ -48,7 +50,6 @@ public class GUI extends JFrame {
         setupMenuLabel();
         setupShotLabel();
         setupTextBoxes();
-        setupCombobutton();
     }
     
     public void setLabelBounds(JLabel obj, int xCord, int yCord) {
@@ -500,32 +501,37 @@ public class GUI extends JFrame {
         setupActButton();
         setupRehearseButton();
         setupMoveButton();
+        setupCombobutton();
     }
+
+    
     private void setupActButton() {
         buttonAct = new JButton(ACT_BUTTON_TEXT);
         buttonAct.setBackground(Color.white);
         buttonAct.setBounds(iconGameBoard.getIconWidth() + 10, 30, 100, 20);
         
-        //buttonAct.addMouseListener(new ActButtonMouseListener());
+        buttonAct.addMouseListener(new ActButtonListener());
     }
     private void setupRehearseButton() {
         buttonRehearse = new JButton(REHEARSE_BUTTON_TEXT);
         buttonRehearse.setBackground(Color.white);
         buttonRehearse.setBounds(iconGameBoard.getIconWidth() + 10, 60, 100, 20);
-        //buttonRehearse.addMouseListener(new RehearseButtonMouseListener());
+        buttonRehearse.addMouseListener(new RehearseButtonListener());
     }
     private void setupMoveButton() {
         buttonMove = new JButton(MOVE_BUTTON_TEXT);
         buttonMove.setBackground(Color.white);
         buttonMove.setBounds(iconGameBoard.getIconWidth() + 10, 90, 100, 20);
-        //buttonMove.addMouseListener(new MoveButtonMouseListener());
+        buttonMove.addMouseListener(new MoveButtonListener());
         
     }
     private void setupCombobutton() {
         String s1[] = {"Trailers","Casting Office","Jail","Train Station","General Store","Saloon",
         				"Main Street","Secret Hideout","Ranch","Bank","Church","Hotel"};
         move = new JComboBox<String>(s1);
+        move.setBackground(Color.white);
         move.setBounds(iconGameBoard.getIconWidth() + 130, 90, 150, 20);
+        move.addItemListener(new LocationItemListener());
     }
     
     private void initializeDeadwoodPane() {
