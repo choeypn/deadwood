@@ -540,6 +540,7 @@ public class GUI extends JFrame {
                 "Main Street","Secret Hideout","Ranch","Bank","Church","Hotel"};
         moveSelection = new JComboBox<String>(s1);
         moveSelection.setBounds(iconGameBoard.getIconWidth() + 130, 90, 150, 20);
+        moveSelection.addItemListener(new LocationItemListener());
     }
 
     private void setupTakeRoleButton() {
@@ -553,6 +554,7 @@ public class GUI extends JFrame {
                 "Extra 4"};
         roleSelection = new JComboBox<String>(s1);
         roleSelection.setBounds(iconGameBoard.getIconWidth() + 130, 120, 150, 20);
+        roleSelection.addItemListener(new TakeRoleItemListener());
     }
 
     private void setupUpgradeButton() {
@@ -565,6 +567,7 @@ public class GUI extends JFrame {
         String s1[] = {"Rank 2","Rank 3","Rank 4","Rank 5","Rank 6"};
         upgradeSelection = new JComboBox<String>(s1);
         upgradeSelection.setBounds(iconGameBoard.getIconWidth() + 130, 150, 150, 20);
+        upgradeSelection.addItemListener(new UpgradeItemListener());
     }
 
     
