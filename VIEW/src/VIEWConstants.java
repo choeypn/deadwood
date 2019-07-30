@@ -37,6 +37,7 @@ public class VIEWConstants {
                                                 "src/dice/g5.png","src/dice/g6.png"};
       */
 
+    // /*
 	public static final String SHOTCOUNTER_IMAGE = "shot.png";
     public static final String GAME_BOARD_IMAGE = "board.jpg";
     public static final String[] CARDS_IMAGE = {"cards/01.png","cards/02.png",
@@ -68,7 +69,7 @@ public class VIEWConstants {
     											"dice/g1.png","dice/g2.png",
     											"dice/g3.png","dice/g4.png",
     											"dice/g5.png","dice/g6.png"};
-
+	// */
 
 	public static final int[][] ShotCounterCoordinates = {{445, 155}, // JAIL (1)
 			                                              {145, 12}, {92, 12}, {38, 12}, // TRAIN (1) (2) (3)

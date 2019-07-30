@@ -1,7 +1,6 @@
 package VIEW.src;
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.ImageIcon;
 import javax.swing.border.Border;
 
 import CONTROLLER.src.*;
@@ -18,7 +17,9 @@ public class GUI extends JFrame {
     private JButton buttonMove;
     private JLayeredPane paneDeadwood;
     private ImageIcon iconGameBoard;
-
+    private JComboBox move;
+    
+    
     private JLabel player1;
     private JLabel player2;
     private JLabel player3;
@@ -47,6 +48,7 @@ public class GUI extends JFrame {
         setupMenuLabel();
         setupShotLabel();
         setupTextBoxes();
+        setupCombobutton();
     }
     
     public void setLabelBounds(JLabel obj, int xCord, int yCord) {
@@ -317,7 +319,7 @@ public class GUI extends JFrame {
 		player1.setBackground(Color.black);
 		player1.setForeground(Color.cyan);
 		Border border1 = BorderFactory.createLineBorder(Color.CYAN, 5);
-		player1.setBounds(iconGameBoard.getIconWidth() + 200, 30, 200, 200);
+		player1.setBounds(iconGameBoard.getIconWidth() + 350, 30, 200, 200);
 		player1.setBorder(border1);
 		player1.setHorizontalAlignment(JLabel.CENTER);
 		player1.setVerticalAlignment(JLabel.CENTER);
@@ -329,7 +331,7 @@ public class GUI extends JFrame {
 		player2.setBackground(Color.black);
 		player2.setForeground(Color.green);
 		Border border2 = BorderFactory.createLineBorder(Color.GREEN, 5);
-		player2.setBounds(iconGameBoard.getIconWidth() + 200, 280, 200, 200);
+		player2.setBounds(iconGameBoard.getIconWidth() + 350, 280, 200, 200);
 		player2.setBorder(border2);
 		player2.setHorizontalAlignment(JLabel.CENTER);
 		player2.setVerticalAlignment(JLabel.CENTER);
@@ -341,7 +343,7 @@ public class GUI extends JFrame {
 		player3.setBackground(Color.black);
 		player3.setForeground(Color.red);
 		Border border3 = BorderFactory.createLineBorder(Color.RED, 5);
-		player3.setBounds(iconGameBoard.getIconWidth() + 200, 530, 200, 200);
+		player3.setBounds(iconGameBoard.getIconWidth() + 350, 530, 200, 200);
 		player3.setBorder(border3);
 		player3.setHorizontalAlignment(JLabel.CENTER);
 		player3.setVerticalAlignment(JLabel.CENTER);
@@ -379,7 +381,9 @@ public class GUI extends JFrame {
         setLabelBounds(labelCard[Constants.SECRET],
         		VIEWConstants.CardsCoordinates[Constants.SECRET][0],
         		VIEWConstants.CardsCoordinates[Constants.SECRET][1]);
+        labelCard[Constants.SECRET].setBackground(Color.black);
         labelCard[Constants.SECRET].setOpaque(true);
+        
 
 
         labelCard[Constants.JAIL] = new JLabel();
@@ -421,6 +425,7 @@ public class GUI extends JFrame {
         		VIEWConstants.CardsCoordinates[Constants.BANK][0],
         		VIEWConstants.CardsCoordinates[Constants.BANK][1]);
         labelCard[Constants.BANK].setOpaque(true);
+        
         
         labelCard[Constants.CHURCH] = new JLabel();
         cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[9]);
@@ -500,6 +505,7 @@ public class GUI extends JFrame {
         buttonAct = new JButton(ACT_BUTTON_TEXT);
         buttonAct.setBackground(Color.white);
         buttonAct.setBounds(iconGameBoard.getIconWidth() + 10, 30, 100, 20);
+        
         //buttonAct.addMouseListener(new ActButtonMouseListener());
     }
     private void setupRehearseButton() {
@@ -513,7 +519,15 @@ public class GUI extends JFrame {
         buttonMove.setBackground(Color.white);
         buttonMove.setBounds(iconGameBoard.getIconWidth() + 10, 90, 100, 20);
         //buttonMove.addMouseListener(new MoveButtonMouseListener());
+        
     }
+    private void setupCombobutton() {
+        String s1[] = {"Trailers","Casting Office","Jail","Train Station","General Store","Saloon",
+        				"Main Street","Secret Hideout","Ranch","Bank","Church","Hotel"};
+        move = new JComboBox<String>(s1);
+        move.setBounds(iconGameBoard.getIconWidth() + 130, 90, 150, 20);
+    }
+    
     private void initializeDeadwoodPane() {
         paneDeadwood = getLayeredPane();
         paneDeadwood.add(labelGameBoard, new Integer(0)); // Add the board to the lowest layer
@@ -547,6 +561,7 @@ public class GUI extends JFrame {
         paneDeadwood.add(player2, 3);
         paneDeadwood.add(player3, 3);
         paneDeadwood.add(gameplay, 3);
+        paneDeadwood.add(move,3);
 
 
 
