@@ -3,7 +3,6 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-import CONTROLLER.src.*;
 import MODEL.src.Constants;
 
 public class GUI extends JFrame {
@@ -15,25 +14,30 @@ public class GUI extends JFrame {
     private JButton buttonAct;
     private JButton buttonRehearse;
     private JButton buttonMove;
+    private JButton buttonUpgrade;
+    private JButton buttonTakeRole;
     private JLayeredPane paneDeadwood;
     private ImageIcon iconGameBoard;
-    private JComboBox move;
-    
+    private JComboBox moveSelection;
+    private JComboBox roleSelection;
+    private JComboBox upgradeSelection;
     
     private JLabel player1;
     private JLabel player2;
     private JLabel player3;
     private JLabel gameplay;
-    private JPanel player1box;
-	private JPanel player2box;
-	private JPanel player3box;
-	private JPanel gameplaybox;
+//    private JPanel player1box;
+//	private JPanel player2box;
+//	private JPanel player3box;
+//	private JPanel gameplaybox;
 
     private final static String newline = "\n";
     private static final String MENU_LABEL_TEXT = "MENU";
     private static final String ACT_BUTTON_TEXT = "ACT";
     private static final String REHEARSE_BUTTON_TEXT = "REHEARSE";
     private static final String MOVE_BUTTON_TEXT = "MOVE";
+    private static final String TAKEROLE_BUTTON_TEXT = "TAKE ROLE";
+    private static final String UPGRADE_BUTTON_TEXT = "UPGRADE";
     public GUI() {
         super(VIEWConstants.DEADWOOD_TITLE);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -48,14 +52,11 @@ public class GUI extends JFrame {
         setupMenuLabel();
         setupShotLabel();
         setupTextBoxes();
-        setupCombobutton();
     }
     
     public void setLabelBounds(JLabel obj, int xCord, int yCord) {
     	obj.setBounds(xCord, yCord, obj.getIcon().getIconWidth(), obj.getIcon().getIconHeight());
     }
-
-
     
     public void placePlayerRole(JLabel player,int loc,int pos,int numRoles) {
     	switch(numRoles) {
@@ -500,7 +501,13 @@ public class GUI extends JFrame {
         setupActButton();
         setupRehearseButton();
         setupMoveButton();
+        setupTakeRoleButton();
+        setupUpgradeButton();
+        setupLocationDropdown();
+        setupTakeRoleDropdown();
+        setupUpgradeDrowdown();
     }
+
     private void setupActButton() {
         buttonAct = new JButton(ACT_BUTTON_TEXT);
         buttonAct.setBackground(Color.white);
@@ -521,12 +528,38 @@ public class GUI extends JFrame {
         //buttonMove.addMouseListener(new MoveButtonMouseListener());
         
     }
-    private void setupCombobutton() {
+    private void setupLocationDropdown() {
         String s1[] = {"Trailers","Casting Office","Jail","Train Station","General Store","Saloon",
-        				"Main Street","Secret Hideout","Ranch","Bank","Church","Hotel"};
-        move = new JComboBox<String>(s1);
-        move.setBounds(iconGameBoard.getIconWidth() + 130, 90, 150, 20);
+                "Main Street","Secret Hideout","Ranch","Bank","Church","Hotel"};
+        moveSelection = new JComboBox<String>(s1);
+        moveSelection.setBounds(iconGameBoard.getIconWidth() + 130, 90, 150, 20);
     }
+
+    private void setupTakeRoleButton() {
+        buttonTakeRole = new JButton(TAKEROLE_BUTTON_TEXT);
+        buttonTakeRole.setBackground(Color.white);
+        buttonTakeRole.setBounds(iconGameBoard.getIconWidth() + 10, 120, 100, 20);
+    }
+
+    private void setupTakeRoleDropdown() {
+        String s1[] = {"Main 1","Main 2","Main 3","Extra 1","Extra 2","Extra 3",
+                "Extra 4"};
+        roleSelection = new JComboBox<String>(s1);
+        roleSelection.setBounds(iconGameBoard.getIconWidth() + 130, 120, 150, 20);
+    }
+
+    private void setupUpgradeButton() {
+        buttonUpgrade = new JButton(UPGRADE_BUTTON_TEXT);
+        buttonUpgrade.setBackground(Color.white);
+        buttonUpgrade.setBounds(iconGameBoard.getIconWidth() + 10, 150, 100, 20);
+    }
+
+    private void setupUpgradeDrowdown() {
+        String s1[] = {"Rank 2","Rank 3","Rank 4","Rank 5","Rank 6"};
+        upgradeSelection = new JComboBox<String>(s1);
+        upgradeSelection.setBounds(iconGameBoard.getIconWidth() + 130, 150, 150, 20);
+    }
+
     
     private void initializeDeadwoodPane() {
         paneDeadwood = getLayeredPane();
@@ -551,6 +584,12 @@ public class GUI extends JFrame {
         paneDeadwood.add(buttonAct, new Integer(2));
         paneDeadwood.add(buttonRehearse, new Integer(2));
         paneDeadwood.add(buttonMove, new Integer(2));
+        paneDeadwood.add(buttonTakeRole, new Integer(2));
+        paneDeadwood.add(buttonUpgrade, new Integer(2));
+
+        paneDeadwood.add(moveSelection,3);
+        paneDeadwood.add(upgradeSelection,3);
+        paneDeadwood.add(roleSelection,3);
 
         // Add the shotcounters to the pane
         for(int i = 0; i < shotcounters.length;i++) {
@@ -561,7 +600,7 @@ public class GUI extends JFrame {
         paneDeadwood.add(player2, 3);
         paneDeadwood.add(player3, 3);
         paneDeadwood.add(gameplay, 3);
-        paneDeadwood.add(move,3);
+
 
 
 
