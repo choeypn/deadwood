@@ -8,6 +8,7 @@ public class Controller {
     private GUI ui;
     private Model game;
     private Controller c;
+    private int chosenLocation;
 
     public Controller() {
 
@@ -43,6 +44,15 @@ public class Controller {
     public Controller getC() {
         return c;
     }
+    
+    
+    public void setChosenLocation(int location) {
+    	this.chosenLocation = location;
+    }
+    
+    public int getChosenLocation() {
+    	return chosenLocation;
+    }
 
 
     public void notifyStartDay(int[] sceneNum) {
@@ -55,7 +65,12 @@ public class Controller {
         	ui.placeSceneCard(i, sceneNum[i-2]);
         }
         // Move all the players to trailers
-
+        for(int i = 0; i <= game.getPlayers().size();i++) {
+        	ui.placePlayerTrailers(i);
+        }
+     
 
     }
+    
+    
 }

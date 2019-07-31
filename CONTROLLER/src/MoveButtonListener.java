@@ -10,6 +10,6 @@ public class MoveButtonListener extends BaseMouseListener{
 	}
 
 	public void mouseClicked(MouseEvent e) {
-		System.out.println(MOVE_SELECT_MSG);
+		c.getGame().getActive_player();
 	}
 }

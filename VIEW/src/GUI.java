@@ -280,16 +280,16 @@ public class GUI extends JFrame {
     	}
     }
     
-    public void placePlayerTrailers(JLabel player,int playerNum) {
+    public void placePlayerTrailers(int playerNum) {
     	switch(playerNum) {
     	case 1:
-    		setLabelBounds(player,1000,300);
+    		setLabelBounds(labelPlayer[playerNum-1],1000,300);
     		break;
     	case 2:
-    		setLabelBounds(player,1050,300);
+    		setLabelBounds(labelPlayer[playerNum-1],1050,300);
     		break;
     	case 3:
-    		setLabelBounds(player,1100,300);
+    		setLabelBounds(labelPlayer[playerNum-1],1100,300);
     		break;
     	}	
     }
@@ -481,7 +481,7 @@ public class GUI extends JFrame {
         labelPlayer[0].setIcon(playerDiceIcon);
         //placePlayerRole(labelPlayer[0],Constants.GENERAL,1,1);
         //placePlayerOffRole(labelPlayer[0],Constants.HOTEL,3);
-        placePlayerTrailers(labelPlayer[0],1);
+        //placePlayerTrailers(labelPlayer[0],1);
 
         // Player 2 - Green
         labelPlayer[1] = new JLabel();
@@ -489,14 +489,14 @@ public class GUI extends JFrame {
         labelPlayer[1].setIcon(playerDiceIcon);
         //placePlayerExtra(labelPlayer[1],Constants.MAIN,1);
         //placePlayerOffRole(labelPlayer[1],Constants.HOTEL,2);
-		placePlayerTrailers(labelPlayer[1],3);
+		//placePlayerTrailers(labelPlayer[1],3);
 
         // Player 3 - Red
         labelPlayer[2] = new JLabel();
         playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[6]);
         labelPlayer[2].setIcon(playerDiceIcon);
-        labelPlayer[2].setBounds(114, 127, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
-		placePlayerTrailers(labelPlayer[2],2);
+        //labelPlayer[2].setBounds(114, 127, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
+		//placePlayerTrailers(labelPlayer[2],2);
         
         //labelPlayer.setBounds(114,227,46,46);
     }
