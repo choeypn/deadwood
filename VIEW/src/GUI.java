@@ -23,6 +23,7 @@ public class GUI extends JFrame {
     private JComboBox moveSelection;
     private JComboBox roleSelection;
     private JComboBox upgradeSelection;
+    private Controller controller_ref;
 
     private JLabel player1;
     private JLabel player2;
@@ -40,12 +41,13 @@ public class GUI extends JFrame {
     private static final String MOVE_BUTTON_TEXT = "MOVE";
     private static final String TAKEROLE_BUTTON_TEXT = "TAKE ROLE";
     private static final String UPGRADE_BUTTON_TEXT = "UPGRADE";
-    public GUI() {
+    public GUI(Controller c) {
         super(VIEWConstants.DEADWOOD_TITLE);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initializeLabels();
         initializeButtons();
         initializeDeadwoodPane();
+        controller_ref = c;
     }
     private void initializeLabels() {
         setupGameBoardLabel();
@@ -375,8 +377,9 @@ public class GUI extends JFrame {
         setLabelBounds(labelCard[Constants.TRAIN],
         		VIEWConstants.CardsCoordinates[Constants.TRAIN][0],
         		VIEWConstants.CardsCoordinates[Constants.TRAIN][1]);
-        labelCard[Constants.TRAIN].setEnabled(false);
-        //labelCard[Constants.TRAIN].setOpaque(true);
+
+        //labelCard[Constants.TRAIN].setEnabled(false); ~~~~~~~~~~~~~~~~~~~~~ THIS LINE TURNS CARDS FACE-UP AND FACE-DOWN
+        labelCard[Constants.TRAIN].setOpaque(true);
         
         labelCard[Constants.SECRET] = new JLabel();
         cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[15]);
@@ -384,7 +387,7 @@ public class GUI extends JFrame {
         setLabelBounds(labelCard[Constants.SECRET],
         		VIEWConstants.CardsCoordinates[Constants.SECRET][0],
         		VIEWConstants.CardsCoordinates[Constants.SECRET][1]);
-        labelCard[Constants.SECRET].setBackground(Color.black);
+        //labelCard[Constants.SECRET].setBackground(Color.black);
         labelCard[Constants.SECRET].setOpaque(true);
         
 
@@ -464,7 +467,7 @@ public class GUI extends JFrame {
         labelPlayer[0].setIcon(playerDiceIcon);
         //placePlayerRole(labelPlayer[0],Constants.GENERAL,1,1);
         //placePlayerOffRole(labelPlayer[0],Constants.HOTEL,3);
-        placePlayerCasting(labelPlayer[0],1);
+        placePlayerTrailers(labelPlayer[0],1);
 
         // Player 2 - Green
         labelPlayer[1] = new JLabel();
@@ -472,14 +475,14 @@ public class GUI extends JFrame {
         labelPlayer[1].setIcon(playerDiceIcon);
         //placePlayerExtra(labelPlayer[1],Constants.MAIN,1);
         //placePlayerOffRole(labelPlayer[1],Constants.HOTEL,2);
-        placePlayerCasting(labelPlayer[1],3);
+		placePlayerTrailers(labelPlayer[1],3);
 
         // Player 3 - Red
         labelPlayer[2] = new JLabel();
         playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[6]);
         labelPlayer[2].setIcon(playerDiceIcon);
         labelPlayer[2].setBounds(114, 127, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
-        placePlayerCasting(labelPlayer[2],2);
+		placePlayerTrailers(labelPlayer[2],2);
         
         //labelPlayer.setBounds(114,227,46,46);
     }
@@ -519,19 +522,19 @@ public class GUI extends JFrame {
         buttonAct = new JButton(ACT_BUTTON_TEXT);
         buttonAct.setBackground(Color.white);
         buttonAct.setBounds(iconGameBoard.getIconWidth() + 10, 30, 100, 20);
-        buttonAct.addMouseListener(new ActButtonListener());
+        buttonAct.addMouseListener(new ActButtonListener(controller_ref));
     }
     private void setupRehearseButton() {
         buttonRehearse = new JButton(REHEARSE_BUTTON_TEXT);
         buttonRehearse.setBackground(Color.white);
         buttonRehearse.setBounds(iconGameBoard.getIconWidth() + 10, 60, 100, 20);
-        buttonRehearse.addMouseListener(new RehearseButtonListener());
+        buttonRehearse.addMouseListener(new RehearseButtonListener(controller_ref));
     }
     private void setupMoveButton() {
         buttonMove = new JButton(MOVE_BUTTON_TEXT);
         buttonMove.setBackground(Color.white);
         buttonMove.setBounds(iconGameBoard.getIconWidth() + 10, 90, 100, 20);
-        buttonMove.addMouseListener(new MoveButtonListener());
+        buttonMove.addMouseListener(new MoveButtonListener(controller_ref));
         
     }
     private void setupLocationDropdown() {
@@ -539,14 +542,14 @@ public class GUI extends JFrame {
                 "Main Street","Secret Hideout","Ranch","Bank","Church","Hotel"};
         moveSelection = new JComboBox<String>(s1);
         moveSelection.setBounds(iconGameBoard.getIconWidth() + 130, 90, 150, 20);
-        moveSelection.addItemListener(new LocationItemListener());
+        moveSelection.addItemListener(new LocationItemListener(controller_ref));
     }
 
     private void setupTakeRoleButton() {
         buttonTakeRole = new JButton(TAKEROLE_BUTTON_TEXT);
         buttonTakeRole.setBackground(Color.white);
         buttonTakeRole.setBounds(iconGameBoard.getIconWidth() + 10, 120, 100, 20);
-        buttonTakeRole.addMouseListener(new TakeRoleButtonListener());
+        buttonTakeRole.addMouseListener(new TakeRoleButtonListener(controller_ref));
     }
 
     private void setupTakeRoleDropdown() {
@@ -554,21 +557,21 @@ public class GUI extends JFrame {
                 "Extra 4"};
         roleSelection = new JComboBox<String>(s1);
         roleSelection.setBounds(iconGameBoard.getIconWidth() + 130, 120, 150, 20);
-        roleSelection.addItemListener(new TakeRoleItemListener());
+        roleSelection.addItemListener(new TakeRoleItemListener(controller_ref));
     }
 
     private void setupUpgradeButton() {
         buttonUpgrade = new JButton(UPGRADE_BUTTON_TEXT);
         buttonUpgrade.setBackground(Color.white);
         buttonUpgrade.setBounds(iconGameBoard.getIconWidth() + 10, 150, 100, 20);
-        buttonUpgrade.addMouseListener(new UpgradeButtonListener());
+        buttonUpgrade.addMouseListener(new UpgradeButtonListener(controller_ref));
     }
 
     private void setupUpgradeDrowdown() {
         String s1[] = {"Rank 2","Rank 3","Rank 4","Rank 5","Rank 6"};
         upgradeSelection = new JComboBox<String>(s1);
         upgradeSelection.setBounds(iconGameBoard.getIconWidth() + 130, 150, 150, 20);
-        upgradeSelection.addItemListener(new UpgradeItemListener());
+        upgradeSelection.addItemListener(new UpgradeItemListener(controller_ref));
     }
 
     
