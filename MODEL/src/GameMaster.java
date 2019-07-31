@@ -225,13 +225,15 @@ public class GameMaster {
 	
 	// Starting day method
 	public void startDay(){
-
+		int[] sceneNum = new int[10];
 		// Beginning of day - GAME-MASTER controller
 		for (int i = 2; i <=11; i++){
 
 			// Set the scene cards (10 face down on board)
 			((Set)game_board.getLocation(i)).placeScene(game_board.drawScene());
-
+			sceneNum[i-2] = ((Set)game_board.getLocation(i)).getScene().getNum();
+			
+			
 			// Reset shot counters on scenes
 			((Set)game_board.getLocation(i)).setShotcounters(game_board.getSetShotCounters(i));
 			
@@ -239,13 +241,13 @@ public class GameMaster {
 			((Set)game_board.getLocation(i)).setActive(true);
 			
 		}
-
 		// Move all the players to the trailers
 		for (int i = 0; i < players.size(); i++){
 			players.get(i).setLocation(game_board.getLocation(Constants.TRAILERS));
 		}
-
-		observer.notifyStartDay();
+		
+		observer.notifyStartDay(sceneNum);
+		
 	}
 	
 	public void removeShotCounter(Set s) {

@@ -20,13 +20,15 @@ public class Scene {
 	private int budget;
 	private Role[]_roles;
 	private boolean flipped;
+	private int number;
 	
 	//constructor
-	public Scene(String name,int budget,Role[] starring){
+	public Scene(String name,int budget,Role[] starring,int num){
 	    this.name = name;
 		this.budget = budget;
 	    this._roles = starring;
 	    this.flipped = false;
+	    this.number = num;
 	}
 	
 	public String getRoleDetails() {
@@ -63,6 +65,10 @@ public class Scene {
 	
 	public void setFlipped(boolean b) {
 		this.flipped = b;
+	}
+
+	public int getNum() {
+		return this.number;
 	}
 	
 }

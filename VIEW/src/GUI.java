@@ -9,7 +9,7 @@ import MODEL.src.Constants;
 
 public class GUI extends JFrame {
     private JLabel labelGameBoard;
-    private JLabel[] labelCard = new JLabel[40];
+    private JLabel[] labelCard = new JLabel[12];
     private JLabel[] labelPlayer = new JLabel[3];
     private JLabel labelMenu;
     private JLabel[] shotcounters = new JLabel[22];
@@ -52,7 +52,7 @@ public class GUI extends JFrame {
     
     private void initializeLabels() {
         setupGameBoardLabel();
-        //setupCardsLabel();
+        setupCardsLabel();
         setupPlayerLabel();
         setupMenuLabel();
         setupShotLabel();
@@ -372,6 +372,10 @@ public class GUI extends JFrame {
     }
 
     private void setupCardsLabel() {
+    	for(int i = 2; i <= 11; i++) {
+    		labelCard[i] = new JLabel();
+    	}
+    	/*
         labelCard[Constants.TRAIN] = new JLabel();
         ImageIcon cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[0]);
         labelCard[Constants.TRAIN].setIcon(cardIcon);
@@ -457,7 +461,16 @@ public class GUI extends JFrame {
         		VIEWConstants.CardsCoordinates[Constants.HOTEL][0],
         		VIEWConstants.CardsCoordinates[Constants.HOTEL][1]);
         labelCard[Constants.HOTEL].setOpaque(true);
-        
+        */
+    }
+    
+    public void placeSceneCard(int location,int sceneNum) {
+        ImageIcon cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[sceneNum]);
+        labelCard[location].setIcon(cardIcon);
+        setLabelBounds(labelCard[location],
+        		VIEWConstants.CardsCoordinates[location][0],
+        		VIEWConstants.CardsCoordinates[location][1]);
+        labelCard[location].setVisible(true);
     }
     
     private void setupPlayerLabel() {
@@ -499,6 +512,12 @@ public class GUI extends JFrame {
             shotcounters[i].setVisible(false);
         }
     }
+    
+    public void turnOnShotCounters() {
+    	for(int i = 0; i < shotcounters.length; i ++) {
+    		shotcounters[i].setVisible(true);
+		}
+	}
     
     private void setupMenuLabel() {
         labelMenu = new JLabel(MENU_LABEL_TEXT);
@@ -576,21 +595,33 @@ public class GUI extends JFrame {
         upgradeSelection.addItemListener(new UpgradeItemListener(controller_ref));
     }
 
+
+    public JLabel getSceneLocation(int i) {
+    	return labelCard[i];
+    }
+    
+    public void placeScenes() {
+    	for(int i = 2;i <= 11;i++) {
+    		labelCard[i].setVisible(true);;
+    	}
+    }
+    
+
     
     private void initializeDeadwoodPane() {
         paneDeadwood = getLayeredPane();
         paneDeadwood.add(labelGameBoard, new Integer(0)); // Add the board to the lowest layer
         // Add the cards to the lower layer
-//        paneDeadwood.add(labelCard[Constants.TRAIN], new Integer(1));
-//        paneDeadwood.add(labelCard[Constants.SECRET], new Integer(1));
-//        paneDeadwood.add(labelCard[Constants.JAIL], new Integer(1));
-//        paneDeadwood.add(labelCard[Constants.GENERAL], new Integer(1));
-//        paneDeadwood.add(labelCard[Constants.RANCH], new Integer(1));
-//        paneDeadwood.add(labelCard[Constants.SALOON], new Integer(1));
-//        paneDeadwood.add(labelCard[Constants.BANK], new Integer(1));
-//        paneDeadwood.add(labelCard[Constants.CHURCH], new Integer(1));
-//        paneDeadwood.add(labelCard[Constants.MAIN], new Integer(1));
-//        paneDeadwood.add(labelCard[Constants.HOTEL], new Integer(1));
+        paneDeadwood.add(labelCard[Constants.TRAIN], new Integer(1));
+        paneDeadwood.add(labelCard[Constants.SECRET], new Integer(1));
+        paneDeadwood.add(labelCard[Constants.JAIL], new Integer(1));
+        paneDeadwood.add(labelCard[Constants.GENERAL], new Integer(1));
+        paneDeadwood.add(labelCard[Constants.RANCH], new Integer(1));
+        paneDeadwood.add(labelCard[Constants.SALOON], new Integer(1));
+        paneDeadwood.add(labelCard[Constants.BANK], new Integer(1));
+        paneDeadwood.add(labelCard[Constants.CHURCH], new Integer(1));
+        paneDeadwood.add(labelCard[Constants.MAIN], new Integer(1));
+        paneDeadwood.add(labelCard[Constants.HOTEL], new Integer(1));
         // Add the player
         paneDeadwood.add(labelPlayer[0], new Integer(3));
         paneDeadwood.add(labelPlayer[1], new Integer(3));
@@ -617,11 +648,8 @@ public class GUI extends JFrame {
         paneDeadwood.add(player3, 3);
         paneDeadwood.add(gameplay, 3);
 
-    }
 
-    public void turnOnShotCounters() {
-    	for(int i = 0; i < shotcounters.length; i ++) {
-    		shotcounters[i].setVisible(true);
-		}
-	}
+
+
+    }
 }

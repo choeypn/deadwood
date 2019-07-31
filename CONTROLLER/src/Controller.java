@@ -45,13 +45,15 @@ public class Controller {
     }
 
 
-    public void notifyStartDay() {
+    public void notifyStartDay(int[] sceneNum) {
 
         // Update shot counters
         ui.turnOnShotCounters();
 
         // Setup scene cards
-
+        for(int i = 2; i <= 11; i++) {
+        	ui.placeSceneCard(i, sceneNum[i-2]);
+        }
         // Move all the players to trailers
 
 
