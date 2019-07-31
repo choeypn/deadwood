@@ -55,7 +55,7 @@ public class GUI extends JFrame {
         //setupCardsLabel();
         setupPlayerLabel();
         setupMenuLabel();
-        //setupShotLabel();
+        setupShotLabel();
         setupTextBoxes();
     }
     
@@ -496,6 +496,7 @@ public class GUI extends JFrame {
             shotcounters[i].setIcon(shotIcon);
             shotcounters[i].setBounds(VIEWConstants.ShotCounterCoordinates[i][0],VIEWConstants.ShotCounterCoordinates[i][1]
                     ,shotIcon.getIconWidth(),shotIcon.getIconHeight());
+            shotcounters[i].setVisible(false);
         }
     }
     
@@ -606,18 +607,21 @@ public class GUI extends JFrame {
         paneDeadwood.add(upgradeSelection,3);
         paneDeadwood.add(roleSelection,3);
 
-//        // Add the shotcounters to the pane
-//        for(int i = 0; i < shotcounters.length;i++) {
-//        	paneDeadwood.add(shotcounters[i],new Integer(3));
-//        }
+        // Add the shotcounters to the pane
+        for(int i = 0; i < shotcounters.length;i++) {
+        	paneDeadwood.add(shotcounters[i],new Integer(3));
+        }
 
         paneDeadwood.add(player1, 3);
         paneDeadwood.add(player2, 3);
         paneDeadwood.add(player3, 3);
         paneDeadwood.add(gameplay, 3);
 
-
-
-
     }
+
+    public void turnOnShotCounters() {
+    	for(int i = 0; i < shotcounters.length; i ++) {
+    		shotcounters[i].setVisible(true);
+		}
+	}
 }

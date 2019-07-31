@@ -31,6 +31,7 @@ public class Model {
         // Create a gamemaster, initialize total days to 3
         GameMaster gm = new GameMaster(3, gameboard, players);
         gm.setObserver(observer);
+        this.gm = gm;
     }
 
 

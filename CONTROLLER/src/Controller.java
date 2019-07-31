@@ -48,7 +48,7 @@ public class Controller {
     public void notifyStartDay() {
 
         // Update shot counters
-
+        ui.turnOnShotCounters();
 
         // Setup scene cards
 
