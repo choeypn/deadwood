@@ -6,7 +6,7 @@ import java.awt.event.MouseEvent;
 
 public class LocationItemListener implements ItemListener{
 	private Controller c;
-	private int loc;
+	protected int loc;
 	public LocationItemListener(Controller c){
 		this.c = c;
 	}
@@ -14,6 +14,8 @@ public class LocationItemListener implements ItemListener{
 	private int run = 0;
 	
 	private String s;
+	
+	
 	public void itemStateChanged(ItemEvent e) {
 		if (e.getStateChange() == ItemEvent.SELECTED) {
 			s = e.getItem().toString();

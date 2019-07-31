@@ -16,6 +16,8 @@ public class TwoPlayerNumberButtonListener extends BaseMouseListener{
         c.getGame().initModel(2);
         c.getPlayerBox().dispose();
         c.getGame().getGm().startDay();
+        c.setActivePlayer(
+        		c.getGame().getActive_player().getPlayer_num());
     }
 }
 

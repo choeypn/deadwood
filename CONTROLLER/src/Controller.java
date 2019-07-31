@@ -9,9 +9,8 @@ public class Controller {
     private Model game;
     private Controller c;
     private int chosenLocation;
-
+    private int active_player;
     public Controller() {
-
     }
 
     public GUI getUi() {
@@ -40,7 +39,7 @@ public class Controller {
     public void setC(Controller c) {
         this.c = c;
     }
-
+    
     public Controller getC() {
         return c;
     }
@@ -53,7 +52,14 @@ public class Controller {
     public int getChosenLocation() {
     	return chosenLocation;
     }
-
+    
+    public void setActivePlayer(int p) {
+    	this.active_player = p;
+    }
+    
+    public int getActivePlayer() {
+    	return active_player;
+    }
 
     public void notifyStartDay(int[] sceneNum) {
 
@@ -69,8 +75,24 @@ public class Controller {
         	ui.placePlayerTrailers(i);
         }
      
-
     }
+    
+    public void notifyFlipcard(int loc) {
+    	ui.flipSceneCard(loc);
+    }
+    
+    public void notifyPlayerMove() {
+    	if(chosenLocation == 0) {
+    		ui.placePlayerTrailers(active_player);
+    	}
+    	else if(chosenLocation == 1) {
+    		ui.placePlayerCasting(active_player);
+    	}
+    	else {
+    		ui.placePlayerOffRole(chosenLocation, 
+    				active_player);
+    	}
+    }	
     
     
 }

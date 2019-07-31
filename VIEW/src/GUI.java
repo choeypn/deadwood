@@ -18,6 +18,7 @@ public class GUI extends JFrame {
     private JButton buttonMove;
     private JButton buttonUpgrade;
     private JButton buttonTakeRole;
+    private JButton buttonEnd;
     private JLayeredPane paneDeadwood;
     private ImageIcon iconGameBoard;
     private JComboBox moveSelection;
@@ -41,13 +42,14 @@ public class GUI extends JFrame {
     private static final String MOVE_BUTTON_TEXT = "MOVE";
     private static final String TAKEROLE_BUTTON_TEXT = "TAKE ROLE";
     private static final String UPGRADE_BUTTON_TEXT = "UPGRADE";
+    private static final String END_BUTTON_TEXT = "END";
     public GUI(Controller c) {
         super(VIEWConstants.DEADWOOD_TITLE);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        controller_ref = c;
         initializeLabels();
         initializeButtons();
         initializeDeadwoodPane();
-        controller_ref = c;
     }
     
     private void initializeLabels() {
@@ -263,18 +265,21 @@ public class GUI extends JFrame {
     	}
     }
     
-    public void placePlayerOffRole(JLabel player,int loc,int playerNum) {
+    public void placePlayerOffRole(int loc,int playerNum) {
     	switch(playerNum) {
     	case 1:
-    		setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0],
+    		setLabelBounds(labelPlayer[playerNum-1],
+    				VIEWConstants.CardsCoordinates[loc][0],
 					VIEWConstants.CardsCoordinates[loc][1]+125);
     		break;
     	case 2:
-    		setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+50,
+    		setLabelBounds(labelPlayer[playerNum-1],
+    				VIEWConstants.CardsCoordinates[loc][0]+50,
 					VIEWConstants.CardsCoordinates[loc][1]+125);
     		break;
     	case 3:
-    		setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+100,
+    		setLabelBounds(labelPlayer[playerNum-1],
+    				VIEWConstants.CardsCoordinates[loc][0]+100,
 					VIEWConstants.CardsCoordinates[loc][1]+125);
     		break;
     	}
@@ -294,16 +299,16 @@ public class GUI extends JFrame {
     	}	
     }
     
-    public void placePlayerCasting(JLabel player, int playerNum) {
+    public void placePlayerCasting(int playerNum) {
     	switch(playerNum) {
     	case 1:
-    		setLabelBounds(player,50,500);
+    		setLabelBounds(labelPlayer[playerNum-1],50,500);
     		break;
     	case 2:
-    		setLabelBounds(player,100,500);
+    		setLabelBounds(labelPlayer[playerNum-1],100,500);
     		break;
     	case 3:
-    		setLabelBounds(player,150,500);
+    		setLabelBounds(labelPlayer[playerNum-1],150,500);
     		break;
     	}
     }
@@ -470,14 +475,18 @@ public class GUI extends JFrame {
         setLabelBounds(labelCard[location],
         		VIEWConstants.CardsCoordinates[location][0],
         		VIEWConstants.CardsCoordinates[location][1]);
-        labelCard[location].setVisible(true);
+        labelCard[location].setVisible(false);
+    }
+    
+    public void flipSceneCard(int location) {
+    	labelCard[location].setVisible(true);
     }
     
     private void setupPlayerLabel() {
 
     	// Player 1 - Blue
     	labelPlayer[0] = new JLabel();
-    	ImageIcon playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[3]);
+    	ImageIcon playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[0]);
         labelPlayer[0].setIcon(playerDiceIcon);
         //placePlayerRole(labelPlayer[0],Constants.GENERAL,1,1);
         //placePlayerOffRole(labelPlayer[0],Constants.HOTEL,3);
@@ -485,7 +494,7 @@ public class GUI extends JFrame {
 
         // Player 2 - Green
         labelPlayer[1] = new JLabel();
-        playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[15]);
+        playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[6]);
         labelPlayer[1].setIcon(playerDiceIcon);
         //placePlayerExtra(labelPlayer[1],Constants.MAIN,1);
         //placePlayerOffRole(labelPlayer[1],Constants.HOTEL,2);
@@ -493,7 +502,7 @@ public class GUI extends JFrame {
 
         // Player 3 - Red
         labelPlayer[2] = new JLabel();
-        playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[6]);
+        playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[12]);
         labelPlayer[2].setIcon(playerDiceIcon);
         //labelPlayer[2].setBounds(114, 127, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
 		//placePlayerTrailers(labelPlayer[2],2);
@@ -532,6 +541,7 @@ public class GUI extends JFrame {
         setupLocationDropdown();
         setupTakeRoleDropdown();
         setupUpgradeDrowdown();
+        setupEndButton() ;
        
     }
 
@@ -595,7 +605,13 @@ public class GUI extends JFrame {
         upgradeSelection.addItemListener(new UpgradeItemListener(controller_ref));
     }
 
-
+    private void setupEndButton() {
+        buttonEnd = new JButton(END_BUTTON_TEXT);
+        buttonEnd.setBackground(Color.white);
+        buttonEnd.setBounds(iconGameBoard.getIconWidth() + 10, 180, 100, 20);
+        buttonEnd.addMouseListener(new EndButtonListener(controller_ref));
+    }
+    
     public JLabel getSceneLocation(int i) {
     	return labelCard[i];
     }
@@ -633,6 +649,7 @@ public class GUI extends JFrame {
         paneDeadwood.add(buttonMove, new Integer(2));
         paneDeadwood.add(buttonTakeRole, new Integer(2));
         paneDeadwood.add(buttonUpgrade, new Integer(2));
+        paneDeadwood.add(buttonEnd,new Integer(2));
 
         paneDeadwood.add(moveSelection,3);
         paneDeadwood.add(upgradeSelection,3);

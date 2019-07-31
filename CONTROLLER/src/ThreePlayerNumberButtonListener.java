@@ -17,6 +17,8 @@ public class ThreePlayerNumberButtonListener extends BaseMouseListener{
         c.getGame().initModel(3);
         c.getPlayerBox().dispose();
         c.getGame().getGm().startDay();
+        c.setActivePlayer(
+        		c.getGame().getActive_player().getPlayer_num());
     }
 }
 
