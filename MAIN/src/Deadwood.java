@@ -28,17 +28,13 @@ public class Deadwood {
         gui.setVisible(true);
 
         // Create the Model
-        Model m = new Model();
+        Model m = new Model(c);
         
         NumPlayerBox pb = new NumPlayerBox(c);
         c.setGame(m);
        
         c.setUi(gui);
         c.setPlayerBox(pb);
-       
-
-
-
 
         // Run!
         System.out.println("begin");

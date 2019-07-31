@@ -52,10 +52,10 @@ public class GUI extends JFrame {
     
     private void initializeLabels() {
         setupGameBoardLabel();
-        setupCardsLabel();
+        //setupCardsLabel();
         setupPlayerLabel();
         setupMenuLabel();
-        setupShotLabel();
+        //setupShotLabel();
         setupTextBoxes();
     }
     
@@ -580,16 +580,16 @@ public class GUI extends JFrame {
         paneDeadwood = getLayeredPane();
         paneDeadwood.add(labelGameBoard, new Integer(0)); // Add the board to the lowest layer
         // Add the cards to the lower layer
-        paneDeadwood.add(labelCard[Constants.TRAIN], new Integer(1)); 
-        paneDeadwood.add(labelCard[Constants.SECRET], new Integer(1)); 
-        paneDeadwood.add(labelCard[Constants.JAIL], new Integer(1)); 
-        paneDeadwood.add(labelCard[Constants.GENERAL], new Integer(1)); 
-        paneDeadwood.add(labelCard[Constants.RANCH], new Integer(1)); 
-        paneDeadwood.add(labelCard[Constants.SALOON], new Integer(1)); 
-        paneDeadwood.add(labelCard[Constants.BANK], new Integer(1));
-        paneDeadwood.add(labelCard[Constants.CHURCH], new Integer(1));
-        paneDeadwood.add(labelCard[Constants.MAIN], new Integer(1));
-        paneDeadwood.add(labelCard[Constants.HOTEL], new Integer(1));
+//        paneDeadwood.add(labelCard[Constants.TRAIN], new Integer(1));
+//        paneDeadwood.add(labelCard[Constants.SECRET], new Integer(1));
+//        paneDeadwood.add(labelCard[Constants.JAIL], new Integer(1));
+//        paneDeadwood.add(labelCard[Constants.GENERAL], new Integer(1));
+//        paneDeadwood.add(labelCard[Constants.RANCH], new Integer(1));
+//        paneDeadwood.add(labelCard[Constants.SALOON], new Integer(1));
+//        paneDeadwood.add(labelCard[Constants.BANK], new Integer(1));
+//        paneDeadwood.add(labelCard[Constants.CHURCH], new Integer(1));
+//        paneDeadwood.add(labelCard[Constants.MAIN], new Integer(1));
+//        paneDeadwood.add(labelCard[Constants.HOTEL], new Integer(1));
         // Add the player
         paneDeadwood.add(labelPlayer[0], new Integer(3));
         paneDeadwood.add(labelPlayer[1], new Integer(3));
@@ -606,10 +606,10 @@ public class GUI extends JFrame {
         paneDeadwood.add(upgradeSelection,3);
         paneDeadwood.add(roleSelection,3);
 
-        // Add the shotcounters to the pane
-        for(int i = 0; i < shotcounters.length;i++) {
-        	paneDeadwood.add(shotcounters[i],new Integer(3));
-        }
+//        // Add the shotcounters to the pane
+//        for(int i = 0; i < shotcounters.length;i++) {
+//        	paneDeadwood.add(shotcounters[i],new Integer(3));
+//        }
 
         paneDeadwood.add(player1, 3);
         paneDeadwood.add(player2, 3);

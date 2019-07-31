@@ -2,7 +2,7 @@ package MODEL.src;
 
 import java.util.ArrayList;
 import java.util.Collections;
-
+import CONTROLLER.src.*;
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - LOCATION CLASS                                 //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
@@ -18,6 +18,7 @@ public abstract class Location {
     protected ArrayList<Player> active_players = new ArrayList<Player>(8);
     protected ArrayList<Location> adj_locations = new ArrayList<Location>();
     protected String name;
+    private Controller observer;
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Methods

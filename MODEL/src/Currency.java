@@ -1,5 +1,5 @@
 package MODEL.src;
-
+import CONTROLLER.src.*;
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - CURRENCY CLASS                                 //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
@@ -9,7 +9,9 @@ package MODEL.src;
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 
 public class Currency {
-	
+
+	private Controller observer;
+
 	//fields 
 	private int dollar;
 	private int credit;

@@ -15,6 +15,7 @@ public class TwoPlayerNumberButtonListener extends BaseMouseListener{
         System.out.println(PLAYERS_MSG);
         c.getGame().initModel(2);
         c.getPlayerBox().dispose();
+        c.getGame().getGm().startDay();
     }
 }
 

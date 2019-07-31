@@ -1,5 +1,5 @@
 package MODEL.src;
-
+import CONTROLLER.src.*;
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - PLAYER CLASS                                   //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
@@ -10,7 +10,7 @@ package MODEL.src;
 
 public class Player {
 
-	
+	private Controller observer;
 	//fields
 	private Currency currency;
 	private Location location;	
@@ -228,6 +228,10 @@ public class Player {
 
 	public int getPlayer_num(){
 		return this.player_num;
+	}
+
+	public void setObserver(Controller observer) {
+		this.observer = observer;
 	}
 }
 

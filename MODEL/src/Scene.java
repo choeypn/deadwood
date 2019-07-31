@@ -2,7 +2,7 @@ package MODEL.src;
 
 import java.util.ArrayList;
 import java.util.Collection;
-
+import CONTROLLER.src.*;
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - SCENE CLASS                                    //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
@@ -12,7 +12,9 @@ import java.util.Collection;
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 
 public class Scene {
-	
+
+	private Controller observer;
+
 	//fields
 	private String name;
 	private int budget;

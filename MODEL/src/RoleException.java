@@ -1,5 +1,5 @@
 package MODEL.src;
-
+import CONTROLLER.src.*;
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - ROLE EXCEPTION CLASS                       //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
@@ -10,7 +10,7 @@ package MODEL.src;
 
 // Define a role exception - occurs when a player tries to take invalid role
 public class RoleException extends Exception {
-
+    private Controller observer;
     public RoleException(){
         super("Invalid Role");
     }

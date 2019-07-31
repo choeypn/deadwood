@@ -1,5 +1,5 @@
 package MODEL.src;
-
+import CONTROLLER.src.*;
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - CASTINGOFFICE CLASS                            //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
@@ -12,6 +12,8 @@ public class CastingOffice extends Location{
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Methods
+
+    private Controller observer;
 
     // Constructor
     public CastingOffice(String name){

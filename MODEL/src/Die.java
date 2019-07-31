@@ -1,5 +1,5 @@
 package MODEL.src;
-
+import CONTROLLER.src.*;
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - DIE CLASS                                 //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
@@ -11,7 +11,9 @@ package MODEL.src;
 
 //Singleton Class
 public class Die {
-	
+
+	private Controller observer;
+
 	public static Die d;
 	
 	private Die() {}

@@ -1,6 +1,6 @@
 package MODEL.src;
+import CONTROLLER.src.*;
 
-;
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - CONSTANTS CLASS                                //
@@ -11,6 +11,8 @@ package MODEL.src;
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 
 public final class Constants {
+
+    private Controller observer;
 
     // Define all the global constants for the program
     public static final int TRAILERS = 0;

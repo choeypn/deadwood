@@ -43,4 +43,17 @@ public class Controller {
     public Controller getC() {
         return c;
     }
+
+
+    public void notifyStartDay() {
+
+        // Update shot counters
+
+
+        // Setup scene cards
+
+        // Move all the players to trailers
+
+
+    }
 }

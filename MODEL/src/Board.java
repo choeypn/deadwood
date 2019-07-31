@@ -1,5 +1,7 @@
 package MODEL.src;
 
+import CONTROLLER.src.*;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -19,6 +21,7 @@ public class Board {
     private ArrayList<Scene> scene_deck = new ArrayList<Scene>(40);
     private Location[] locations = new Location[12];
     private final int[] shotcounters = {0, 0, 1, 3, 2, 2, 3, 3, 2, 1, 2, 3};
+    private Controller observer;
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Methods
@@ -366,4 +369,7 @@ public class Board {
         return locations[d];
     }
 
+    public void setObserver(Controller observer) {
+        this.observer = observer;
+    }
 }

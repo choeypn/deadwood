@@ -1,5 +1,5 @@
 package MODEL.src;
-
+import CONTROLLER.src.*;
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - TRAILERS CLASS                                 //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
@@ -10,7 +10,7 @@ package MODEL.src;
 
 public class Trailers extends Location {
 
-
+    private Controller observer;
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Methods
 

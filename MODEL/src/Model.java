@@ -1,7 +1,7 @@
 package MODEL.src;
 
 import java.util.ArrayList;
-
+import CONTROLLER.src.*;
 public class Model {
 
     private Board gameboard;
@@ -9,9 +9,11 @@ public class Model {
     GameMaster gm;
     Player active_player;
     Die die = Die.getD();
+    private Controller observer;
 
     // Construct the model
-    public Model() {
+    public Model(Controller c) {
+        this.observer = c;
     }
 
     public void initModel(int num) {
@@ -19,13 +21,16 @@ public class Model {
         players = new ArrayList<Player>();
         for(int i = 1;i <= num;i++) {
             players.add(new Player(i));
+            players.get(i-1).setObserver(observer);
         }
 
         // Initialize the board - standard tile configuration
         gameboard = new Board();
+        gameboard.setObserver(observer);
 
         // Create a gamemaster, initialize total days to 3
         GameMaster gm = new GameMaster(3, gameboard, players);
+        gm.setObserver(observer);
     }
 
 

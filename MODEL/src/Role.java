@@ -1,5 +1,5 @@
 package MODEL.src;
-
+import CONTROLLER.src.*;
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - ROLE CLASS                                     //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
@@ -9,7 +9,9 @@ package MODEL.src;
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 
 public class Role {
-	
+
+	private Controller observer;
+
 	//fields
 	private String name;
 	private int rank;

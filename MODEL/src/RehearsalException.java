@@ -1,5 +1,5 @@
 package MODEL.src;
-
+import CONTROLLER.src.*;
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - REHEARSAL EXCEPTION CLASS                      //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
@@ -12,6 +12,7 @@ package MODEL.src;
 // they are not allowed to
 public class RehearsalException extends Exception{
 
+    private Controller observer;
     public RehearsalException(){
         super("Can not rehearse");
     }

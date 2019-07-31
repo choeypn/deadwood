@@ -1,5 +1,5 @@
 package MODEL.src;
-
+import CONTROLLER.src.*;
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 //                DEADWOOD - GAMEMASTER CLASS                               //
 //  Programmers: Vlad Bugayev, Natthapong Choeypant                         //
@@ -16,7 +16,8 @@ import java.util.Map;
 
 
 public class GameMaster {
-	
+
+	private Controller observer;
 	private int game_days;
 	private int totalDays;
 	private Board game_board;
@@ -243,6 +244,8 @@ public class GameMaster {
 		for (int i = 0; i < players.size(); i++){
 			players.get(i).setLocation(game_board.getLocation(Constants.TRAILERS));
 		}
+
+		observer.notifyStartDay();
 	}
 	
 	public void removeShotCounter(Set s) {
@@ -274,6 +277,10 @@ public class GameMaster {
 		}
 		
 		return total;
+	}
+
+	public void setObserver(Controller observer) {
+		this.observer = observer;
 	}
 }
 
