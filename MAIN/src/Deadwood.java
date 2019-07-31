@@ -4,6 +4,7 @@ import VIEW.src.*;
 import CONTROLLER.src.*;
 
 
+
 import javax.swing.*;
 
 
@@ -28,33 +29,15 @@ public class Deadwood {
 
         // Create the Model
         Model m = new Model();
-
-       c.setGame(m);
-       c.setUi(gui);
-
-
-
-        // Create popup window
-        final JFrame parent = new JFrame();
-        JButton two_play = new JButton();
-        JButton three_play = new JButton();
-
-        parent.setLayout(null);
-        parent.setSize(270, 175);
-
-        two_play.setText("Two Players");
-        two_play.setBounds(20 , 20 , 200 , 30);
-        parent.add(two_play);
-
-        three_play.setText("Three Players");
-        three_play.setBounds(20 , 70 , 200 , 30);
-        parent.add(three_play);
+        
+        NumPlayerBox pb = new NumPlayerBox(c);
+        c.setGame(m);
+       
+        c.setUi(gui);
+        c.setPlayerBox(pb);
+       
 
 
-        parent.setVisible(true);
-
-        two_play.addMouseListener(new TwoPlayerNumberButtonListener(c));
-        three_play.addMouseListener(new ThreePlayerNumberButtonListener(c));
 
 
         // Run!

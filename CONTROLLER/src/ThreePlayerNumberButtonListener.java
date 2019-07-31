@@ -15,6 +15,7 @@ public class ThreePlayerNumberButtonListener extends BaseMouseListener{
     public void mouseClicked(MouseEvent e) {
         System.out.println(PLAYERS_MSG);
         c.getGame().initModel(3);
+        c.getPlayerBox().dispose();
     }
 }
 

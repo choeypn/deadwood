@@ -49,6 +49,7 @@ public class GUI extends JFrame {
         initializeDeadwoodPane();
         controller_ref = c;
     }
+    
     private void initializeLabels() {
         setupGameBoardLabel();
         setupCardsLabel();

@@ -4,6 +4,7 @@ import MODEL.src.*;
 
 public class Controller {
 
+	private NumPlayerBox playerBox;
     private GUI ui;
     private Model game;
     private Controller c;
@@ -19,6 +20,10 @@ public class Controller {
     public Model getGame() {
         return game;
     }
+    
+    public NumPlayerBox getPlayerBox() {
+    	return playerBox;
+    }
 
     public void setGame(Model game) {
         this.game = game;
@@ -28,6 +33,9 @@ public class Controller {
         this.ui = ui;
     }
 
+    public void setPlayerBox(NumPlayerBox pb) {
+    	this.playerBox = pb;
+    }
     public void setC(Controller c) {
         this.c = c;
     }
