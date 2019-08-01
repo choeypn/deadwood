@@ -26,6 +26,7 @@ public class GUI extends JFrame {
     private JComboBox roleSelection;
     private JComboBox upgradeSelection;
     private Controller controller_ref;
+    private JComboBox paymentSelection;
 
     private JLabel player1;
     private JLabel player2;
@@ -562,6 +563,11 @@ public class GUI extends JFrame {
 		// Active player
 		
     }
+    
+    public void upgradePlayer(int player,int rank) {
+    	ImageIcon playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[6*(player-1)+rank-1]);
+    	labelPlayer[player-1].setIcon(playerDiceIcon);;
+    }
 
     // Setup the shotcounter labels
     private void setupShotLabel() {
@@ -593,7 +599,8 @@ public class GUI extends JFrame {
         setupUpgradeButton();
         setupLocationDropdown();
         setupTakeRoleDropdown();
-        setupUpgradeDrowdown();
+        setupUpgradeDropdown();
+        setupPaymentDropdown();
         setupEndButton() ;
        
     }
@@ -651,13 +658,20 @@ public class GUI extends JFrame {
         buttonUpgrade.addMouseListener(new UpgradeButtonListener(controller_ref));
     }
 
-    private void setupUpgradeDrowdown() {
-        String s1[] = {"Rank 2","Rank 3","Rank 4","Rank 5","Rank 6"};
+    private void setupUpgradeDropdown() {
+        String s1[] = {"Select Rank","Rank 2","Rank 3","Rank 4","Rank 5","Rank 6"};
         upgradeSelection = new JComboBox<String>(s1);
         upgradeSelection.setBounds(iconGameBoard.getIconWidth() + 130, 150, 150, 20);
         upgradeSelection.addItemListener(new UpgradeItemListener(controller_ref));
     }
 
+    private void setupPaymentDropdown() {
+    	String s1[] = {"Select Payment","Dollar","Credit"};
+        paymentSelection = new JComboBox<String>(s1);
+        paymentSelection.setBounds(iconGameBoard.getIconWidth() + 130, 180, 150, 20);
+        paymentSelection.addItemListener(new PaymentItemListener(controller_ref));
+    }
+    
     private void setupEndButton() {
         buttonEnd = new JButton(END_BUTTON_TEXT);
         buttonEnd.setBackground(Color.white);
@@ -674,7 +688,6 @@ public class GUI extends JFrame {
     		labelCard[i].setVisible(true);;
     	}
     }
-    
 
     
     private void initializeDeadwoodPane() {
@@ -707,7 +720,7 @@ public class GUI extends JFrame {
         paneDeadwood.add(moveSelection,3);
         paneDeadwood.add(upgradeSelection,3);
         paneDeadwood.add(roleSelection,3);
-
+        paneDeadwood.add(paymentSelection,3);
         // Add the shotcounters to the pane
         for(int i = 0; i < shotcounters.length;i++) {
         	paneDeadwood.add(shotcounters[i],new Integer(3));

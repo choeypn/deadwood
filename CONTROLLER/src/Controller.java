@@ -11,6 +11,8 @@ public class Controller {
     private int chosenLocation;
     private int active_player;
     private String chosenRole;
+    private int chosenRank;
+    private char chosenPayment;
     public Controller() {
     }
 
@@ -53,6 +55,15 @@ public class Controller {
     	return chosenRole;
     }
     
+    public void setChosenRank(int i) {
+    	this.chosenRank = i;
+    }
+    
+    public int getChosenRank() {
+    	return chosenRank;
+    }
+    
+    
     public void setChosenLocation(int location) {
     	this.chosenLocation = location;
     }
@@ -68,6 +79,13 @@ public class Controller {
     public int getActivePlayer() {
     	return active_player;
     }
+	public char getChosenPayment() {
+		return chosenPayment;
+	}
+
+	public void setChosenPayment(char chosenPayment) {
+		this.chosenPayment = chosenPayment;
+	}
 
     public void notifyStartDay(int[] sceneNum) {
 
@@ -115,5 +133,10 @@ public class Controller {
     				getGame().getActive_player().getLocation().getlocNum(),
     				cast+1);
     	}
+    }
+
+    public void notifyPlayerUpgraded(int rank) {
+    	int currentRank = rank;
+    	ui.upgradePlayer(active_player, currentRank);
     }
 }

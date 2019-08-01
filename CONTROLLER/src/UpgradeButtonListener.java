@@ -11,6 +11,7 @@ public class UpgradeButtonListener extends BaseMouseListener{
     }
 
     public void mouseClicked(MouseEvent e) {
-        System.out.println(UPGRADE_SELECT_MSG);
+        c.getGame().ModelPlayerUpgrade(c.getGame().getActive_player(),
+        		c.getChosenRank(),c.getChosenPayment());
     }
 }

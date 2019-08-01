@@ -179,4 +179,46 @@ public class Model {
 		}
     }
     
+    public void ModelPlayerUpgrade(Player currentPlayer,int rank,char type) {
+    	active_player = currentPlayer;
+		//check if the player is at Casting Office
+		if(active_player.getLocation() instanceof CastingOffice == false) {
+			System.out.println("You are currently not at Casting Office");
+			return;
+		}
+		//check if the player already upgraded in his turn 
+		if(active_player.getUpgraded() == true) {
+			System.out.println("You already upgraded this round");
+			return;
+		}
+		//Display upgrade information
+		System.out.println("The cost to upgrade is shown below:");
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println("Pay dollars OR credits to upgrade");
+		System.out.println("Rank 2 : Dollars  4, Credits  5");
+		System.out.println("Rank 3 : Dollars 10, Credits 10");
+		System.out.println("Rank 4 : Dollars 18, Credits 15");
+		System.out.println("Rank 5 : Dollars 28, Credits 20");
+		System.out.println("Rank 6 : Dollars 40, Credits 25");
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+		System.out.println("Enter #d for rank with Dollar payment method");
+		System.out.println("Enter #c for rank with Crredit payment method");
+		//verify and upgrade player's rank 
+		try {
+			gm.upgradePlayer(active_player,type,rank);
+			observer.notifyPlayerUpgraded(active_player.getRank());
+		}
+		catch(UpgradeException e) {
+			System.out.println("Rank upgrade failed, new rank unassignned");
+		}
+		catch(NumberFormatException e) {
+			System.out.println("Input is not an integer");
+		}
+		catch(ArrayIndexOutOfBoundsException e) {
+			System.out.println("Index out of bound");
+		}
+		catch(StringIndexOutOfBoundsException e) {
+			System.out.println("Invalid input");
+		}	
+    }
 }
