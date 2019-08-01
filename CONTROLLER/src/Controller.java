@@ -74,7 +74,9 @@ public class Controller {
         for(int i = 0; i <= game.getPlayers().size();i++) {
         	ui.placePlayerTrailers(i);
         }
-     
+
+        // UI update player info boxes
+
     }
     
     public void notifyFlipcard(int loc) {

@@ -214,8 +214,8 @@ public class Player {
 			RoleInfo = role.getMainInfo();
 		}
 
-		String playerinfo = String.format("Player %d \n - Money: %d \n - Credits: %d \n - Rank: %d \n"
-				+ " - Location: %s \n - Role: %s %s\n - Practice Chips: %d\n",
+		String playerinfo = String.format("<html>Player %d <br/>\n - Money: %d <br/>\n - Credits: %d <br/>\n - Rank: %d <br/>\n"
+				+ " - Location: %s <br/>\n - Role: %s %s<br/>\n - Practice Chips: %d\n</html>",
 				this.player_num, this.currency.getDollar(), this.currency.getCredit(),
 				this.rank, this.location.name, playerRole, RoleInfo,
 				this.rehearsal_chips);
