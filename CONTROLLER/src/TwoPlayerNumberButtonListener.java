@@ -24,6 +24,7 @@ public class TwoPlayerNumberButtonListener extends BaseMouseListener{
             info = c.getGame().getPlayers().get(i-1).playerInfo();
             c.getUi().updatePlayerInfo(i, info);
         }
+
     }
 }
 
