@@ -30,18 +30,18 @@ public class Board {
     public Board() {
 
         // Create all the locations and set adjacent locations as well
-        locations[Constants.TRAILERS] = new Trailers("Trailers");
-        locations[Constants.CASTING] = new CastingOffice("Casting Office");
-        locations[Constants.JAIL] = new Set("Jail");
-        locations[Constants.TRAIN] = new Set("Train Station");
-        locations[Constants.GENERAL] = new Set("General Store");
-        locations[Constants.SALOON] = new Set("Saloon");
-        locations[Constants.MAIN] = new Set("Main Street");
-        locations[Constants.SECRET] = new Set("Secret Hideout");
-        locations[Constants.RANCH] = new Set("Ranch");
-        locations[Constants.BANK] = new Set("Bank");
-        locations[Constants.CHURCH] = new Set("Church");
-        locations[Constants.HOTEL] = new Set("Hotel");
+        locations[Constants.TRAILERS] = new Trailers("Trailers",0);
+        locations[Constants.CASTING] = new CastingOffice("Casting Office",1);
+        locations[Constants.JAIL] = new Set("Jail",2);
+        locations[Constants.TRAIN] = new Set("Train Station",3);
+        locations[Constants.GENERAL] = new Set("General Store",4);
+        locations[Constants.SALOON] = new Set("Saloon",5);
+        locations[Constants.MAIN] = new Set("Main Street",6);
+        locations[Constants.SECRET] = new Set("Secret Hideout",7);
+        locations[Constants.RANCH] = new Set("Ranch",8);
+        locations[Constants.BANK] = new Set("Bank",9);
+        locations[Constants.CHURCH] = new Set("Church",10);
+        locations[Constants.HOTEL] = new Set("Hotel",11);
 
         // Set adjacent locations
 

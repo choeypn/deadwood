@@ -135,6 +135,48 @@ public class Model {
     		System.out.println("Index out of bound");
     	}
     }
-    
+    public void ModelPlayerTakeRole(Player currentPlayer,int num,char type) {
+    	active_player = currentPlayer;
+		//If player already has a role, player cannot take another role
+		if(active_player.getRole() != null) {
+			System.out.println("You cannot have more than one role");
+			return;
+		}						
+		//Check if player is in a working Set location
+		try {
+			// If the scene is not active, we can't take a role there
+			if (!((Set)active_player.getLocation()).getActive()) {
+				System.out.println("This scene has wrapped");
+				return;
+			}
+		// Display current scene information
+		System.out.printf("Active scene : %s, Budget : %d \n",
+				((Set)active_player.getLocation()).getScene().getName(),
+				((Set)active_player.getLocation()).getScene().getBudget());
+		System.out.println("Player chose to take role");
+		System.out.printf("Here are the main roles :  %s \n",
+				((Set)active_player.getLocation()).getScene().getRoleDetails());
+		System.out.printf("Here are the side roles :  %s \n",
+				((Set)active_player.getLocation()).getExtraDetails());
+		System.out.println("Enter x# for extra roles or m# for main roles");
+		//verify and assign role to player 
+		active_player.playerTakeRole(type,num);
+		System.out.println("Role "+active_player.getRole().getName()+" assigned!");
+		active_player.setTookRole(true);
+		observer.notifyPlayerTookRole(active_player.getRole().getMain());
+		}
+		catch(RoleException e) {
+			System.out.println("Invalid input, role not assigned");
+		}
+		catch(ClassCastException e) {
+			System.out.println("You are currently not in a Set location");
+		}
+		catch(StringIndexOutOfBoundsException e) {
+			System.out.println("Invalid input, role not assigned");
+		}
+		catch(ArrayIndexOutOfBoundsException e) {
+			System.out.println("Invalid input, role not assigned");
+		}
+    }
     
 }

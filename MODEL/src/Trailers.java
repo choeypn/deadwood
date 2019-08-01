@@ -15,8 +15,9 @@ public class Trailers extends Location {
     // Methods
 
     // Constructor
-    public Trailers(String name){
+    public Trailers(String name,int num){
         this.name = name;
+        this.locNum = num;
     }
 
     // Get the name of the location
