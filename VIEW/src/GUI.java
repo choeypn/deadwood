@@ -317,11 +317,16 @@ public class GUI extends JFrame {
     public void displayActivePlayer(int playerNum) {
 		switch(playerNum) {
 			case 1:
-
+				activePlayer.setIcon(labelPlayer[0].getIcon());
+				
 				break;
 			case 2:
+				activePlayer.setIcon(labelPlayer[1].getIcon());
+
 				break;
 			case 3:
+				activePlayer.setIcon(labelPlayer[2].getIcon());
+
 				break;
 		}
 	}
@@ -542,25 +547,26 @@ public class GUI extends JFrame {
         //placePlayerOffRole(labelPlayer[0],Constants.HOTEL,3);
         //placePlayerTrailers(labelPlayer[0],1);
 
-        // Player 2 - Green
+        // Player 2 - Red
         labelPlayer[1] = new JLabel();
-        playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[6]);
-        labelPlayer[1].setIcon(playerDiceIcon);
-        //placePlayerExtra(labelPlayer[1],Constants.MAIN,1);
-        //placePlayerOffRole(labelPlayer[1],Constants.HOTEL,2);
-		//placePlayerTrailers(labelPlayer[1],3);
-
-        // Player 3 - Red
-        labelPlayer[2] = new JLabel();
         playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[12]);
-        labelPlayer[2].setIcon(playerDiceIcon);
+        labelPlayer[1].setIcon(playerDiceIcon);
         //labelPlayer[2].setBounds(114, 127, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
 		//placePlayerTrailers(labelPlayer[2],2);
-        
-        //labelPlayer.setBounds(114,227,46,46);
+
+		// Player 3 - Green
+		labelPlayer[2] = new JLabel();
+		playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[6]);
+		labelPlayer[2].setIcon(playerDiceIcon);
+		//placePlayerExtra(labelPlayer[1],Constants.MAIN,1);
+		//placePlayerOffRole(labelPlayer[1],Constants.HOTEL,2);
+		//placePlayerTrailers(labelPlayer[1],3);
 
 		// Active player
-		
+		activePlayer = new JLabel();
+		playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[0]);
+		activePlayer.setIcon(playerDiceIcon);
+		activePlayer.setBounds(1320,30, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
     }
 
     // Setup the shotcounter labels
@@ -595,7 +601,6 @@ public class GUI extends JFrame {
         setupTakeRoleDropdown();
         setupUpgradeDrowdown();
         setupEndButton() ;
-       
     }
 
     
@@ -718,7 +723,7 @@ public class GUI extends JFrame {
         paneDeadwood.add(player3, 3);
         paneDeadwood.add(gameplay, 3);
 
-
+		paneDeadwood.add(activePlayer, 3);
 
 
     }
