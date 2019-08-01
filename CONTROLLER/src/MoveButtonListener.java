@@ -16,5 +16,6 @@ public class MoveButtonListener extends BaseMouseListener{
 		c.getGame().setActive_player(currentPlayer);
 		int location = c.getChosenLocation();
 		c.getGame().ModelPlayerMove(c.getGame().getActive_player(), location);
+		c.getUi().updatePlayerInfo(currentPlayer.getPlayer_num(),currentPlayer.playerInfo());
 	}
 }

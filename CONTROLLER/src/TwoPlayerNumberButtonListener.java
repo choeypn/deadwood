@@ -20,7 +20,7 @@ public class TwoPlayerNumberButtonListener extends BaseMouseListener{
         		c.getGame().getActive_player().getPlayer_num());
         c.getUi().enablePlayerInfo(2);
         String info;
-        for(int i = 1; i <= 3; i++) {
+        for(int i = 1; i <= 2; i++) {
             info = c.getGame().getPlayers().get(i-1).playerInfo();
             c.getUi().updatePlayerInfo(i, info);
         }

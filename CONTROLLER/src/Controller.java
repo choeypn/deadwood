@@ -75,8 +75,6 @@ public class Controller {
         	ui.placePlayerTrailers(i);
         }
 
-        // UI update player info boxes
-
     }
     
     public void notifyFlipcard(int loc) {

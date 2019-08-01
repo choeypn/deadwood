@@ -11,6 +11,7 @@ public class GUI extends JFrame {
     private JLabel labelGameBoard;
     private JLabel[] labelCard = new JLabel[12];
     private JLabel[] labelPlayer = new JLabel[3];
+    private JLabel activePlayer = new JLabel();
     private JLabel labelMenu;
     private JLabel[] shotcounters = new JLabel[22];
     private JButton buttonAct;
@@ -312,6 +313,18 @@ public class GUI extends JFrame {
     		break;
     	}
     }
+
+    public void displayActivePlayer(int playerNum) {
+		switch(playerNum) {
+			case 1:
+
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+		}
+	}
     
     private void setupGameBoardLabel() {
         labelGameBoard = new JLabel();
@@ -378,6 +391,8 @@ public class GUI extends JFrame {
 		gameplay.setFont(font);
 
     }
+
+
 
     // Enable player info boxes
 	public void enablePlayerInfo(int players) {
@@ -543,6 +558,9 @@ public class GUI extends JFrame {
 		//placePlayerTrailers(labelPlayer[2],2);
         
         //labelPlayer.setBounds(114,227,46,46);
+
+		// Active player
+		
     }
 
     // Setup the shotcounter labels
