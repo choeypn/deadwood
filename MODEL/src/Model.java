@@ -121,7 +121,7 @@ public class Model {
     		//flip the scene card up if location player entered is a Set location
     		if(gameboard.getLocation(loc) instanceof Set) {
     			((Set)gameboard.getLocation(loc)).getScene().setFlipped(true);
-    			observer.notifyFlipcard(loc);;
+    			observer.notifyFlipcard(loc);
     		}
     		observer.notifyPlayerMove();
     	}

@@ -334,6 +334,7 @@ public class GUI extends JFrame {
 		player1.setBorder(border1);
 		player1.setHorizontalAlignment(JLabel.CENTER);
 		player1.setVerticalAlignment(JLabel.CENTER);
+		player1.setVisible(false);
 
 		// Player 2 Infobox
 		player2 = new JLabel();
@@ -346,6 +347,7 @@ public class GUI extends JFrame {
 		player2.setBorder(border2);
 		player2.setHorizontalAlignment(JLabel.CENTER);
 		player2.setVerticalAlignment(JLabel.CENTER);
+		player2.setVisible(false);
 
 		// Player 3 Infobox
 		player3 = new JLabel();
@@ -358,6 +360,7 @@ public class GUI extends JFrame {
 		player3.setBorder(border3);
 		player3.setHorizontalAlignment(JLabel.CENTER);
 		player3.setVerticalAlignment(JLabel.CENTER);
+		player3.setVisible(false);
 
 		// Gameplay text
 		gameplay = new JLabel();
@@ -375,6 +378,36 @@ public class GUI extends JFrame {
 		gameplay.setFont(font);
 
     }
+
+    // Enable player info boxes
+	public void enablePlayerInfo(int players) {
+
+    	if (players == 2) {
+    		player1.setVisible(true);
+    		player2.setVisible(true);
+		}
+    	else if (players == 3) {
+    		player1.setVisible(true);
+    		player2.setVisible(true);
+    		player3.setVisible(true);
+		}
+	}
+
+	// Update player info boxes
+	public void updatePlayerInfo(int playernum, String info) {
+
+    	switch (playernum) {
+			case 1:
+				player1.setText(info);
+				break;
+			case 2:
+				player2.setText(info);
+				break;
+			case 3:
+				player3.setText(info);
+				break;
+		}
+	}
 
     private void setupCardsLabel() {
     	for(int i = 2; i <= 11; i++) {
@@ -468,6 +501,8 @@ public class GUI extends JFrame {
         labelCard[Constants.HOTEL].setOpaque(true);
         */
     }
+
+
     
     public void placeSceneCard(int location,int sceneNum) {
         ImageIcon cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[sceneNum]);
