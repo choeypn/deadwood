@@ -21,9 +21,10 @@ public class Set extends Location{
     // Methods
 
     // Constructor
-    public Set(String name){
+    public Set(String name,int num){
         this.name = name;
         this.active = false;
+        this.locNum = num;
     }
 
     // Get the set status

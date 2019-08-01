@@ -10,6 +10,9 @@ public class TakeRoleButtonListener extends BaseMouseListener{
     }
 
     public void mouseClicked(MouseEvent e) {
-        System.out.println(TAKEROLE_SELECT_MSG);
+    	String input = c.getChosenRole();
+		char cast = input.charAt(0);
+		int number = Character.getNumericValue(input.charAt(1));
+		c.getGame().ModelPlayerTakeRole(c.getGame().getActive_player(), number, cast);
     }
 }

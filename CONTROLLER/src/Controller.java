@@ -10,6 +10,7 @@ public class Controller {
     private Controller c;
     private int chosenLocation;
     private int active_player;
+    private String chosenRole;
     public Controller() {
     }
 
@@ -44,6 +45,13 @@ public class Controller {
         return c;
     }
     
+    public void setChosenRole(String s) {
+    	this.chosenRole = s;
+    }
+    
+    public String getChosenRole() {
+    	return chosenRole;
+    }
     
     public void setChosenLocation(int location) {
     	this.chosenLocation = location;
@@ -94,5 +102,18 @@ public class Controller {
     	}
     }	
     
-    
+    public void notifyPlayerTookRole(boolean main) {
+    	int cast = Character.getNumericValue(chosenRole.charAt(1));
+    	if(main) {
+    		ui.placePlayerRole(getActivePlayer(),
+    				getGame().getActive_player().getLocation().getlocNum(),
+    				cast+1,
+    				((Set)getGame().getActive_player().getLocation()).getScene().getRoleSize());
+    	}
+    	else {
+    		ui.placePlayerExtra(getActivePlayer(),
+    				getGame().getActive_player().getLocation().getlocNum(),
+    				cast+1);
+    	}
+    }
 }

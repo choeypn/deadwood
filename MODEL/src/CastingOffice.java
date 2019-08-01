@@ -16,8 +16,9 @@ public class CastingOffice extends Location{
     private Controller observer;
 
     // Constructor
-    public CastingOffice(String name){
+    public CastingOffice(String name,int num){
         this.name = name;
+        this.locNum = num;
     }
 
     // Add active players to the location

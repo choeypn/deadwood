@@ -19,6 +19,7 @@ public abstract class Location {
     protected ArrayList<Location> adj_locations = new ArrayList<Location>();
     protected String name;
     private Controller observer;
+    protected int locNum;
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Methods
@@ -26,6 +27,11 @@ public abstract class Location {
     //get location name;
     public String getName() {
     	return this.name;
+    }
+    
+    //get location number;
+    public int getlocNum() {
+    	return this.locNum;
     }
     
     // Add an adjacent location

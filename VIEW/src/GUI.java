@@ -65,21 +65,21 @@ public class GUI extends JFrame {
     	obj.setBounds(xCord, yCord, obj.getIcon().getIconWidth(), obj.getIcon().getIconHeight());
     }
     
-    public void placePlayerRole(JLabel player,int loc,int pos,int numRoles) {
+    public void placePlayerRole(int player,int loc,int pos,int numRoles) {
     	switch(numRoles) {
     	case 1: 
-    		setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+82,
+    		setLabelBounds(labelPlayer[player-1],VIEWConstants.CardsCoordinates[loc][0]+82,
 					VIEWConstants.CardsCoordinates[loc][1]+49);
 			break;
     	
     	case 2:
     		switch(pos) {
     		case 1:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+53,
+    			setLabelBounds(labelPlayer[player-1],VIEWConstants.CardsCoordinates[loc][0]+53,
     					VIEWConstants.CardsCoordinates[loc][1]+49);
     			break;
     		case 2:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+115,
+    			setLabelBounds(labelPlayer[player-1],VIEWConstants.CardsCoordinates[loc][0]+115,
     					VIEWConstants.CardsCoordinates[loc][1]+49);
     			break;
     		}   		
@@ -87,15 +87,15 @@ public class GUI extends JFrame {
     	case 3:
     		switch(pos) {
     		case 1:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+19,
+    			setLabelBounds(labelPlayer[player-1],VIEWConstants.CardsCoordinates[loc][0]+19,
     					VIEWConstants.CardsCoordinates[loc][1]+49);
     			break;
     		case 2:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+82,
+    			setLabelBounds(labelPlayer[player-1],VIEWConstants.CardsCoordinates[loc][0]+82,
     					VIEWConstants.CardsCoordinates[loc][1]+49);
     			break;
     		case 3:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+145,
+    			setLabelBounds(labelPlayer[player-1],VIEWConstants.CardsCoordinates[loc][0]+145,
     					VIEWConstants.CardsCoordinates[loc][1]+49);
     			break;
     		}
@@ -104,16 +104,16 @@ public class GUI extends JFrame {
     
     }
     
-    public void placePlayerExtra(JLabel player,int loc,int pos) {
+    public void placePlayerExtra(int player,int loc,int pos) {
     	switch(loc) {
     	case Constants.JAIL:
     		switch(pos) {
     		case 1:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+240,
+    			setLabelBounds(labelPlayer[player-1],VIEWConstants.CardsCoordinates[loc][0]+240,
     					VIEWConstants.CardsCoordinates[loc][1]);
     			break;
     		case 2:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+240,
+    			setLabelBounds(labelPlayer[player-1],VIEWConstants.CardsCoordinates[loc][0]+240,
     					VIEWConstants.CardsCoordinates[loc][1]+80);
     			break;
     		}
@@ -121,19 +121,19 @@ public class GUI extends JFrame {
     	case Constants.TRAIN:
     		switch(pos) {
     		case 1:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+98,
+    			setLabelBounds(labelPlayer[player-1],VIEWConstants.CardsCoordinates[loc][0]+98,
     					VIEWConstants.CardsCoordinates[loc][1]+165);
     			break;
     		case 2:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+33,
+    			setLabelBounds(labelPlayer[player-1],VIEWConstants.CardsCoordinates[loc][0]+33,
     					VIEWConstants.CardsCoordinates[loc][1]+205);
     			break;
     		case 3:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+98,
+    			setLabelBounds(labelPlayer[player-1],VIEWConstants.CardsCoordinates[loc][0]+98,
     					VIEWConstants.CardsCoordinates[loc][1]+257);
     			break;
     		case 4:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+33,
+    			setLabelBounds(labelPlayer[player-1],VIEWConstants.CardsCoordinates[loc][0]+33,
     					VIEWConstants.CardsCoordinates[loc][1]+295);
     			break;
     		}
@@ -141,11 +141,11 @@ public class GUI extends JFrame {
     	case Constants.GENERAL:
     		switch(pos) {
     		case 1:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]-132,
+    			setLabelBounds(labelPlayer[player -1],VIEWConstants.CardsCoordinates[loc][0]-132,
     					VIEWConstants.CardsCoordinates[loc][1]);
     			break;
     		case 2:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]-132,
+    			setLabelBounds(labelPlayer[player -1],VIEWConstants.CardsCoordinates[loc][0]-132,
     					VIEWConstants.CardsCoordinates[loc][1]+80);
     			break;
     		}
@@ -153,11 +153,11 @@ public class GUI extends JFrame {
     	case Constants.SALOON:
     		switch(pos) {
     		case 1:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+250,
+    			setLabelBounds(labelPlayer[player -1],VIEWConstants.CardsCoordinates[loc][0]+250,
     					VIEWConstants.CardsCoordinates[loc][1]);
     			break;
     		case 2:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+250,
+    			setLabelBounds(labelPlayer[player -1],VIEWConstants.CardsCoordinates[loc][0]+250,
     					VIEWConstants.CardsCoordinates[loc][1]+75);
     			break;
     		}
@@ -165,19 +165,19 @@ public class GUI extends JFrame {
     	case Constants.MAIN:
     		switch(pos) {
     		case 1:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]-330,
+    			setLabelBounds(labelPlayer[player -1],VIEWConstants.CardsCoordinates[loc][0]-330,
     					VIEWConstants.CardsCoordinates[loc][1]);
     			break;
     		case 2:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]-330,
+    			setLabelBounds(labelPlayer[player -1],VIEWConstants.CardsCoordinates[loc][0]-330,
     					VIEWConstants.CardsCoordinates[loc][1]+80);
     			break;
     		case 3:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]-247,
+    			setLabelBounds(labelPlayer[player -1],VIEWConstants.CardsCoordinates[loc][0]-247,
     					VIEWConstants.CardsCoordinates[loc][1]);
     			break;
     		case 4:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]-247,
+    			setLabelBounds(labelPlayer[player -1],VIEWConstants.CardsCoordinates[loc][0]-247,
     					VIEWConstants.CardsCoordinates[loc][1]+80);
     			break;
     		}
@@ -185,19 +185,19 @@ public class GUI extends JFrame {
     	case Constants.SECRET:
     		switch(pos) {
     		case 1:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+410,
+    			setLabelBounds(labelPlayer[player -1],VIEWConstants.CardsCoordinates[loc][0]+410,
     					VIEWConstants.CardsCoordinates[loc][1]-10);
     			break;
     		case 2:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+410,
+    			setLabelBounds(labelPlayer[player -1],VIEWConstants.CardsCoordinates[loc][0]+410,
     					VIEWConstants.CardsCoordinates[loc][1]+80);
     			break;
     		case 3:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+497,
+    			setLabelBounds(labelPlayer[player -1],VIEWConstants.CardsCoordinates[loc][0]+497,
     					VIEWConstants.CardsCoordinates[loc][1]-10);
     			break;
     		case 4:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+497,
+    			setLabelBounds(labelPlayer[player -1],VIEWConstants.CardsCoordinates[loc][0]+497,
     					VIEWConstants.CardsCoordinates[loc][1]+80);
     			break;
     		}
@@ -205,15 +205,15 @@ public class GUI extends JFrame {
     	case Constants.RANCH:
     		switch(pos) {
     		case 1:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+162,
+    			setLabelBounds(labelPlayer[player -1],VIEWConstants.CardsCoordinates[loc][0]+162,
     					VIEWConstants.CardsCoordinates[loc][1]+136);
     			break;
     		case 2:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+235,
+    			setLabelBounds(labelPlayer[player -1],VIEWConstants.CardsCoordinates[loc][0]+235,
     					VIEWConstants.CardsCoordinates[loc][1]+50);
     			break;
     		case 3:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+235,
+    			setLabelBounds(labelPlayer[player-1],VIEWConstants.CardsCoordinates[loc][0]+235,
     					VIEWConstants.CardsCoordinates[loc][1]+136);
     			break;
     		}
@@ -221,11 +221,11 @@ public class GUI extends JFrame {
     	case Constants.BANK:
     		switch(pos) {
     		case 1:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+292,
+    			setLabelBounds(labelPlayer[player-1],VIEWConstants.CardsCoordinates[loc][0]+292,
     					VIEWConstants.CardsCoordinates[loc][1]);
     			break;
     		case 2:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+292,
+    			setLabelBounds(labelPlayer[player-1],VIEWConstants.CardsCoordinates[loc][0]+292,
     					VIEWConstants.CardsCoordinates[loc][1]+85);
     			break;
     		}
@@ -233,11 +233,11 @@ public class GUI extends JFrame {
     	case Constants.CHURCH:
     		switch(pos) {
     		case 1:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+237,
+    			setLabelBounds(labelPlayer[player-1],VIEWConstants.CardsCoordinates[loc][0]+237,
     					VIEWConstants.CardsCoordinates[loc][1]);
     			break;
     		case 2:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+237,
+    			setLabelBounds(labelPlayer[player-1],VIEWConstants.CardsCoordinates[loc][0]+237,
     					VIEWConstants.CardsCoordinates[loc][1]+80);
     			break;
     		}
@@ -245,19 +245,19 @@ public class GUI extends JFrame {
     	case Constants.HOTEL:
     		switch(pos) {
     		case 1:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+77,
+    			setLabelBounds(labelPlayer[player-1],VIEWConstants.CardsCoordinates[loc][0]+77,
     					VIEWConstants.CardsCoordinates[loc][1]-226);
     			break;
     		case 2:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+77,
+    			setLabelBounds(labelPlayer[player-1],VIEWConstants.CardsCoordinates[loc][0]+77,
     					VIEWConstants.CardsCoordinates[loc][1]-140);
     			break;
     		case 3:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+143,
+    			setLabelBounds(labelPlayer[player-1],VIEWConstants.CardsCoordinates[loc][0]+143,
     					VIEWConstants.CardsCoordinates[loc][1]-267);
     			break;
     		case 4:
-    			setLabelBounds(player,VIEWConstants.CardsCoordinates[loc][0]+143,
+    			setLabelBounds(labelPlayer[player-1],VIEWConstants.CardsCoordinates[loc][0]+143,
     					VIEWConstants.CardsCoordinates[loc][1]-180);
     			break;
     		}
