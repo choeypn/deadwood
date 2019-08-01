@@ -637,7 +637,7 @@ public class GUI extends JFrame {
     }
 
     private void setupTakeRoleDropdown() {
-        String s1[] = {"Main 1","Main 2","Main 3","Extra 1","Extra 2","Extra 3",
+        String s1[] = {"Select Role","Main 1","Main 2","Main 3","Extra 1","Extra 2","Extra 3",
                 "Extra 4"};
         roleSelection = new JComboBox<String>(s1);
         roleSelection.setBounds(iconGameBoard.getIconWidth() + 130, 120, 150, 20);

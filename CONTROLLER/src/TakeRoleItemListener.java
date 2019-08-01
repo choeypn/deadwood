@@ -29,6 +29,8 @@ public class TakeRoleItemListener implements ItemListener{
 	public String inputRole(String s) {
 		String out = "";
 		switch(s){
+		case "Select Role":
+			out = "a0";
 		case "Main 1":
 			out = "m0";
 			break;
