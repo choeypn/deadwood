@@ -37,6 +37,7 @@ public class Model {
 
     public void nextPlayer() {
     	active_player.setMoved(false);
+    	active_player.setUpgraded(false);
     	players.remove(0);
     	players.add(active_player);
     	active_player = players.get(0);
@@ -221,4 +222,71 @@ public class Model {
 			System.out.println("Invalid input");
 		}	
     }
+    
+    public void ModelPlayerAct(Player currentPlayer) {
+    	active_player = currentPlayer;
+		// Check if the player has a role
+		if (active_player.getRole() == null) {
+			System.out.println("You have no role, you can not act");
+			return;
+		}
+		// If the player has already worked or rehearsed, they cannot act
+		if(active_player.getWorked()) {
+			System.out.println("You have already worked - can not act");
+			return;
+		}
+		// Catch the movement case
+		if(active_player.getMoved() == true) {
+			System.out.println("You can not act this turn");
+			return;
+		}
+		//Check if the player just took the role
+		if(active_player.getTookRole() == true) {
+			System.out.println("You just took a role in this turn");
+			return;
+		}
+		// Act!
+		boolean	success = active_player.playerAct(die);
+		boolean main_role = active_player.getRole().getMain();
+		Currency payout;
+		// Success
+		if (success) {
+			System.out.println("Acting succeeded!!!");
+			// If on a main role
+			if (main_role) {
+				System.out.println("You received 2 credits!");
+				payout = new Currency(0, 2);
+			} // If on off card role
+			else {
+				System.out.println("You received 1 dollar and 1 credit!");
+				payout = new Currency(1, 1);
+			}
+			//remove one shot counter when succeeded
+			gm.removeShotCounter((Set)active_player.getLocation());
+			// If the last shot counter was removed, we use the GM for wrapping
+			if(!((Set)active_player.getLocation()).getActive()) {
+				System.out.println("Scene "+
+						((Set)active_player.getLocation()).getScene().getName()+" finished!");
+				System.out.println("It's a wrap!!");
+				gm.wrapSet(((Set)active_player.getLocation()));
+			}
+		}
+
+		// Failure
+		else {
+			System.out.println("Acting failed!!!");
+			// If on a main role
+			if (main_role) {
+			System.out.println("You received nothing!");
+			payout = new Currency(0, 0);
+			} // If on off card role
+			else {
+				System.out.println("You received 1 dollar!");
+				payout = new Currency(1, 0);
+			}
+		}
+		// Player payout
+		gm.payPlayer(active_player, payout);
+		active_player.setWorked(true);
+    }	
 }

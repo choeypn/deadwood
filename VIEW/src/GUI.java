@@ -360,8 +360,8 @@ public class GUI extends JFrame {
 		player2.setText("Player 2");
 		player2.setOpaque(true);
 		player2.setBackground(Color.black);
-		player2.setForeground(Color.green);
-		Border border2 = BorderFactory.createLineBorder(Color.GREEN, 5);
+		player2.setForeground(Color.red);
+		Border border2 = BorderFactory.createLineBorder(Color.RED, 5);
 		player2.setBounds(iconGameBoard.getIconWidth() + 350, 280, 200, 200);
 		player2.setBorder(border2);
 		player2.setHorizontalAlignment(JLabel.CENTER);
@@ -373,8 +373,8 @@ public class GUI extends JFrame {
 		player3.setText("Player 3");
 		player3.setOpaque(true);
 		player3.setBackground(Color.black);
-		player3.setForeground(Color.red);
-		Border border3 = BorderFactory.createLineBorder(Color.RED, 5);
+		player3.setForeground(Color.green);
+		Border border3 = BorderFactory.createLineBorder(Color.GREEN, 5);
 		player3.setBounds(iconGameBoard.getIconWidth() + 350, 530, 200, 200);
 		player3.setBorder(border3);
 		player3.setHorizontalAlignment(JLabel.CENTER);
@@ -539,10 +539,9 @@ public class GUI extends JFrame {
     }
     
     private void setupPlayerLabel() {
-
     	// Player 1 - Blue
     	labelPlayer[0] = new JLabel();
-    	ImageIcon playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[0]);
+    	ImageIcon playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[0*6]);
         labelPlayer[0].setIcon(playerDiceIcon);
         //placePlayerRole(labelPlayer[0],Constants.GENERAL,1,1);
         //placePlayerOffRole(labelPlayer[0],Constants.HOTEL,3);
@@ -550,14 +549,14 @@ public class GUI extends JFrame {
 
         // Player 2 - Red
         labelPlayer[1] = new JLabel();
-        playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[12]);
+        playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[1*6]);
         labelPlayer[1].setIcon(playerDiceIcon);
         //labelPlayer[2].setBounds(114, 127, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
 		//placePlayerTrailers(labelPlayer[2],2);
 
 		// Player 3 - Green
 		labelPlayer[2] = new JLabel();
-		playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[6]);
+		playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[2*6]);
 		labelPlayer[2].setIcon(playerDiceIcon);
 		//placePlayerExtra(labelPlayer[1],Constants.MAIN,1);
 		//placePlayerOffRole(labelPlayer[1],Constants.HOTEL,2);

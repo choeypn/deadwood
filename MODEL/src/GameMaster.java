@@ -47,14 +47,14 @@ public class GameMaster {
 				p.setUpgraded(true);
 				break;
 			case('c'):
-				if(p.getCurrency().getCredit() < Constants.RD[rank-2]){
+				if(p.getCurrency().getCredit() < Constants.RC[rank-2]){
 					throw new UpgradeException();
 				}
 				if(p.getRank() >= rank) {
 					throw new UpgradeException();
 				}
 				p.setRank(rank);
-				p.getCurrency().removeCredit(Constants.RD[rank-2]);
+				p.getCurrency().removeCredit(Constants.RC[rank-2]);
 				p.setUpgraded(true);
 				break;
 			default:
