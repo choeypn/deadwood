@@ -80,7 +80,31 @@ public class Model {
     public void setPlayers(ArrayList<Player> players) {
         this.players = players;
     }
-    
+
+    public void ModelPlayerRehearse(Player currentPlayer) {
+    	active_player = currentPlayer;
+		if (active_player.getWorked() == true) {
+			System.out.println("You have already worked this turn");
+			return;
+		}
+
+		//Check if the player just took the role
+		if(active_player.getTookRole() == true) {
+			System.out.println("You just took a role in this turn");
+			return;
+		}
+
+		// Try to rehearse, catch if the player is not allowed to rehearse
+		try {
+			active_player.playerRehearse();
+			System.out.println("1 practice chip added");
+		}
+		catch (RehearsalException e){
+			System.out.println("You cannot rehearse \n");
+		}
+		return;
+	}
+
     public void ModelPlayerMove(Player currentPlayer,int location) {
     	active_player = currentPlayer;
     	if(active_player.getRole() != null) {
