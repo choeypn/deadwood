@@ -450,96 +450,12 @@ public class GUI extends JFrame {
     	for(int i = 2; i <= 11; i++) {
     		labelCard[i] = new JLabel();
     	}
-    	/*
-        labelCard[Constants.TRAIN] = new JLabel();
-        ImageIcon cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[0]);
-        labelCard[Constants.TRAIN].setIcon(cardIcon);
-        setLabelBounds(labelCard[Constants.TRAIN],
-        		VIEWConstants.CardsCoordinates[Constants.TRAIN][0],
-        		VIEWConstants.CardsCoordinates[Constants.TRAIN][1]);
 
-        //labelCard[Constants.TRAIN].setEnabled(false); ~~~~~~~~~~~~~~~~~~~~~ THIS LINE TURNS CARDS FACE-UP AND FACE-DOWN
-        labelCard[Constants.TRAIN].setOpaque(true);
-        
-        labelCard[Constants.SECRET] = new JLabel();
-        cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[15]);
-        labelCard[Constants.SECRET].setIcon(cardIcon);
-        setLabelBounds(labelCard[Constants.SECRET],
-        		VIEWConstants.CardsCoordinates[Constants.SECRET][0],
-        		VIEWConstants.CardsCoordinates[Constants.SECRET][1]);
-        //labelCard[Constants.SECRET].setBackground(Color.black);
-        labelCard[Constants.SECRET].setOpaque(true);
-        
-
-
-        labelCard[Constants.JAIL] = new JLabel();
-        cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[22]);
-        labelCard[Constants.JAIL].setIcon(cardIcon);
-        setLabelBounds(labelCard[Constants.JAIL],
-        		VIEWConstants.CardsCoordinates[Constants.JAIL][0],
-        		VIEWConstants.CardsCoordinates[Constants.JAIL][1]);
-        labelCard[Constants.JAIL].setOpaque(true);
-        
-        labelCard[Constants.GENERAL] = new JLabel();
-        cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[11]);
-        labelCard[Constants.GENERAL].setIcon(cardIcon);
-        setLabelBounds(labelCard[Constants.GENERAL],
-        		VIEWConstants.CardsCoordinates[Constants.GENERAL][0],
-        		VIEWConstants.CardsCoordinates[Constants.GENERAL][1]);
-        labelCard[Constants.GENERAL].setOpaque(true);
-    
-        labelCard[Constants.RANCH] = new JLabel();
-        cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[34]);
-        labelCard[Constants.RANCH].setIcon(cardIcon);
-        setLabelBounds(labelCard[Constants.RANCH],
-        		VIEWConstants.CardsCoordinates[Constants.RANCH][0],
-        		VIEWConstants.CardsCoordinates[Constants.RANCH][1]);
-        labelCard[Constants.RANCH].setOpaque(true);
-    
-        labelCard[Constants.SALOON] = new JLabel();
-        cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[39]);
-        labelCard[Constants.SALOON].setIcon(cardIcon);
-        setLabelBounds(labelCard[Constants.SALOON],
-        		VIEWConstants.CardsCoordinates[Constants.SALOON][0],
-        		VIEWConstants.CardsCoordinates[Constants.SALOON][1]);
-        labelCard[Constants.SALOON].setOpaque(true);
-        
-        labelCard[Constants.BANK] = new JLabel();
-        cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[1]);
-        labelCard[Constants.BANK].setIcon(cardIcon);
-        setLabelBounds(labelCard[Constants.BANK],
-        		VIEWConstants.CardsCoordinates[Constants.BANK][0],
-        		VIEWConstants.CardsCoordinates[Constants.BANK][1]);
-        labelCard[Constants.BANK].setOpaque(true);
-        
-        
-        labelCard[Constants.CHURCH] = new JLabel();
-        cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[9]);
-        labelCard[Constants.CHURCH].setIcon(cardIcon);
-        setLabelBounds(labelCard[Constants.CHURCH],
-        		VIEWConstants.CardsCoordinates[Constants.CHURCH][0],
-        		VIEWConstants.CardsCoordinates[Constants.CHURCH][1]);
-        labelCard[Constants.CHURCH].setOpaque(true);
-        
-        labelCard[Constants.MAIN] = new JLabel();
-        cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[17]);
-        labelCard[Constants.MAIN].setIcon(cardIcon);
-        setLabelBounds(labelCard[Constants.MAIN],
-        		VIEWConstants.CardsCoordinates[Constants.MAIN][0],
-        		VIEWConstants.CardsCoordinates[Constants.MAIN][1]);
-        labelCard[Constants.MAIN].setOpaque(true);
-        
-        labelCard[Constants.HOTEL] = new JLabel();
-        cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[26]);
-        labelCard[Constants.HOTEL].setIcon(cardIcon);
-        setLabelBounds(labelCard[Constants.HOTEL],
-        		VIEWConstants.CardsCoordinates[Constants.HOTEL][0],
-        		VIEWConstants.CardsCoordinates[Constants.HOTEL][1]);
-        labelCard[Constants.HOTEL].setOpaque(true);
-        */
     }
 
-
+    public void removeSceneCard(int locnum) {
+		labelCard[locnum].setEnabled(false);
+	}
     
     public void placeSceneCard(int location,int sceneNum) {
         ImageIcon cardIcon = new ImageIcon(VIEWConstants.CARDS_IMAGE[sceneNum]);

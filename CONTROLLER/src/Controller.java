@@ -143,4 +143,13 @@ public class Controller {
     public void notifyActingSuccess(Set l) {
         ui.removeShotCounters(l.getlocNum(), l.getShotcounters());
     }
+
+    public void notifySceneWrap(int locnum) {
+        ui.removeSceneCard(locnum);
+
+        for (int i = 0; i < getGame().getPlayers().size(); i++) {
+            getUi().updatePlayerInfo(getGame().getPlayers().get(i).getPlayer_num(), getGame().getPlayers().get(i).playerInfo());
+        }
+
+    }
 }

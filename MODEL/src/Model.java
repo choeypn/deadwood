@@ -272,6 +272,8 @@ public class Model {
 						((Set)active_player.getLocation()).getScene().getName()+" finished!");
 				System.out.println("It's a wrap!!");
 				gm.wrapSet(((Set)active_player.getLocation()));
+
+				observer.notifySceneWrap(((Set)active_player.getLocation()).getlocNum());
 			}
 		}
 
