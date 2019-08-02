@@ -26,7 +26,7 @@ public class NumPlayerBox extends JFrame{
     	three_play.setBounds(20 , 70 , 200 , 30);
     	add(three_play);
     	
-    	//setDefaultCloseOperation(EXIT_ON_CLOSE);
+
     	setVisible(true);
 
     	two_play.addMouseListener(new TwoPlayerNumberButtonListener(c));

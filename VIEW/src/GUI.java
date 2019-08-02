@@ -48,10 +48,7 @@ public class GUI extends JFrame {
     private JLabel player2;
     private JLabel player3;
     private JLabel gameplay;
-//    private JPanel player1box;
-//	private JPanel player2box;
-//	private JPanel player3box;
-//	private JPanel gameplaybox;
+
 
     private final static String newline = "\n";
     private static final String MENU_LABEL_TEXT = "MENU";
@@ -485,24 +482,18 @@ public class GUI extends JFrame {
     	labelPlayer[0] = new JLabel();
     	ImageIcon playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[0*6]);
         labelPlayer[0].setIcon(playerDiceIcon);
-        //placePlayerRole(labelPlayer[0],Constants.GENERAL,1,1);
-        //placePlayerOffRole(labelPlayer[0],Constants.HOTEL,3);
-        //placePlayerTrailers(labelPlayer[0],1);
+
 
         // Player 2 - Red
         labelPlayer[1] = new JLabel();
         playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[1*6]);
         labelPlayer[1].setIcon(playerDiceIcon);
-        //labelPlayer[2].setBounds(114, 127, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
-		//placePlayerTrailers(labelPlayer[2],2);
+
 
 		// Player 3 - Green
 		labelPlayer[2] = new JLabel();
 		playerDiceIcon = new ImageIcon(VIEWConstants.DICE_IMAGE[2*6]);
 		labelPlayer[2].setIcon(playerDiceIcon);
-		//placePlayerExtra(labelPlayer[1],Constants.MAIN,1);
-		//placePlayerOffRole(labelPlayer[1],Constants.HOTEL,2);
-		//placePlayerTrailers(labelPlayer[1],3);
 
 		// Active player
 		activePlayer = new JLabel();

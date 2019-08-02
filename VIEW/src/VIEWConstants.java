@@ -3,7 +3,9 @@ package VIEW.src;
 public class VIEWConstants {
     public static final String DEADWOOD_TITLE = "Deadwood";
 
-	 /*
+	 /*			// IF THE CONSTANTS DON'T WORK DUE TO DEPENDENCIES, USE THE OTHER SET
+
+
 	public static final String SHOTCOUNTER_IMAGE = "src/shot.png";
     public static final String GAME_BOARD_IMAGE = "src/board.jpg";
     public static final String[] CARDS_IMAGE = {"src/cards/01.png","src/cards/02.png",
@@ -71,16 +73,7 @@ public class VIEWConstants {
     											"dice/g5.png","dice/g6.png"};
 	//*/
 
-//	public static final int[][] ShotCounterCoordinates = {{445, 155}, // JAIL (1)
-//			                                              {145, 12}, {92, 12}, {38, 12}, // TRAIN (1) (2) (3)
-//														  {315,330}, {315,281}, // GENERAL (1) (2)
-//													      {680,221}, {625,221}, // SALOON (1) (2)
-//														  {805,28}, {860,28}, {915,28}, // MAIN (1) (2) (3)
-//														  {355,760}, {300,760}, {245,760}, // SECRET (1) (2) (3)
-//													      {525,476}, {475,476}, // RANCH (1) (2)
-//			                                              {842,550}, // BANK (1)
-//														  {682,680}, {622,680}, // CHURCH (1) (2)
-//														  {1110,685}, {1060,685}, {1005,685}}; // HOTEL (1) (2) (3)
+
 
 	public static final int[][] ShotCounterCoordinatesJail = {{445, 155}};
 	public static final int[][] ShotCounterCoordinatesTrain = {{145, 12}, {92, 12}, {38, 12}};
