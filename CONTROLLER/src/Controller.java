@@ -152,4 +152,17 @@ public class Controller {
         }
 
     }
+
+    public void notifyEndDay(){
+        for(int i =0; i < getGame().getPlayers().size();i++){
+            ui.placePlayerTrailers(i+1);
+            getUi().updatePlayerInfo(getGame().getPlayers().get(i).getPlayer_num(), getGame().getPlayers().get(i).playerInfo());
+        }
+        ui.enableCard();
+
+    }
+
+    public void notifyGameBox(String text) {
+        ui.setGameplayText(text);
+    }
 }

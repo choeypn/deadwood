@@ -27,8 +27,8 @@ public class Player {
 	//constructor
 	public Player(int player_num) {
 	    this.player_num = player_num;
-	    this.currency = new Currency(100,100);
-	    this.rank = 6;
+	    this.currency = new Currency(0,0);
+	    this.rank = 1;
 	    this.name = "NattyNAt";
 	    this.rehearsal_chips = 0;
 	    this.moved = false;

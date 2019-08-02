@@ -25,7 +25,7 @@ public class Deadwood {
 
         // Create the GUI
         GUI gui = new GUI(c);
-        gui.setSize(1920, 940);
+        gui.setSize(1920, 1080);
         gui.setVisible(true);
 
         // Create the Model
@@ -35,10 +35,6 @@ public class Deadwood {
         c.setGame(m);
         c.setUi(gui);
         c.setPlayerBox(pb);
-        
-
-        // Run!
-        System.out.println("begin");
 
     }
 

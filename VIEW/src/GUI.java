@@ -407,12 +407,17 @@ public class GUI extends JFrame {
 		gameplay.setVerticalAlignment(JLabel.CENTER);
 
 		//create new Font
-		Font font = new Font("Courier", Font.BOLD,18);
+		Font font = new Font("Courier", Font.BOLD,12);
 
 		//set font for JLabel
 		gameplay.setFont(font);
 
     }
+
+    // Set the gameplay text
+    public void setGameplayText(String text) {
+		gameplay.setText(text);
+	}
 
 
 
@@ -465,7 +470,12 @@ public class GUI extends JFrame {
         		VIEWConstants.CardsCoordinates[location][1]);
         labelCard[location].setVisible(false);
     }
-    
+
+    public void enableCard(){
+    	for(int i =2; i < labelCard.length;i++){
+    		labelCard[i].setEnabled(true);
+		}
+	}
     public void flipSceneCard(int location) {
     	labelCard[location].setVisible(true);
     }
@@ -588,7 +598,7 @@ public class GUI extends JFrame {
     }
 
     private void setupTakeRoleDropdown() {
-        String s1[] = {"Select Role","Main 1","Main 2","Main 3","Extra 1","Extra 2","Extra 3",
+        String s1[] = {"Main 1","Main 2","Main 3","Extra 1","Extra 2","Extra 3",
                 "Extra 4"};
         roleSelection = new JComboBox<String>(s1);
         roleSelection.setBounds(iconGameBoard.getIconWidth() + 130, 120, 150, 20);
@@ -603,14 +613,14 @@ public class GUI extends JFrame {
     }
 
     private void setupUpgradeDropdown() {
-        String s1[] = {"Select Rank","Rank 2","Rank 3","Rank 4","Rank 5","Rank 6"};
+        String s1[] = {"Rank 2","Rank 3","Rank 4","Rank 5","Rank 6"};
         upgradeSelection = new JComboBox<String>(s1);
         upgradeSelection.setBounds(iconGameBoard.getIconWidth() + 130, 150, 150, 20);
         upgradeSelection.addItemListener(new UpgradeItemListener(controller_ref));
     }
 
     private void setupPaymentDropdown() {
-    	String s1[] = {"Select Payment","Dollar","Credit"};
+    	String s1[] = {"Dollar","Credit"};
         paymentSelection = new JComboBox<String>(s1);
         paymentSelection.setBounds(iconGameBoard.getIconWidth() + 130, 180, 150, 20);
         paymentSelection.addItemListener(new PaymentItemListener(controller_ref));
