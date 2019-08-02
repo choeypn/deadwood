@@ -262,7 +262,10 @@ public class Model {
 				payout = new Currency(1, 1);
 			}
 			//remove one shot counter when succeeded
+			observer.notifyActingSuccess((Set)(active_player.getLocation()));
 			gm.removeShotCounter((Set)active_player.getLocation());
+
+
 			// If the last shot counter was removed, we use the GM for wrapping
 			if(!((Set)active_player.getLocation()).getActive()) {
 				System.out.println("Scene "+

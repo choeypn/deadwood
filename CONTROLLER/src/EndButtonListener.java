@@ -14,6 +14,8 @@ public class EndButtonListener extends BaseMouseListener {
 	public void mouseClicked(MouseEvent e) {
 		System.out.println(END_SELECT_MSG);
 		System.out.println(c.getActivePlayer());
+		c.getGame().getActive_player().setTookRole(false);
+		c.getGame().getActive_player().setWorked(false);
 		c.getGame().nextPlayer();
 		c.setActivePlayer(c.getGame().getActive_player().getPlayer_num());
 		c.getUi().displayActivePlayer(c.getActivePlayer());

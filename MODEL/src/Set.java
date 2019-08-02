@@ -86,4 +86,7 @@ public class Set extends Location{
         this.shotcounters = shotcounters;
     }
 
+    public int getShotcounters() {
+        return this.shotcounters;
+    }
 }

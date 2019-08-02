@@ -3,7 +3,7 @@ package VIEW.src;
 public class VIEWConstants {
     public static final String DEADWOOD_TITLE = "Deadwood";
 
-	// /*
+	 /*
 	public static final String SHOTCOUNTER_IMAGE = "src/shot.png";
     public static final String GAME_BOARD_IMAGE = "src/board.jpg";
     public static final String[] CARDS_IMAGE = {"src/cards/01.png","src/cards/02.png",
@@ -35,9 +35,9 @@ public class VIEWConstants {
                                                 "src/dice/g1.png","src/dice/g2.png",
                                                 "src/dice/g3.png","src/dice/g4.png",
                                                 "src/dice/g5.png","src/dice/g6.png"};
-    // */
+     */
 
-    /*
+    ///*
 	public static final String SHOTCOUNTER_IMAGE = "shot.png";
     public static final String GAME_BOARD_IMAGE = "board.jpg";
     public static final String[] CARDS_IMAGE = {"cards/01.png","cards/02.png",
@@ -69,18 +69,33 @@ public class VIEWConstants {
     											"dice/g1.png","dice/g2.png",
     											"dice/g3.png","dice/g4.png",
     											"dice/g5.png","dice/g6.png"};
-	*/
+	//*/
 
-	public static final int[][] ShotCounterCoordinates = {{445, 155}, // JAIL (1)
-			                                              {145, 12}, {92, 12}, {38, 12}, // TRAIN (1) (2) (3)
-														  {315,330}, {315,281}, // GENERAL (1) (2)
-													      {680,221}, {625,221}, // SALOON (1) (2)
-														  {805,28}, {860,28}, {915,28}, // MAIN (1) (2) (3)
-														  {355,760}, {300,760}, {245,760}, // SECRET (1) (2) (3)
-													      {525,476}, {475,476}, // RANCH (1) (2)
-			                                              {842,550}, // BANK (1)
-														  {682,680}, {622,680}, // CHURCH (1) (2)
-														  {1110,685}, {1060,685}, {1005,685}}; // HOTEL (1) (2) (3)
+//	public static final int[][] ShotCounterCoordinates = {{445, 155}, // JAIL (1)
+//			                                              {145, 12}, {92, 12}, {38, 12}, // TRAIN (1) (2) (3)
+//														  {315,330}, {315,281}, // GENERAL (1) (2)
+//													      {680,221}, {625,221}, // SALOON (1) (2)
+//														  {805,28}, {860,28}, {915,28}, // MAIN (1) (2) (3)
+//														  {355,760}, {300,760}, {245,760}, // SECRET (1) (2) (3)
+//													      {525,476}, {475,476}, // RANCH (1) (2)
+//			                                              {842,550}, // BANK (1)
+//														  {682,680}, {622,680}, // CHURCH (1) (2)
+//														  {1110,685}, {1060,685}, {1005,685}}; // HOTEL (1) (2) (3)
+
+	public static final int[][] ShotCounterCoordinatesJail = {{445, 155}};
+	public static final int[][] ShotCounterCoordinatesTrain = {{145, 12}, {92, 12}, {38, 12}};
+	public static final int[][] ShotCounterCoordinatesGeneral = {{315,330}, {315,281}};
+	public static final int[][] ShotCounterCoordinatesSaloon = {{680,221}, {625,221}};
+	public static final int[][] ShotCounterCoordinatesMain = {{805,28}, {860,28}, {915,28}};
+	public static final int[][] ShotCounterCoordinatesSecret = {{355,760}, {300,760}, {245,760}};
+	public static final int[][] ShotCounterCoordinatesRanch = {{525,476}, {475,476}};
+	public static final int[][] ShotCounterCoordinatesBank = {{842,550}};
+	public static final int[][] ShotCounterCoordinatesChurch = {{682,680}, {622,680}};
+	public static final int[][] ShotCounterCoordinatesHotel = {{1110,685}, {1060,685}, {1005,685}};
+	public static final int[][][] ShotCounterCoordinates = {ShotCounterCoordinatesJail, ShotCounterCoordinatesTrain,
+			ShotCounterCoordinatesGeneral, ShotCounterCoordinatesSaloon, ShotCounterCoordinatesMain,
+			ShotCounterCoordinatesSecret, ShotCounterCoordinatesRanch, ShotCounterCoordinatesBank,
+			ShotCounterCoordinatesChurch, ShotCounterCoordinatesHotel};
 
     public static final int[][] CardsCoordinates = {{0,0},{0,0},{282,28},{20,65},
     												{371,281},{631,281},{970,28},{27,732},
@@ -88,6 +103,6 @@ public class VIEWConstants {
     
     public static final int[][] ExtrasCoordinates = {{0,0},{0,0},{523,28},{20,65},
 													 {371,281},{631,281},{970,28},{27,732},
-													 {254,476},{622,473},{622,733},{970,740}};;
+													 {254,476},{622,473},{622,733},{970,740}};
     
 }

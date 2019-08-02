@@ -13,7 +13,23 @@ public class GUI extends JFrame {
     private JLabel[] labelPlayer = new JLabel[3];
     private JLabel activePlayer = new JLabel();
     private JLabel labelMenu;
-    private JLabel[] shotcounters = new JLabel[22];
+
+
+    private JLabel[] shotcountersJail = new JLabel[1];
+	private JLabel[] shotcountersTrain = new JLabel[3];
+	private JLabel[] shotcountersGeneral = new JLabel[2];
+	private JLabel[] shotcountersSaloon = new JLabel[2];
+	private JLabel[] shotcountersMain = new JLabel[3];
+	private JLabel[] shotcountersSecret = new JLabel[3];
+	private JLabel[] shotcountersRanch = new JLabel[2];
+	private JLabel[] shotcountersBank = new JLabel[1];
+	private JLabel[] shotcountersChurch = new JLabel[2];
+	private JLabel[] shotcountersHotel = new JLabel[3];
+
+	private JLabel[][] shotcounters = {shotcountersJail, shotcountersTrain, shotcountersGeneral, shotcountersSaloon,
+									   shotcountersMain, shotcountersSecret, shotcountersRanch, shotcountersBank,
+									   shotcountersChurch, shotcountersHotel};
+
     private JButton buttonAct;
     private JButton buttonRehearse;
     private JButton buttonMove;
@@ -577,19 +593,27 @@ public class GUI extends JFrame {
     // Setup the shotcounter labels
     private void setupShotLabel() {
         for(int i = 0; i < shotcounters.length;i++) {
-        	shotcounters[i] = new JLabel();
-            ImageIcon shotIcon = new ImageIcon(VIEWConstants.SHOTCOUNTER_IMAGE);
-            shotcounters[i].setIcon(shotIcon);
-            shotcounters[i].setBounds(VIEWConstants.ShotCounterCoordinates[i][0],VIEWConstants.ShotCounterCoordinates[i][1]
-                    ,shotIcon.getIconWidth(),shotIcon.getIconHeight());
-            shotcounters[i].setVisible(false);
+        	for (int j = 0; j < shotcounters[i].length; j++) {
+				shotcounters[i][j] = new JLabel();
+				ImageIcon shotIcon = new ImageIcon(VIEWConstants.SHOTCOUNTER_IMAGE);
+				shotcounters[i][j].setIcon(shotIcon);
+				shotcounters[i][j].setBounds(VIEWConstants.ShotCounterCoordinates[i][j][0],VIEWConstants.ShotCounterCoordinates[i][j][1]
+						,shotIcon.getIconWidth(),shotIcon.getIconHeight());
+				shotcounters[i][j].setVisible(false);
+			}
         }
     }
     
     public void turnOnShotCounters() {
     	for(int i = 0; i < shotcounters.length; i ++) {
-    		shotcounters[i].setVisible(true);
+			for (int j = 0; j < shotcounters[i].length; j++) {
+				shotcounters[i][j].setVisible(true);
+			}
 		}
+	}
+
+	public void removeShotCounters(int loc, int counters) {
+    	shotcounters[loc-2][counters-1].setVisible(false);
 	}
     
     private void setupMenuLabel() {
@@ -725,9 +749,12 @@ public class GUI extends JFrame {
         paneDeadwood.add(upgradeSelection,3);
         paneDeadwood.add(roleSelection,3);
         paneDeadwood.add(paymentSelection,3);
+
         // Add the shotcounters to the pane
         for(int i = 0; i < shotcounters.length;i++) {
-        	paneDeadwood.add(shotcounters[i],new Integer(3));
+			for (int j = 0; j < shotcounters[i].length; j++) {
+				paneDeadwood.add(shotcounters[i][j], new Integer(3));
+			}
         }
 
         paneDeadwood.add(player1, 3);

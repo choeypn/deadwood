@@ -139,4 +139,8 @@ public class Controller {
     	int currentRank = rank;
     	ui.upgradePlayer(active_player, currentRank);
     }
+
+    public void notifyActingSuccess(Set l) {
+        ui.removeShotCounters(l.getlocNum(), l.getShotcounters());
+    }
 }
